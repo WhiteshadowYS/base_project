@@ -12,10 +12,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AppTheme _$AppThemeFromJson(Map<String, dynamic> json) {
-  return _AppTheme.fromJson(json);
-}
-
 /// @nodoc
 class _$AppThemeTearOff {
   const _$AppThemeTearOff();
@@ -32,10 +28,6 @@ class _$AppThemeTearOff {
       edgeInsets: edgeInsets,
     );
   }
-
-  AppTheme fromJson(Map<String, Object> json) {
-    return AppTheme.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -48,7 +40,6 @@ mixin _$AppTheme {
   AppTextStyles? get textStyles => throw _privateConstructorUsedError;
   AppEdgeInsets? get edgeInsets => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppThemeCopyWith<AppTheme> get copyWith =>
       throw _privateConstructorUsedError;
@@ -150,15 +141,10 @@ class __$AppThemeCopyWithImpl<$Res> extends _$AppThemeCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_AppTheme implements _AppTheme {
   const _$_AppTheme(
       {this.themeName, this.colors, this.textStyles, this.edgeInsets});
-
-  factory _$_AppTheme.fromJson(Map<String, dynamic> json) =>
-      _$_$_AppThemeFromJson(json);
 
   @override
   final String? themeName;
@@ -203,11 +189,6 @@ class _$_AppTheme implements _AppTheme {
   @override
   _$AppThemeCopyWith<_AppTheme> get copyWith =>
       __$AppThemeCopyWithImpl<_AppTheme>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_AppThemeToJson(this);
-  }
 }
 
 abstract class _AppTheme implements AppTheme {
@@ -216,8 +197,6 @@ abstract class _AppTheme implements AppTheme {
       AppColors? colors,
       AppTextStyles? textStyles,
       AppEdgeInsets? edgeInsets}) = _$_AppTheme;
-
-  factory _AppTheme.fromJson(Map<String, dynamic> json) = _$_AppTheme.fromJson;
 
   @override
   String? get themeName => throw _privateConstructorUsedError;

@@ -8,11 +8,9 @@ part 'app_theme.freezed.dart';
 @freezed
 class AppTheme with _$AppTheme {
   const factory AppTheme({
-    final String? themeName,
+    String? themeName,
     AppColors? colors,
     AppTextStyles? textStyles,
     AppEdgeInsets? edgeInsets,
   }) = _AppTheme;
-
-  factory AppTheme.fromJson(Map<String, dynamic> json) => _$AppThemeFromJson(json);
 }

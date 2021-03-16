@@ -1,28 +1,17 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'message_dto.freezed.dart';
 part 'message_dto.g.dart';
 
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  checked: true,
-  explicitToJson: true,
-)
-class MessageDto {
-  String? id;
-  String? title;
-  String? body;
-  String? image;
-  String? type;
+@freezed
+abstract class MessageDto with _$MessageDto {
+  factory MessageDto(
+    String? id,
+    String? title,
+    String? body,
+    String? image,
+    String? type,
+  ) = _MessageDto;
 
-  MessageDto({
-    this.id,
-    this.title,
-    this.body,
-    this.image,
-    this.type,
-  });
-
-  factory MessageDto.fromJson(json) => _$MessageDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MessageDtoToJson(this);
+  factory MessageDto.fromJson(Map<String, dynamic> json) => _$MessageDtoFromJson(json);
 }

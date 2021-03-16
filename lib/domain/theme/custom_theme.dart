@@ -31,7 +31,7 @@ class CustomTheme {
 
     _theme = _theme!.copyWith(
       colors: newColors,
-      textStyles: textStyles?.copyWith(
+      textStyles: textStyles!.copyWith(
         titleTextColor: newColors.font,
         mainTextColor: newColors.minorFont,
         accentTextColor: newColors.accentFont,
@@ -49,7 +49,7 @@ class CustomTheme {
   void setFontFamily(String fontFamily) {
     print('$tag => <setFontFamily()> => fontFamily => $fontFamily');
     _theme?.copyWith(
-      textStyles: textStyles?.copyWith(fontFamily: fontFamily),
+      textStyles: textStyles!.copyWith(fontFamily: fontFamily),
     );
   }
 

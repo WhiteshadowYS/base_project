@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'base_response.g.dart';
 part 'base_response.freezed.dart';
+part 'base_response.g.dart';
 
 @freezed
 class BasePresponse with _$BasePresponse {

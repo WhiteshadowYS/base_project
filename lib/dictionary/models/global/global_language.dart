@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'global_language.g.dart';
 part 'global_language.freezed.dart';
+part 'global_language.g.dart';
 
 @freezed
 class GlobalLanguage with _$GlobalLanguage {

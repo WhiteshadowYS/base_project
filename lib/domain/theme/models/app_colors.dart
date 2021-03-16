@@ -109,7 +109,7 @@ class AppColors implements IAppColors {
     );
   }
 
-  Color? _hexStringToColor(String hex) {
+  Color? _hexStringToColor(String? hex) {
     try {
       return Color(int.parse('FF$hex', radix: 16));
     } catch (e) {

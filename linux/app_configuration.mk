@@ -4,7 +4,7 @@
 # changes.
 
 # Executable name.
-BINARY_NAME=myCatalog
+BINARY_NAME=baseApp
 # Any extra source files to build.
 EXTRA_SOURCES=
 # Paths of any additional libraries to be bundled in the output directory.

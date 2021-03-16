@@ -34,7 +34,7 @@ abstract class BaseWidget<S, B extends Bloc<dynamic, S>> extends StatelessWidget
 
   Widget stateObserver(BuildContext context, StateListener<S> stateListener) {
     return BlocBuilder<B, S>(
-      cubit: bloc(context),
+      bloc: bloc(context),
       builder: (BuildContext context, S state) => stateListener(state),
     );
   }

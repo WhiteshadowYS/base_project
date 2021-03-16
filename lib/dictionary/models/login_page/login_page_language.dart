@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'login_page_language.g.dart';
 part 'login_page_language.freezed.dart';
+part 'login_page_language.g.dart';
 
 @freezed
 class LoginPageLanguage with _$LoginPageLanguage {

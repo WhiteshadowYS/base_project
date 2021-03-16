@@ -124,12 +124,6 @@ class DeviceInfoManager {
     } else {
       logger.info('<getDevicePlatform> => paltform: Unknown');
     }
-
-    if (_devicePlatform != DevicePlatform.Web) {
-      logger.info('<getDevicePlatform> => environment: ${Platform.environment}');
-      logger.info('<getDevicePlatform> => executable: ${Platform.executable}');
-      logger.info('<getDevicePlatform> => executableArguments: ${Platform.executableArguments}');
-    }
   }
 
   Future<void> _getDeviceId() async {

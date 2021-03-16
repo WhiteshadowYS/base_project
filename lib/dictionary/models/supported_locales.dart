@@ -11,15 +11,15 @@ class SupportedLocales {
       SupportedLanguage(
         languageCode: AppData.locales.ru,
         language: ru,
-      )..choose(),
+      )..copyWith(isSelected: true),
     ];
   }
 
   static SupportedLocales instance = SupportedLocales._();
 
   void changeLocale(String languageCode) {
-    _supportedLocales?.firstWhere((SupportedLanguage supLang) => supLang.isSelected).discard();
-    _supportedLocales?.firstWhere((SupportedLanguage supLang) => supLang.languageCode == languageCode).choose();
+    _supportedLocales?.firstWhere((SupportedLanguage supLang) => supLang.isSelected).copyWith(isSelected: false);
+    _supportedLocales?.firstWhere((SupportedLanguage supLang) => supLang.languageCode == languageCode).copyWith(isSelected: true);
   }
 
   List<Locale> get getSupportedLocales {

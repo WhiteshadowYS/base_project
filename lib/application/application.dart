@@ -32,8 +32,8 @@ class _ApplicationState extends BaseState<AppState, AppBloc, Application> {
             return MaterialApp(
               locale: state.locale,
               theme: ThemeData(
-                splashColor: CustomTheme?.colors?.primaryColor.withOpacity(0.3),
-                highlightColor: CustomTheme?.colors?.primaryColor.withOpacity(0.2),
+                splashColor: CustomTheme.colors?.primaryColor.withOpacity(0.3),
+                highlightColor: CustomTheme.colors?.primaryColor.withOpacity(0.2),
               ),
               debugShowCheckedModeBanner: false,
               onGenerateRoute: RouteBuilder.onGenerateRoute,

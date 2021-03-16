@@ -5,15 +5,9 @@ class AppBlocObserver extends BlocObserver {
   Logger get _logger => Logger('AppBlocObserver');
 
   @override
-  void onEvent(Bloc bloc, Object event) {
+  void onEvent(Bloc bloc, Object? event) {
     _logger.info('$event');
     super.onEvent(bloc, event);
-  }
-
-  @override
-  void onChange(Cubit cubit, Change change) {
-    _logger.info('$change');
-    super.onChange(cubit, change);
   }
 
   @override
@@ -23,8 +17,8 @@ class AppBlocObserver extends BlocObserver {
   }
 
   @override
-  void onError(Cubit cubit, Object error, StackTrace stackTrace) {
+  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
     _logger.info('$error, $stackTrace');
-    super.onError(cubit, error, stackTrace);
+    super.onError(bloc, error, stackTrace);
   }
 }

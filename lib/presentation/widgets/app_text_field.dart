@@ -38,7 +38,7 @@ class AppTextField extends StatelessWidget {
         alignment: Alignment.topCenter,
         children: <Widget>[
           Container(
-            height: 50.h,
+            height: 50,
             width: double.infinity,
             color: CustomTheme.colors?.background,
           ),

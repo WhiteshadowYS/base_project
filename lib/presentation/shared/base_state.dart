@@ -38,7 +38,7 @@ abstract class BaseState<S, B extends Bloc<dynamic, S>, W extends StatefulWidget
     ListenDelegate<S>? listenDelegate,
   }) {
     return BlocConsumer(
-      cubit: bloc(context),
+      bloc: bloc(context),
       builder: (BuildContext context, S state) => stateListener(state),
       listener: listenDelegate ?? _defaultListenDelegate,
     );

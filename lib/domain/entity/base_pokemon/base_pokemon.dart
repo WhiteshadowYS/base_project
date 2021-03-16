@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'base_pokemon.g.dart';
 part 'base_pokemon.freezed.dart';
+part 'base_pokemon.g.dart';
 
 @freezed
 class BasePokemon with _$BasePokemon {

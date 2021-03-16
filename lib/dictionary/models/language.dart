@@ -4,17 +4,21 @@ import 'package:base_project_template/dictionary/models/login_page/login_page_la
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'language.g.dart';
 part 'language.freezed.dart';
+part 'language.g.dart';
 
 @freezed
 class Language with _$Language {
-  @JsonSerializable()
+  @JsonSerializable(
+    fieldRename: FieldRename.snake,
+    checked: true,
+    explicitToJson: true,
+  )
   const factory Language({
-    @required String? name,
-    @required HomePageLanguage? homePage,
-    @required LoginPageLanguage? loginPage,
-    @required GlobalLanguage? global,
+    required HomePageLanguage homePage,
+    required LoginPageLanguage loginPage,
+    required GlobalLanguage global,
+    String? name,
   }) = _Language;
 
   factory Language.fromJson(Map<String, dynamic> json) => _$LanguageFromJson(json);

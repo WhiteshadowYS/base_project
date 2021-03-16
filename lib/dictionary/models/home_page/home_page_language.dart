@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'home_page_language.g.dart';
 part 'home_page_language.freezed.dart';
+part 'home_page_language.g.dart';
 
 @freezed
 class HomePageLanguage with _$HomePageLanguage {

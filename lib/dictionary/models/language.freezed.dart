@@ -21,15 +21,15 @@ class _$LanguageTearOff {
   const _$LanguageTearOff();
 
   _Language call(
-      {String? name,
-      HomePageLanguage? homePage,
-      LoginPageLanguage? loginPage,
-      GlobalLanguage? global}) {
+      {required HomePageLanguage homePage,
+      required LoginPageLanguage loginPage,
+      required GlobalLanguage global,
+      String? name}) {
     return _Language(
-      name: name,
       homePage: homePage,
       loginPage: loginPage,
       global: global,
+      name: name,
     );
   }
 
@@ -43,10 +43,10 @@ const $Language = _$LanguageTearOff();
 
 /// @nodoc
 mixin _$Language {
+  HomePageLanguage get homePage => throw _privateConstructorUsedError;
+  LoginPageLanguage get loginPage => throw _privateConstructorUsedError;
+  GlobalLanguage get global => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  HomePageLanguage? get homePage => throw _privateConstructorUsedError;
-  LoginPageLanguage? get loginPage => throw _privateConstructorUsedError;
-  GlobalLanguage? get global => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,14 +59,14 @@ abstract class $LanguageCopyWith<$Res> {
   factory $LanguageCopyWith(Language value, $Res Function(Language) then) =
       _$LanguageCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      HomePageLanguage? homePage,
-      LoginPageLanguage? loginPage,
-      GlobalLanguage? global});
+      {HomePageLanguage homePage,
+      LoginPageLanguage loginPage,
+      GlobalLanguage global,
+      String? name});
 
-  $HomePageLanguageCopyWith<$Res>? get homePage;
-  $LoginPageLanguageCopyWith<$Res>? get loginPage;
-  $GlobalLanguageCopyWith<$Res>? get global;
+  $HomePageLanguageCopyWith<$Res> get homePage;
+  $LoginPageLanguageCopyWith<$Res> get loginPage;
+  $GlobalLanguageCopyWith<$Res> get global;
 }
 
 /// @nodoc
@@ -79,60 +79,48 @@ class _$LanguageCopyWithImpl<$Res> implements $LanguageCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? homePage = freezed,
     Object? loginPage = freezed,
     Object? global = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      homePage: homePage == freezed
+          ? _value.homePage
+          : homePage // ignore: cast_nullable_to_non_nullable
+              as HomePageLanguage,
+      loginPage: loginPage == freezed
+          ? _value.loginPage
+          : loginPage // ignore: cast_nullable_to_non_nullable
+              as LoginPageLanguage,
+      global: global == freezed
+          ? _value.global
+          : global // ignore: cast_nullable_to_non_nullable
+              as GlobalLanguage,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      homePage: homePage == freezed
-          ? _value.homePage
-          : homePage // ignore: cast_nullable_to_non_nullable
-              as HomePageLanguage?,
-      loginPage: loginPage == freezed
-          ? _value.loginPage
-          : loginPage // ignore: cast_nullable_to_non_nullable
-              as LoginPageLanguage?,
-      global: global == freezed
-          ? _value.global
-          : global // ignore: cast_nullable_to_non_nullable
-              as GlobalLanguage?,
     ));
   }
 
   @override
-  $HomePageLanguageCopyWith<$Res>? get homePage {
-    if (_value.homePage == null) {
-      return null;
-    }
-
-    return $HomePageLanguageCopyWith<$Res>(_value.homePage!, (value) {
+  $HomePageLanguageCopyWith<$Res> get homePage {
+    return $HomePageLanguageCopyWith<$Res>(_value.homePage, (value) {
       return _then(_value.copyWith(homePage: value));
     });
   }
 
   @override
-  $LoginPageLanguageCopyWith<$Res>? get loginPage {
-    if (_value.loginPage == null) {
-      return null;
-    }
-
-    return $LoginPageLanguageCopyWith<$Res>(_value.loginPage!, (value) {
+  $LoginPageLanguageCopyWith<$Res> get loginPage {
+    return $LoginPageLanguageCopyWith<$Res>(_value.loginPage, (value) {
       return _then(_value.copyWith(loginPage: value));
     });
   }
 
   @override
-  $GlobalLanguageCopyWith<$Res>? get global {
-    if (_value.global == null) {
-      return null;
-    }
-
-    return $GlobalLanguageCopyWith<$Res>(_value.global!, (value) {
+  $GlobalLanguageCopyWith<$Res> get global {
+    return $GlobalLanguageCopyWith<$Res>(_value.global, (value) {
       return _then(_value.copyWith(global: value));
     });
   }
@@ -144,17 +132,17 @@ abstract class _$LanguageCopyWith<$Res> implements $LanguageCopyWith<$Res> {
       __$LanguageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      HomePageLanguage? homePage,
-      LoginPageLanguage? loginPage,
-      GlobalLanguage? global});
+      {HomePageLanguage homePage,
+      LoginPageLanguage loginPage,
+      GlobalLanguage global,
+      String? name});
 
   @override
-  $HomePageLanguageCopyWith<$Res>? get homePage;
+  $HomePageLanguageCopyWith<$Res> get homePage;
   @override
-  $LoginPageLanguageCopyWith<$Res>? get loginPage;
+  $LoginPageLanguageCopyWith<$Res> get loginPage;
   @override
-  $GlobalLanguageCopyWith<$Res>? get global;
+  $GlobalLanguageCopyWith<$Res> get global;
 }
 
 /// @nodoc
@@ -168,61 +156,64 @@ class __$LanguageCopyWithImpl<$Res> extends _$LanguageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
     Object? homePage = freezed,
     Object? loginPage = freezed,
     Object? global = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Language(
+      homePage: homePage == freezed
+          ? _value.homePage
+          : homePage // ignore: cast_nullable_to_non_nullable
+              as HomePageLanguage,
+      loginPage: loginPage == freezed
+          ? _value.loginPage
+          : loginPage // ignore: cast_nullable_to_non_nullable
+              as LoginPageLanguage,
+      global: global == freezed
+          ? _value.global
+          : global // ignore: cast_nullable_to_non_nullable
+              as GlobalLanguage,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      homePage: homePage == freezed
-          ? _value.homePage
-          : homePage // ignore: cast_nullable_to_non_nullable
-              as HomePageLanguage?,
-      loginPage: loginPage == freezed
-          ? _value.loginPage
-          : loginPage // ignore: cast_nullable_to_non_nullable
-              as LoginPageLanguage?,
-      global: global == freezed
-          ? _value.global
-          : global // ignore: cast_nullable_to_non_nullable
-              as GlobalLanguage?,
     ));
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(
+    fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
 
 /// @nodoc
 class _$_Language implements _Language {
-  const _$_Language({this.name, this.homePage, this.loginPage, this.global});
+  const _$_Language(
+      {required this.homePage,
+      required this.loginPage,
+      required this.global,
+      this.name});
 
   factory _$_Language.fromJson(Map<String, dynamic> json) =>
       _$_$_LanguageFromJson(json);
 
   @override
+  final HomePageLanguage homePage;
+  @override
+  final LoginPageLanguage loginPage;
+  @override
+  final GlobalLanguage global;
+  @override
   final String? name;
-  @override
-  final HomePageLanguage? homePage;
-  @override
-  final LoginPageLanguage? loginPage;
-  @override
-  final GlobalLanguage? global;
 
   @override
   String toString() {
-    return 'Language(name: $name, homePage: $homePage, loginPage: $loginPage, global: $global)';
+    return 'Language(homePage: $homePage, loginPage: $loginPage, global: $global, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Language &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.homePage, homePage) ||
                 const DeepCollectionEquality()
                     .equals(other.homePage, homePage)) &&
@@ -230,16 +221,18 @@ class _$_Language implements _Language {
                 const DeepCollectionEquality()
                     .equals(other.loginPage, loginPage)) &&
             (identical(other.global, global) ||
-                const DeepCollectionEquality().equals(other.global, global)));
+                const DeepCollectionEquality().equals(other.global, global)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(homePage) ^
       const DeepCollectionEquality().hash(loginPage) ^
-      const DeepCollectionEquality().hash(global);
+      const DeepCollectionEquality().hash(global) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -254,21 +247,21 @@ class _$_Language implements _Language {
 
 abstract class _Language implements Language {
   const factory _Language(
-      {String? name,
-      HomePageLanguage? homePage,
-      LoginPageLanguage? loginPage,
-      GlobalLanguage? global}) = _$_Language;
+      {required HomePageLanguage homePage,
+      required LoginPageLanguage loginPage,
+      required GlobalLanguage global,
+      String? name}) = _$_Language;
 
   factory _Language.fromJson(Map<String, dynamic> json) = _$_Language.fromJson;
 
   @override
+  HomePageLanguage get homePage => throw _privateConstructorUsedError;
+  @override
+  LoginPageLanguage get loginPage => throw _privateConstructorUsedError;
+  @override
+  GlobalLanguage get global => throw _privateConstructorUsedError;
+  @override
   String? get name => throw _privateConstructorUsedError;
-  @override
-  HomePageLanguage? get homePage => throw _privateConstructorUsedError;
-  @override
-  LoginPageLanguage? get loginPage => throw _privateConstructorUsedError;
-  @override
-  GlobalLanguage? get global => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LanguageCopyWith<_Language> get copyWith =>
