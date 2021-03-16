@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      lng?.loginPage?.title ?? '',
+                      lng?.loginPage.title ?? '',
                       style: CustomTheme.textStyles?.accentTextStyle(
                         size: 30,
                         fontWeight: FontWeight.bold,
@@ -58,13 +58,13 @@ class LoginPage extends StatelessWidget {
                   AppTextField(
                     keyValue: 'emailField-',
                     controller: _emailController,
-                    hintText: lng?.loginPage?.emailHint,
+                    hintText: lng?.loginPage.emailHint,
                   ),
                   const SizedBox(height: 8.0),
                   AppTextField(
                     keyValue: 'passField-',
                     controller: _passController,
-                    hintText: lng?.loginPage?.passwordHint,
+                    hintText: lng?.loginPage.passwordHint,
                   ),
                   const SizedBox(height: 100.0),
                   Padding(
@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                       height: 48.0,
                       onTap: () {},
                       child: Text(
-                        lng?.loginPage?.title ?? '',
+                        lng?.loginPage.title ?? '',
                         style: CustomTheme.textStyles?.buttonTextStyle(),
                       ).scale,
                     ),

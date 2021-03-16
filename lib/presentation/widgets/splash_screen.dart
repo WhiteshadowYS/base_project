@@ -7,9 +7,9 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   DeviceInfoManager.instance.checkForTablet(context);
-    // });
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      DeviceInfoManager.instance.checkForTablet(context);
+    });
 
     return MainLayout(
       showAppBar: false,

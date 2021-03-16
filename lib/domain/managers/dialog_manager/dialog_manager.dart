@@ -1,3 +1,4 @@
+import 'package:base_project_template/domain/managers/route_service/route_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project_template/domain/managers/dialog_manager/interfaces/i_dialog.dart';
@@ -40,11 +41,10 @@ class DialogManager {
       return;
     }
 
-    // TODO: Need fix to global key
-    // if (NavigatorHolder.navigatorKey.currentState.canPop()) {
-    //   NavigatorHolder.navigatorKey.currentState.pop();
-    //   _isDisplayed = false;
-    // }
+    if (RouteService.instance.canPop) {
+      RouteService.instance.pop();
+      _isDisplayed = false;
+    }
   }
 
   /// This function will start builder of [IDialog] object and will track the dialog state.
@@ -59,12 +59,13 @@ class DialogManager {
 
     _isDisplayed = true;
 
-    // TODO: Need Fix to global key
-    // final BuildContext ctx = NavigatorHolder.navigatorKey.currentState.overlay.context;
+    final BuildContext? ctx = RouteService.ctx;
 
-    // await builder(ctx).then((_) {
-    //   FocusScope.of(ctx).unfocus();
-    //   _isDisplayed = false;
-    // });
+    if (ctx == null) return;
+
+    await builder(ctx).then((_) {
+      FocusScope.of(ctx).unfocus();
+      _isDisplayed = false;
+    });
   }
 }
