@@ -13,11 +13,12 @@ class FlutterDictionary {
 
   static FlutterDictionary get instance => _instance;
 
-  final Locale? locale;
+  Locale? locale;
   Language? language;
 
   void setNewLanguage(String languageCode) {
     print('$tag => setNewLanguage() => locale => $languageCode');
+    locale = Locale(languageCode);
     FlutterDictionaryDelegate.changeLocaleWithLanguageCode(languageCode);
     language = FlutterDictionaryDelegate.getLanguageByLanguageCode(languageCode);
   }

@@ -4,7 +4,7 @@ part 'message_dto.freezed.dart';
 part 'message_dto.g.dart';
 
 @freezed
-abstract class MessageDto with _$MessageDto {
+class MessageDto with _$MessageDto {
   factory MessageDto(
     String? id,
     String? title,

@@ -12,7 +12,9 @@ class ScreenConnector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenManager.instance.updateScreen(context);
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      ScreenManager.instance.updateScreen(context);
+    });
 
     return builder(context, child ?? SizedBox());
   }

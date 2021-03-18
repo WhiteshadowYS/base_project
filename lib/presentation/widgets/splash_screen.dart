@@ -12,8 +12,6 @@ class SplashScreen extends StatelessWidget {
     });
 
     return MainLayout(
-      showAppBar: false,
-      showBottomBar: false,
       key: Key('[SplashScreen][MainLayout]'),
       child: Center(
         child: Text('SplashScreen'),

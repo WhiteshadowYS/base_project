@@ -1,19 +1,16 @@
-import 'package:base_project_template/domain/managers/screen_manager/screen_manager_connector.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project_template/presentation/layouts/app_bar/app_top_bar.dart';
 import 'package:base_project_template/presentation/layouts/focus_layout/focus_layout.dart';
+import 'package:base_project_template/domain/managers/screen_manager/screen_manager_connector.dart';
 
 class MainLayout extends StatefulWidget {
   final Color background;
-  final bool showAppBar;
-  final bool showBottomBar;
   final Widget child;
 
   const MainLayout({
     required Key key,
     required this.child,
     this.background = Colors.white,
-    this.showAppBar = true,
-    this.showBottomBar = true,
   }) : super(key: key);
 
   @override
@@ -24,7 +21,7 @@ class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widget.showAppBar ? null : null,
+      appBar: AppTopBar(),
       backgroundColor: widget.background,
       body: ScreenConnector(
         builder: (BuildContext context, _) {
@@ -39,9 +36,6 @@ class _MainLayoutState extends State<MainLayout> {
                     key: Key(widget.child.runtimeType.toString() + '[MainLayout]' + '[FocusLayout]'),
                     child: widget.child,
                   ),
-                  // ...vm.loaders.map<Widget>((e) {
-                  //   return e.widget;
-                  // }).toList(),
                 ],
               ),
             ),
