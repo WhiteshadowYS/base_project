@@ -1,10 +1,8 @@
-import 'package:base_project_template/application/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:base_project_template/dictionary/flutter_dictionary.dart';
 import 'package:base_project_template/presentation/shared/base_state.dart';
+import 'package:base_project_template/data/dictionary/flutter_dictionary.dart';
 import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
 import 'package:base_project_template/presentation/pages/home_page/bloc/home_page_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,17 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends BaseState<HomePageState, HomePageBloc, HomePage> {
   final lng = FlutterDictionary.instance.language;
-
-  @override
-  void onBlocCreated(BuildContext context, HomePageBloc bloc) {
-    BlocProvider.of<AppBloc>(context).add(AppEvent.changeAppBarState(AppBarState.Default));
-
-    Future.delayed(Duration(seconds: 5)).then((value) {
-      BlocProvider.of<AppBloc>(context).add(AppEvent.changeAppBarState(AppBarState.Closed));
-    });
-
-    super.onBlocCreated(context, bloc);
-  }
 
   @override
   Widget buildWidget(BuildContext context) {

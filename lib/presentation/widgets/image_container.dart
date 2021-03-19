@@ -1,6 +1,6 @@
-import 'package:base_project_template/res/app_data.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project_template/domain/res/app_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ImageContainer extends StatelessWidget {
   final String imageUrl;

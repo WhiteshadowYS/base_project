@@ -1,12 +1,12 @@
-import 'package:base_project_template/domain/managers/screen_manager/screen_manager.dart';
-import 'package:base_project_template/presentation/pages/login_page/bloc/login_page_bloc.dart';
-import 'package:base_project_template/presentation/shared/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project_template/domain/theme/custom_theme.dart';
-import 'package:base_project_template/dictionary/flutter_dictionary.dart';
+import 'package:base_project_template/presentation/shared/base_state.dart';
 import 'package:base_project_template/presentation/widgets/app_button.dart';
+import 'package:base_project_template/data/dictionary/flutter_dictionary.dart';
 import 'package:base_project_template/presentation/widgets/app_text_field.dart';
+import 'package:base_project_template/data/managers/screen_manager/screen_manager.dart';
 import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
+import 'package:base_project_template/presentation/pages/login_page/bloc/login_page_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   @override

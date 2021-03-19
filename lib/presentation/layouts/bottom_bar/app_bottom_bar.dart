@@ -1,8 +1,8 @@
-import 'package:base_project_template/domain/theme/custom_theme.dart';
-import 'package:base_project_template/presentation/layouts/bottom_bar/widgets/app_bottom_bar_item.dart';
-import 'package:base_project_template/res/app_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:base_project_template/domain/res/app_data.dart';
+import 'package:base_project_template/domain/theme/custom_theme.dart';
+import 'package:base_project_template/presentation/layouts/bottom_bar/widgets/app_bottom_bar_item.dart';
 
 class AppBottomBar extends StatelessWidget {
   final String selectedPage;

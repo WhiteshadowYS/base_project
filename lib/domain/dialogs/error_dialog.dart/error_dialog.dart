@@ -1,5 +1,5 @@
+import 'package:base_project_template/data/managers/dialog_manager/dialog_manager.dart';
 import 'package:base_project_template/domain/dialogs/error_dialog.dart/error_dialog_widget.dart';
-import 'package:base_project_template/domain/managers/dialog_manager/dialog_manager.dart';
 import 'package:flutter/material.dart';
 
 class ErrorDialog implements IDialog {

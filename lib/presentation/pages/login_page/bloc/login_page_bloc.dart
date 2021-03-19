@@ -1,13 +1,14 @@
 import 'dart:async';
 
-import 'package:base_project_template/application/app_router.dart';
-import 'package:base_project_template/domain/dialogs/error_dialog.dart/error_dialog.dart';
-import 'package:base_project_template/domain/managers/dialog_manager/dialog_manager.dart';
+import 'package:base_project_template/domain/services/pokemon_service.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
+import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:base_project_template/domain/blocs/application/app_router.dart';
+import 'package:base_project_template/data/managers/dialog_manager/dialog_manager.dart';
+import 'package:base_project_template/domain/dialogs/error_dialog.dart/error_dialog.dart';
 
 part 'login_page_event.dart';
 part 'login_page_state.dart';

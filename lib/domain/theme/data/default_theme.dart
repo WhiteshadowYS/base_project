@@ -1,7 +1,7 @@
+import 'package:base_project_template/domain/res/style/default_colors.dart';
 import 'package:base_project_template/domain/theme/models/app_colors.dart';
 import 'package:base_project_template/domain/theme/models/app_text_styles.dart';
 import 'package:base_project_template/domain/theme/models/app_theme.dart';
-import 'package:base_project_template/res/app_data.dart';
 
 AppTheme defaultTheme = AppTheme(
   themeName: 'default_theme',

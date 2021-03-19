@@ -1,6 +1,6 @@
-import 'package:base_project_template/domain/managers/device_info_manager/device_info_manager.dart';
-import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
+import 'package:base_project_template/data/managers/device_info_manager/device_info_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

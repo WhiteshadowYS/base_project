@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:base_project_template/presentation/layouts/app_bar/app_top_bar.dart';
 import 'package:base_project_template/presentation/layouts/focus_layout/focus_layout.dart';
-import 'package:base_project_template/domain/managers/screen_manager/screen_manager_connector.dart';
+import 'package:base_project_template/data/managers/screen_manager/screen_manager_connector.dart';
 
 class MainLayout extends StatefulWidget {
   final Color background;
