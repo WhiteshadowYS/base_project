@@ -1,0 +1,82 @@
+# Defines a default set of lint rules enforced for
+# projects at Google. For details and rationale,
+# see https://github.com/dart-lang/pedantic#enabled-lints.
+include: package:pedantic/analysis_options.yaml
+# For lint rules and documentation, see http://dart-lang.github.io/linter/lints.
+# Uncomment to specify additional rules.
+linter:
+  rules:
+    # Always
+    always_specify_types: false
+    always_use_package_imports: true
+    always_declare_return_types: true
+    always_put_required_named_parameters_first: true
+
+    # Avoid
+    avoid_empty_else: true
+    await_only_futures: true
+    avoid_init_to_null: true
+    avoid_slow_async_io: true
+    avoid_type_to_string: true
+    avoid_double_and_int_checks: true
+    avoid_unnecessary_containers: true
+    avoid_return_types_on_setters: true
+    avoid_returning_null_for_void: true
+    avoid_types_as_parameter_names: true
+    avoid_shadowing_type_parameters: true
+    avoid_returning_null_for_future: true
+    avoid_redundant_argument_values: true
+    avoid_positional_boolean_parameters: true
+    avoid_unused_constructor_parameters: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_field_initializers_in_const_classes: true
+    avoid_bool_literals_in_conditional_expressions: true
+
+    avoid_as: false
+    avoid_returning_this: false
+    avoid_types_on_closure_parameters: false
+    avoid_classes_with_only_static_members: false
+
+
+    # Prefer
+    prefer_final_fields: true
+    prefer_final_locals: true
+    prefer_collection_literals: true
+    prefer_conditional_assignment: true
+    prefer_expression_function_bodies: false
+
+
+    file_names: true
+    close_sinks: true
+    prefer_mixin: true
+    hash_and_equals: true
+    empty_statements: true
+    unnecessary_this: true
+    throw_in_finally: true
+    no_default_cases: true
+    invariant_booleans: true
+    annotate_overrides: true
+    flutter_style_todos: true
+    cancel_subscriptions: true
+    camel_case_extensions: true
+    slash_for_doc_comments: true
+    control_flow_in_finally: true
+    sized_box_for_whitespace: true
+    no_duplicate_case_values: true
+    no_logic_in_create_state: true
+    join_return_with_assignment: true
+    no_adjacent_strings_in_list: true
+    non_constant_identifier_names: true
+    unrelated_type_equality_checks: true
+    use_full_hex_values_for_flutter_colors: true
+    prefer_relative_imports: false
+    omit_local_variable_types: false
+
+
+analyzer:
+  enable-experiment:
+    - non-nullable
+  exclude: 
+    - "build/**"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
