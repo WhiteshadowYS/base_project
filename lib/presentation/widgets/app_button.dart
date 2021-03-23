@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:base_project_template/domain/theme/custom_theme.dart';
 
 class AppButton extends StatelessWidget {
   final Widget child;
@@ -26,7 +25,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: CustomTheme.colors?.buttons,
+        color: Colors.red,
         borderRadius: BorderRadius.circular(radius),
       ),
       height: height,

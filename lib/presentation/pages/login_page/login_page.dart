@@ -1,10 +1,9 @@
+import 'package:base_project_template/common/screen/i_screen_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:base_project_template/domain/theme/custom_theme.dart';
+import 'package:base_project_template/config/injection_config.dart';
 import 'package:base_project_template/presentation/shared/base_state.dart';
 import 'package:base_project_template/presentation/widgets/app_button.dart';
-import 'package:base_project_template/data/dictionary/flutter_dictionary.dart';
 import 'package:base_project_template/presentation/widgets/app_text_field.dart';
-import 'package:base_project_template/data/managers/screen_manager/screen_manager.dart';
 import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
 import 'package:base_project_template/presentation/pages/login_page/bloc/login_page_bloc.dart';
 
@@ -14,10 +13,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage> {
-  final lng = FlutterDictionary.instance.language;
-
+  final _screenManager = dependencyContainer!.get<IScreenManager>();
   final TextEditingController _emailController = TextEditingController();
-
   final TextEditingController _passController = TextEditingController();
 
   @override
@@ -27,7 +24,7 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
       (LoginPageState state) {
         return MainLayout(
           key: Key('[LoginPage]'),
-          child: ScreenManagerBuilder(
+          child: _screenManager.typedScreenBuilder(
             phoneBuilder: (BuildContext context, Widget child) => child,
             webBuilder: (BuildContext context, Widget child) {
               return Row(
@@ -56,24 +53,24 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
                     children: [
                       Center(
                         child: Text(
-                          lng?.loginPage.title ?? '',
-                          style: CustomTheme.textStyles?.accentTextStyle(
-                            size: 30,
+                          'Title',
+                          style: TextStyle(
+                            fontSize: 30,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ).scale,
+                      ),
                       const SizedBox(height: 32),
                       AppTextField(
                         keyValue: 'emailField-',
                         controller: _emailController,
-                        hintText: '${lng?.loginPage.emailHint}',
+                        hintText: 'Email',
                       ),
                       const SizedBox(height: 8.0),
                       AppTextField(
                         keyValue: 'passField-',
                         controller: _passController,
-                        hintText: '${lng?.loginPage.passwordHint}',
+                        hintText: 'Password',
                       ),
                       const SizedBox(height: 100.0),
                       Padding(
@@ -85,9 +82,8 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
                           height: 48.0,
                           onTap: () => bloc(context).add(LoginPageEvent.login()),
                           child: Text(
-                            lng?.loginPage.title ?? '',
-                            style: CustomTheme.textStyles?.buttonTextStyle(),
-                          ).scale,
+                            dictionary.data,
+                          ),
                         ),
                       ),
                     ],

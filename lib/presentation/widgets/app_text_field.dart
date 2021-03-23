@@ -1,7 +1,4 @@
-import 'package:base_project_template/domain/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextField extends StatelessWidget {
   final String keyValue;
@@ -40,15 +37,15 @@ class AppTextField extends StatelessWidget {
           Container(
             height: 50,
             width: double.infinity,
-            color: CustomTheme.colors?.background,
+            color: Colors.white,
           ),
           Container(
             alignment: Alignment.center,
             height: 50.0,
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             decoration: BoxDecoration(
-              color: CustomTheme.colors?.accentColor.withOpacity(0.08),
-              border: Border.all(color: CustomTheme.colors!.accentFont.withOpacity(0.1)),
+              color: Colors.blue.withOpacity(0.08),
+              border: Border.all(color: Colors.blue.withOpacity(0.1)),
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: TextFormField(
@@ -56,7 +53,7 @@ class AppTextField extends StatelessWidget {
               focusNode: focusNode,
               controller: controller,
               keyboardType: inputType,
-              cursorColor: CustomTheme.colors?.primaryColor,
+              cursorColor: Colors.red,
               style: textStyle,
               onChanged: validator,
               onFieldSubmitted: onSubmitted,

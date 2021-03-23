@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:base_project_template/common/dictionary/i_dictionary.dart';
+import 'package:base_project_template/utils/res/app_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:base_project_template/domain/res/app_data.dart';
-import 'package:base_project_template/data/dictionary/flutter_dictionary.dart';
 import 'package:base_project_template/domain/blocs/application/app_router.dart';
 
 part 'app_event.dart';
@@ -15,7 +15,10 @@ part 'app_bloc.freezed.dart';
 
 @injectable
 class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc() : super(_Initial());
+  IDictionary _dictionary;
+  AppBloc(
+    this._dictionary,
+  ) : super(_Initial());
 
   static void changeLocale(BuildContext context, Locale locale) {
     BlocProvider.of<AppBloc>(context).add(AppEvent.changeLocale(locale));
@@ -43,8 +46,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   Stream<AppState> _initApp(_Initialize event) async* {
-    FlutterDictionary.instance.setNewLanguage(AppData.locales.base);
-    yield AppState.initialized(locale: FlutterDictionary.instance.locale);
+    _dictionary.useLocale(AppData.locales.base);
+    yield AppState.initialized(locale: Locale(AppData.locales.base));
 
     await Future.delayed(Duration(seconds: 3));
     await router.push(LoginPageRoute());

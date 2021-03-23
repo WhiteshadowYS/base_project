@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:base_project_template/domain/theme/custom_theme.dart';
 
 class AppBottomBarItem extends StatelessWidget {
   final double iconSize;
@@ -29,13 +28,13 @@ class AppBottomBarItem extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isActive ? CustomTheme.colors?.accentColor.withOpacity(0.6) : Colors.transparent,
+          color: isActive ? Colors.red.withOpacity(0.6) : Colors.transparent,
         ),
         child: InkWell(
           child: Icon(
             icon,
             size: iconSize,
-            color: CustomTheme.colors?.buttonFont,
+            color: Colors.blue,
           ),
         ),
       ),

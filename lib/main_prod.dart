@@ -9,9 +9,9 @@ import 'package:base_project_template/domain/blocs/application/application.dart'
 void main() async {
   Bloc.observer = AppBlocObserver();
 
+  initDependencies(ProdConfig());
   initLogger(ProdConfig());
   await initSystem();
-  initDependencies(ProdConfig());
 
   runApp(Application());
 }

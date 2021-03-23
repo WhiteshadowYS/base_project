@@ -1,22 +1,25 @@
+import 'package:base_project_template/common/device_info/device_platform.dart';
+import 'package:base_project_template/common/device_info/i_device_info_loader.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project_template/data/local_storage/base_storage.dart';
 import 'package:base_project_template/domain/services/pokemon_service.dart';
 import 'package:base_project_template/data/local_storage/pokemon_storage.dart';
 import 'package:base_project_template/data/repositories/pokemon_repository.dart';
 import 'package:base_project_template/domain/entity/base_pokemon/base_pokemon.dart';
-import 'package:base_project_template/data/managers/device_info_manager/device_info_manager.dart';
 
 import 'package:logging/logging.dart';
 
 @LazySingleton(as: PokemonService)
 class PokemonServiceImpl implements PokemonService {
+  final IDeviceInfoLoader _deviceInfo;
+  final BaseStorage _storage;
+  final PokemonRepository _repository;
+
   PokemonServiceImpl(
+    this._deviceInfo,
     this._repository,
     @Named.from(PokemonStorage) this._storage,
   );
-
-  final BaseStorage _storage;
-  final PokemonRepository _repository;
 
   Logger get _logger => Logger('[$runtimeType]');
 
@@ -24,7 +27,7 @@ class PokemonServiceImpl implements PokemonService {
   Future<List<BasePokemon>> getPokemons() async {
     List<BasePokemon> pokemons = await _repository.getPokemons();
 
-    if (DeviceInfoManager.instance.devicePlatform == DevicePlatform.Web) {
+    if (_deviceInfo.platform == DevicePlatform.Web) {
       return pokemons;
     }
 

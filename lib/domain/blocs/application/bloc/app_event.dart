@@ -1,7 +1,7 @@
 part of 'app_bloc.dart';
 
 @freezed
-abstract class AppEvent with _$AppEvent {
+class AppEvent with _$AppEvent {
   const factory AppEvent.initialize() = _Initialize;
   const factory AppEvent.changeLocale(Locale locale) = _ChangeLocale;
   const factory AppEvent.changeAppBarState(AppBarState state) = _ChangeAppBarState;
