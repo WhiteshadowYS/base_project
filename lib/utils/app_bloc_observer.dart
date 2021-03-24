@@ -17,7 +17,7 @@ class AppBlocObserver extends BlocObserver {
   }
 
   @override
-  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     _logger.info('$error, $stackTrace');
     super.onError(bloc, error, stackTrace);
   }

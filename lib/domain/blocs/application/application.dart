@@ -1,8 +1,7 @@
-import 'package:base_project_template/common/dictionary/i_dictionary.dart';
+import 'package:base_project_template/config/injection_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
 import 'package:base_project_template/utils/res/app_data.dart';
-import 'package:base_project_template/config/injection_config.dart';
 import 'package:base_project_template/presentation/shared/base_state.dart';
 import 'package:base_project_template/domain/blocs/application/app_router.dart';
 import 'package:base_project_template/domain/blocs/application/bloc/app_bloc.dart';
@@ -13,8 +12,6 @@ class Application extends StatefulWidget {
 }
 
 class _ApplicationState extends BaseState<AppState, AppBloc, Application> {
-  final IDictionary _dictionary = dependencyContainer!.get<IDictionary>();
-
   @override
   void onBlocCreated(BuildContext context, AppBloc bloc) {
     bloc.add(AppEvent.initialize());
@@ -45,8 +42,8 @@ class _ApplicationState extends BaseState<AppState, AppBloc, Application> {
               routeInformationParser: router.defaultRouteParser(),
               theme: ThemeData(),
               debugShowCheckedModeBanner: false,
-              supportedLocales: _dictionary.supportedLocales,
-              localizationsDelegates: _dictionary.getLocalizationDelegates,
+              supportedLocales: dictionary.supportedLocales,
+              localizationsDelegates: dictionary.getLocalizationDelegates,
             );
           },
         );

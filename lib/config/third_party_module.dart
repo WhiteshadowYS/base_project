@@ -1,7 +1,8 @@
 import 'package:base_project_template/common/dictionary/base_dictionary.dart';
 import 'package:base_project_template/common/dictionary/i_dictionary.dart';
-import 'package:base_project_template/domain/dictionary/lng.dart';
-import 'package:base_project_template/i18n/i18n.dart';
+import 'package:base_project_template/common/screen/i_screen_manager.dart';
+import 'package:base_project_template/common/screen/screen_manager.dart';
+import 'package:base_project_template/domain/dictionary/language.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -82,12 +83,14 @@ abstract class ThirdPartyModule {
 
   @lazySingleton
   @factoryMethod
-  IDictionary get dictionary => BaseDictionary<Lng>(
+  IScreenManager get screenManager => ScreenManager(deviceInfo);
+
+  @lazySingleton
+  @factoryMethod
+  IDictionary<Language> get dictionary => BaseDictionary<Language>(
         initialLanguageCode: 'en',
-        languages: [
-          en,
-        ],
-        languageBuilder: (Map<String, dynamic> json) => Lng.fromJson(json),
+        languages: [],
+        languageBuilder: (Map<String, dynamic> json) => Language.fromJson(json),
       );
 
   @lazySingleton

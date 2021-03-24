@@ -1,6 +1,5 @@
 class AppLocales {
-  final String base = 'ru';
+  final String base = 'en';
 
-  final String ru = 'ru';
   final String en = 'en';
 }

@@ -53,7 +53,7 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
                     children: [
                       Center(
                         child: Text(
-                          'Title',
+                          dictionary.data.login.title ?? '',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -64,13 +64,13 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
                       AppTextField(
                         keyValue: 'emailField-',
                         controller: _emailController,
-                        hintText: 'Email',
+                        hintText: dictionary.data.login.emailHint ?? '',
                       ),
                       const SizedBox(height: 8.0),
                       AppTextField(
                         keyValue: 'passField-',
                         controller: _passController,
-                        hintText: 'Password',
+                        hintText: dictionary.data.login.passwordHint ?? '',
                       ),
                       const SizedBox(height: 100.0),
                       Padding(
@@ -82,7 +82,7 @@ class _LoginPageState extends BaseState<LoginPageState, LoginPageBloc, LoginPage
                           height: 48.0,
                           onTap: () => bloc(context).add(LoginPageEvent.login()),
                           child: Text(
-                            dictionary.data,
+                            dictionary.data.login.button ?? '',
                           ),
                         ),
                       ),

@@ -22,6 +22,7 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -32,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.whiteshadow.testApp"
+        applicationId "com.lightit.laleeApp"
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
@@ -58,6 +59,7 @@ android {
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
 }
 
 flutter {

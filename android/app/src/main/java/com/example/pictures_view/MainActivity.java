@@ -1,4 +1,4 @@
-package com.whiteshadow.testApp;
+package com.lightit.laleeApp;
 
 import io.flutter.embedding.android.FlutterActivity;
 

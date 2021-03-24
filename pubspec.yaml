@@ -50,7 +50,7 @@ dependencies:
   auto_route: 1.0.0
 
   # Architecture
-  flutter_bloc: 7.0.0-nullsafety.5
+  flutter_bloc: 7.0.0
   rxdart: 0.26.0
   # Firebase
   # firebase_core: 0.5.0+1
@@ -91,6 +91,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - i18n/
     - assets/svg/loading.svg
     - assets/svgs/logo.svg
     - assets/svg/mc_logo.svg

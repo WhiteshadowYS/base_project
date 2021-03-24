@@ -1,3 +1,4 @@
+import 'package:base_project_template/config/injection_config.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project_template/presentation/shared/base_state.dart';
 import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
@@ -41,7 +42,9 @@ class _HomePageState extends BaseState<HomePageState, HomePageBloc, HomePage> {
         ),
         itemCount: 0,
         itemBuilder: (BuildContext context, int index) {
-          return Container();
+          return Container(
+            child: Text(dictionary.data.login.passwordHint ?? ''),
+          );
         },
       ),
     );

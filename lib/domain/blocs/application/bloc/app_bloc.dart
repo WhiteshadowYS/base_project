@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:base_project_template/common/dictionary/i_dictionary.dart';
+import 'package:base_project_template/domain/dictionary/language.dart';
 import 'package:base_project_template/utils/res/app_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ part 'app_bloc.freezed.dart';
 
 @injectable
 class AppBloc extends Bloc<AppEvent, AppState> {
-  IDictionary _dictionary;
+  IDictionary<Language> _dictionary;
   AppBloc(
     this._dictionary,
   ) : super(_Initial());

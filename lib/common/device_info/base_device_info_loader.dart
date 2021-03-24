@@ -64,7 +64,7 @@ class BaseDeviceinfoLoader implements IDeviceInfoLoader {
         final IosDeviceInfo data = await _deviceInfoPlugin.iosInfo;
         deviceId = data.identifierForVendor ?? '';
       }
-    } on PlatformException {
+    } catch (e) {
       deviceId = 'Failed to get device id.';
     }
   }

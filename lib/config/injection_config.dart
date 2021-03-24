@@ -1,13 +1,13 @@
-import 'package:base_project_template/common/dictionary/i_dictionary.dart';
-import 'package:base_project_template/config/injection_config.config.dart';
-import 'package:base_project_template/domain/dictionary/lng.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project_template/config/app_config.dart';
+import 'package:base_project_template/domain/dictionary/language.dart';
+import 'package:base_project_template/common/dictionary/i_dictionary.dart';
+import 'package:base_project_template/config/injection_config.config.dart';
 
 GetIt? dependencyContainer;
-IDictionary dictionary = dependencyContainer!.get<IDictionary<Lng>>();
+IDictionary<Language> dictionary = dependencyContainer!.get<IDictionary<Language>>();
 
 @injectableInit
 void initDependencies(AppConfig config) {

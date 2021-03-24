@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:base_project_template/common/dictionary/i_dictionary.dart';
 import 'package:logging/src/logger.dart';
@@ -23,8 +26,8 @@ class BaseDictionary<T> implements IDictionary<T> {
     required List<Map<String, dynamic>> languages,
     required this.languageBuilder,
   }) {
-    useLocale(initialLanguageCode);
     addLanguagesList(languages);
+    useLocale(initialLanguageCode);
   }
 
   @override
@@ -34,7 +37,13 @@ class BaseDictionary<T> implements IDictionary<T> {
   bool get isRtl => _isLocaleRTL(_languageCode);
 
   @override
-  List<Locale> get supportedLocales => _supportedLocales;
+  List<Locale> get supportedLocales {
+    if (_supportedLocales.isEmpty) {
+      return [Locale('en')];
+    }
+
+    return _supportedLocales;
+  }
 
   bool _isLocaleRTL(String locale) => rtlLanguages.contains(locale);
 
@@ -49,6 +58,8 @@ class BaseDictionary<T> implements IDictionary<T> {
 
   @override
   void addLanguagesList(List<Map<String, dynamic>> languages) {
+    if (languages.isEmpty) return;
+
     for (final lng in languages) {
       addNewLanguage(lng);
     }
@@ -67,12 +78,32 @@ class BaseDictionary<T> implements IDictionary<T> {
 
   @override
   void useLocale(String languageCode) {
+    if (languages.isEmpty) {
+      _loadLanguage(languageCode);
+      return;
+    }
+
     for (Map<String, dynamic> language in languages) {
       if (language.containsValue(languageCode)) {
         _languageCode = languageCode;
         selectedLanguage = language;
         return;
       }
+    }
+
+    if (_languageCode != languageCode) {
+      _loadLanguage(languageCode);
+      return;
+    }
+  }
+
+  Future<void> _loadLanguage(String languageCode) async {
+    try {
+      final String jsonString = await rootBundle.loadString('i18n/${languageCode}_.json');
+      final Map<String, dynamic> language = jsonDecode(jsonString);
+      selectedLanguage = language;
+    } catch (e) {
+      logger.warning('<_loadLanguage> => No Loangauge, $e');
     }
   }
 

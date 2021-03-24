@@ -1,3 +1,5 @@
+import 'package:base_project_template/data/local_storage/base_storage.dart';
+import 'package:base_project_template/data/local_storage/token_storage.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project_template/config/app_config.dart';
