@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:279669293411:android:eb99f37ed37699e5c55356",
         "android_client_info": {
-          "package_name": "com.lightit.laleeApp"
+          "package_name": "com.example.baseApp"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "279669293411-f06c22sc5aph0vrk040okdj28gp2ds71.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.lightit.lalee-app",
+                "bundle_id": "com.example.base-app",
                 "app_store_id": "1559871866"
               }
             }

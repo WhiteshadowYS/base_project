@@ -1,4 +1,4 @@
-package com.lightit.laleeApp;
+package com.example.baseApp;
 
 import io.flutter.embedding.android.FlutterActivity;
 

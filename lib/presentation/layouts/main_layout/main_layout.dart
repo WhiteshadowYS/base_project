@@ -1,8 +1,8 @@
-import 'package:lalee_mobile/common/screen/i_screen_manager.dart';
-import 'package:lalee_mobile/config/injection_config.dart';
+import 'package:base_project/common/screen/i_screen_manager.dart';
+import 'package:base_project/config/injection_config.dart';
 import 'package:flutter/material.dart';
-import 'package:lalee_mobile/presentation/layouts/app_bar/app_top_bar.dart';
-import 'package:lalee_mobile/presentation/layouts/focus_layout/focus_layout.dart';
+import 'package:base_project/presentation/layouts/app_bar/app_top_bar.dart';
+import 'package:base_project/presentation/layouts/focus_layout/focus_layout.dart';
 
 class MainLayout extends StatefulWidget {
   final Color background;

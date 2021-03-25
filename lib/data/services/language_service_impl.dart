@@ -1,5 +1,5 @@
-import 'package:lalee_mobile/data/local_storage/base_storage.dart';
-import 'package:lalee_mobile/domain/services/language_service.dart';
+import 'package:base_project/data/local_storage/base_storage.dart';
+import 'package:base_project/domain/services/language_service.dart';
 import 'package:injectable/injectable.dart';
 
 // @LazySingleton(as: LanguageService)

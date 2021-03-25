@@ -1,4 +1,4 @@
-import 'package:lalee_mobile/common/connection/i_connection_checker.dart';
+import 'package:base_project/common/connection/i_connection_checker.dart';
 import 'package:logging/logging.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
 

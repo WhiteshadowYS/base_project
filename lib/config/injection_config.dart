@@ -1,10 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
-import 'package:lalee_mobile/config/app_config.dart';
-import 'package:lalee_mobile/domain/dictionary/language.dart';
-import 'package:lalee_mobile/common/dictionary/i_dictionary.dart';
-import 'package:lalee_mobile/config/injection_config.config.dart';
+import 'package:base_project/config/app_config.dart';
+import 'package:base_project/domain/dictionary/language.dart';
+import 'package:base_project/common/dictionary/i_dictionary.dart';
+import 'package:base_project/config/injection_config.config.dart';
 
 GetIt? dependencyContainer;
 IDictionary<Language> dictionary = dependencyContainer!.get<IDictionary<Language>>();

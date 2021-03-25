@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lalee_mobile/config/injection_config.dart';
-import 'package:lalee_mobile/presentation/shared/base_widget.dart';
+import 'package:base_project/config/injection_config.dart';
+import 'package:base_project/presentation/shared/base_widget.dart';
 
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

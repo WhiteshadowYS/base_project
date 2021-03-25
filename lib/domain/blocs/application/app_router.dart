@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:lalee_mobile/presentation/widgets/splash_screen.dart';
-import 'package:lalee_mobile/domain/blocs/application/app_router.gr.dart';
-import 'package:lalee_mobile/presentation/pages/home_page/home_page.dart';
-import 'package:lalee_mobile/presentation/pages/login_page/login_page.dart';
+import 'package:base_project/presentation/widgets/splash_screen.dart';
+import 'package:base_project/domain/blocs/application/app_router.gr.dart';
+import 'package:base_project/presentation/pages/home_page/home_page.dart';
+import 'package:base_project/presentation/pages/login_page/login_page.dart';
 
 final router = AppRouter();
 

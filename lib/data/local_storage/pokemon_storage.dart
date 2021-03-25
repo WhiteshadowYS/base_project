@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:lalee_mobile/data/local_storage/base_storage.dart';
-import 'package:lalee_mobile/domain/entity/base_pokemon/base_pokemon.dart';
+import 'package:base_project/data/local_storage/base_storage.dart';
+import 'package:base_project/domain/entity/base_pokemon/base_pokemon.dart';
 
 @named
 @LazySingleton(as: BaseStorage)

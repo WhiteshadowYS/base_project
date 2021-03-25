@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lalee_mobile/utils/res/app_data.dart';
+import 'package:base_project/utils/res/app_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class ImageContainer extends StatelessWidget {

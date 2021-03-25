@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lalee_mobile/presentation/layouts/main_layout/main_layout.dart';
+import 'package:base_project/presentation/layouts/main_layout/main_layout.dart';
 
 class UnknownPage extends StatelessWidget {
   const UnknownPage({Key? key}) : super(key: key);

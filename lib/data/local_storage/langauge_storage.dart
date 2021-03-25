@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:lalee_mobile/data/local_storage/base_storage.dart';
+import 'package:base_project/data/local_storage/base_storage.dart';
 
 // @named
 // @LazySingleton(as: BaseStorage)

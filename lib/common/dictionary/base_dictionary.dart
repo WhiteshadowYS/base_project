@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:lalee_mobile/common/dictionary/i_dictionary.dart';
+import 'package:base_project/common/dictionary/i_dictionary.dart';
 import 'package:logging/src/logger.dart';
 
 class BaseDictionary<T> implements IDictionary<T> {

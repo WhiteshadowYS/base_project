@@ -1,11 +1,11 @@
-import 'package:lalee_mobile/common/device_info/device_platform.dart';
-import 'package:lalee_mobile/common/device_info/i_device_info_loader.dart';
+import 'package:base_project/common/device_info/device_platform.dart';
+import 'package:base_project/common/device_info/i_device_info_loader.dart';
 import 'package:injectable/injectable.dart';
-import 'package:lalee_mobile/data/local_storage/base_storage.dart';
-import 'package:lalee_mobile/domain/services/pokemon_service.dart';
-import 'package:lalee_mobile/data/local_storage/pokemon_storage.dart';
-import 'package:lalee_mobile/data/repositories/pokemon_repository.dart';
-import 'package:lalee_mobile/domain/entity/base_pokemon/base_pokemon.dart';
+import 'package:base_project/data/local_storage/base_storage.dart';
+import 'package:base_project/domain/services/pokemon_service.dart';
+import 'package:base_project/data/local_storage/pokemon_storage.dart';
+import 'package:base_project/data/repositories/pokemon_repository.dart';
+import 'package:base_project/domain/entity/base_pokemon/base_pokemon.dart';
 
 import 'package:logging/logging.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lalee_mobile/common/screen/i_screen_manager.dart';
-import 'package:lalee_mobile/common/device_info/device_platform.dart';
+import 'package:base_project/common/screen/i_screen_manager.dart';
+import 'package:base_project/common/device_info/device_platform.dart';
 
 class TypedScreenBuilder extends StatelessWidget {
   final IScreenManager screenManager;

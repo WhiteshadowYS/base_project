@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:lalee_mobile/common/dictionary/i_dictionary.dart';
-import 'package:lalee_mobile/domain/dictionary/language.dart';
-import 'package:lalee_mobile/utils/res/app_data.dart';
+import 'package:base_project/common/dictionary/i_dictionary.dart';
+import 'package:base_project/domain/dictionary/language.dart';
+import 'package:base_project/utils/res/app_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lalee_mobile/domain/blocs/application/app_router.dart';
+import 'package:base_project/domain/blocs/application/app_router.dart';
 
 part 'app_event.dart';
 part 'app_state.dart';
