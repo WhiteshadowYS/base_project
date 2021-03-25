@@ -3,7 +3,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/src/logger.dart';
-import 'package:base_project_template/common/device_info/i_device_info_loader.dart';
+import 'package:lalee_mobile/common/device_info/i_device_info_loader.dart';
 import 'package:websafe_platform/websafe_platform.dart';
 
 import 'device_platform.dart' as pl;

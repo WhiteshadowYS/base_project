@@ -1,4 +1,4 @@
-import 'package:base_project_template/domain/blocs/application/bloc/app_bloc.dart';
+import 'package:lalee_mobile/domain/blocs/application/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

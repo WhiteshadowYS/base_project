@@ -1,11 +1,11 @@
-import 'package:base_project_template/common/screen/i_screen_manager.dart';
+import 'package:lalee_mobile/common/screen/i_screen_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:base_project_template/config/injection_config.dart';
-import 'package:base_project_template/presentation/shared/base_state.dart';
-import 'package:base_project_template/presentation/widgets/app_button.dart';
-import 'package:base_project_template/presentation/widgets/app_text_field.dart';
-import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
-import 'package:base_project_template/presentation/pages/login_page/bloc/login_page_bloc.dart';
+import 'package:lalee_mobile/config/injection_config.dart';
+import 'package:lalee_mobile/presentation/shared/base_state.dart';
+import 'package:lalee_mobile/presentation/widgets/app_button.dart';
+import 'package:lalee_mobile/presentation/widgets/app_text_field.dart';
+import 'package:lalee_mobile/presentation/layouts/main_layout/main_layout.dart';
+import 'package:lalee_mobile/presentation/pages/login_page/bloc/login_page_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   @override

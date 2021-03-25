@@ -1,4 +1,4 @@
-import 'package:base_project_template/common/screen/i_screen_manager.dart';
+import 'package:lalee_mobile/common/screen/i_screen_manager.dart';
 import 'package:flutter/material.dart';
 
 class ScreenConnector extends StatelessWidget {

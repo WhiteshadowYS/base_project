@@ -1,14 +1,14 @@
 export 'screen_connector.dart';
 export 'typed_screen_builder.dart';
 
-import 'package:base_project_template/common/screen/screen_connector.dart';
-import 'package:base_project_template/common/screen/typed_screen_builder.dart';
+import 'package:lalee_mobile/common/screen/screen_connector.dart';
+import 'package:lalee_mobile/common/screen/typed_screen_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:base_project_template/utils/res/app_data.dart';
-import 'package:base_project_template/config/injection_config.dart';
-import 'package:base_project_template/common/screen/i_screen_manager.dart';
-import 'package:base_project_template/common/device_info/device_platform.dart';
-import 'package:base_project_template/common/device_info/i_device_info_loader.dart';
+import 'package:lalee_mobile/utils/res/app_data.dart';
+import 'package:lalee_mobile/config/injection_config.dart';
+import 'package:lalee_mobile/common/screen/i_screen_manager.dart';
+import 'package:lalee_mobile/common/device_info/device_platform.dart';
+import 'package:lalee_mobile/common/device_info/i_device_info_loader.dart';
 
 class ScreenManager implements IScreenManager {
   IDeviceInfoLoader deviceInfoLoader;

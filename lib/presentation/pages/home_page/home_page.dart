@@ -1,8 +1,8 @@
-import 'package:base_project_template/config/injection_config.dart';
+import 'package:lalee_mobile/config/injection_config.dart';
 import 'package:flutter/material.dart';
-import 'package:base_project_template/presentation/shared/base_state.dart';
-import 'package:base_project_template/presentation/layouts/main_layout/main_layout.dart';
-import 'package:base_project_template/presentation/pages/home_page/bloc/home_page_bloc.dart';
+import 'package:lalee_mobile/presentation/shared/base_state.dart';
+import 'package:lalee_mobile/presentation/layouts/main_layout/main_layout.dart';
+import 'package:lalee_mobile/presentation/pages/home_page/bloc/home_page_bloc.dart';
 
 class HomePage extends StatefulWidget {
   @override

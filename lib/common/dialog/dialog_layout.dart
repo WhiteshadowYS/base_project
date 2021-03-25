@@ -1,4 +1,4 @@
-import 'package:base_project_template/common/dialog/dialog_presenter.dart';
+import 'package:lalee_mobile/common/dialog/dialog_presenter.dart';
 import 'package:flutter/material.dart';
 
 class DialogLayout extends StatelessWidget {

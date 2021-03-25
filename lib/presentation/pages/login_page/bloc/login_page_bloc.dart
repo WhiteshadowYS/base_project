@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:base_project_template/common/dialog/i_dialog_presenter.dart';
+import 'package:lalee_mobile/common/dialog/i_dialog_presenter.dart';
 import 'package:bloc/bloc.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:base_project_template/domain/blocs/application/app_router.dart';
+import 'package:lalee_mobile/domain/blocs/application/app_router.dart';
 
 part 'login_page_event.dart';
 part 'login_page_state.dart';

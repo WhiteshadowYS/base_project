@@ -1,5 +1,5 @@
-import 'package:base_project_template/common/connection/connection_checker.dart';
-import 'package:base_project_template/common/connection/i_connection_checker.dart';
+import 'package:lalee_mobile/common/connection/connection_checker.dart';
+import 'package:lalee_mobile/common/connection/i_connection_checker.dart';
 import 'package:dio/dio.dart';
 
 class ConnectionIntercepter extends Interceptor {

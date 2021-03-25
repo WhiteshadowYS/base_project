@@ -1,5 +1,5 @@
-import 'package:base_project_template/config/app_config.dart';
-import 'package:base_project_template/data/api/rest_client.dart';
+import 'package:lalee_mobile/config/app_config.dart';
+import 'package:lalee_mobile/data/api/rest_client.dart';
 import 'package:dio/dio.dart';
 import 'package:logging/logging.dart';
 

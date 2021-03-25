@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_project_template/common/connection/i_connection_checker.dart';
+import 'package:lalee_mobile/common/connection/i_connection_checker.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

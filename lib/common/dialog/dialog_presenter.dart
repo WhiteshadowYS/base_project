@@ -1,4 +1,4 @@
-import 'package:base_project_template/domain/blocs/application/app_router.dart';
+import 'package:lalee_mobile/domain/blocs/application/app_router.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';

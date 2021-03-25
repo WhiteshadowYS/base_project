@@ -1,4 +1,4 @@
-import 'package:base_project_template/config/injection_config.dart';
+import 'package:lalee_mobile/config/injection_config.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

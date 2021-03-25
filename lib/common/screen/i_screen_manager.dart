@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:base_project_template/common/device_info/device_platform.dart';
+import 'package:lalee_mobile/common/device_info/device_platform.dart';
 
 abstract class IScreenManager {
   ValueNotifier<DevicePlatform> get platformNotifier;

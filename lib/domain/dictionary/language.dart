@@ -1,5 +1,5 @@
-import 'package:base_project_template/domain/dictionary/language_global.dart';
-import 'package:base_project_template/domain/dictionary/language_login.dart';
+import 'package:lalee_mobile/domain/dictionary/language_global.dart';
+import 'package:lalee_mobile/domain/dictionary/language_login.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'language.freezed.dart';

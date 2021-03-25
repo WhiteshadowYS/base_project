@@ -1,7 +1,7 @@
-import 'package:base_project_template/utils/res/app_data.dart';
+import 'package:lalee_mobile/utils/res/app_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:base_project_template/presentation/layouts/bottom_bar/widgets/app_bottom_bar_item.dart';
+import 'package:lalee_mobile/presentation/layouts/bottom_bar/widgets/app_bottom_bar_item.dart';
 
 class AppBottomBar extends StatelessWidget {
   final String selectedPage;

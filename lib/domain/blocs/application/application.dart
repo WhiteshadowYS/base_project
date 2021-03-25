@@ -1,10 +1,10 @@
-import 'package:base_project_template/config/injection_config.dart';
+import 'package:lalee_mobile/config/injection_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:base_project_template/utils/res/app_data.dart';
-import 'package:base_project_template/presentation/shared/base_state.dart';
-import 'package:base_project_template/domain/blocs/application/app_router.dart';
-import 'package:base_project_template/domain/blocs/application/bloc/app_bloc.dart';
+import 'package:lalee_mobile/utils/res/app_data.dart';
+import 'package:lalee_mobile/presentation/shared/base_state.dart';
+import 'package:lalee_mobile/domain/blocs/application/app_router.dart';
+import 'package:lalee_mobile/domain/blocs/application/bloc/app_bloc.dart';
 
 class Application extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:base_project_template/common/project_info/i_project_info_loader.dart';
+import 'package:lalee_mobile/common/project_info/i_project_info_loader.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 
