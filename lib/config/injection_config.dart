@@ -2,9 +2,9 @@ import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project/config/app_config.dart';
-import 'package:base_project/domain/dictionary/language.dart';
-import 'package:base_project/common/dictionary/i_dictionary.dart';
 import 'package:base_project/config/injection_config.config.dart';
+import 'package:base_project/domain/shared/dictionary/language.dart';
+import 'package:base_project/common/presentors/dictionary/i_dictionary.dart';
 
 GetIt? dependencyContainer;
 IDictionary<Language> dictionary = dependencyContainer!.get<IDictionary<Language>>();

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
+import 'package:base_project/config/injection_config.dart';
+import 'package:base_project/common/presentors/status_bar/i_status_bar.dart';
 
 @injectable
 Future<void> initSystem() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+  dependencyContainer!.get<IStatusBar>();
 }

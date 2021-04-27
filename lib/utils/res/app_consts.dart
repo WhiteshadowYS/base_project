@@ -17,6 +17,8 @@ class DesignSizes {
 
   final double designScreenWidth = 375.0;
   final double designScreenHeight = 812.0;
+
+  final double minimalScreenHeight = 620.0;
 }
 
 class DefaultStrings {

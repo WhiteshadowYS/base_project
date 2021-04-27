@@ -14,14 +14,12 @@ abstract class BaseState<S, B extends Bloc<dynamic, S>, W extends StatefulWidget
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<B>(
-      create: (BuildContext ctx) {
+    return BlocProvider<B>.value(
+      value: () {
         final bloc = dependencyContainer!.get<B>();
-        onBlocCreated(ctx, bloc);
-
+        onBlocCreated(context, bloc);
         return bloc;
-      },
-      lazy: true,
+      }(),
       child: Builder(
         builder: (BuildContext ctx) {
           initParams(ctx);

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:base_project/utils/res/style/default_colors.dart';
 
 class AppGradient {
   static LinearGradient get mainGradient {
     return LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
       colors: [
-        Colors.red,
+        DefaultAppColors.mainPurple,
+        DefaultAppColors.mainPink,
       ],
     );
   }
