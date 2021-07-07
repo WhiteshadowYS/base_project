@@ -8,7 +8,6 @@ import './app_keys.dart';
 import './app_locales.dart';
 import './style/app_shadows.dart';
 import './assets/images.dart';
-import './api.dart';
 
 export './app_keys.dart';
 export './app_consts.dart';

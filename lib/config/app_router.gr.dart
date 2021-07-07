@@ -6,19 +6,10 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 
-import '../presentation/pages/additional_screens/splash_screen/splash_screen.dart'
-    as _i2;
-import '../presentation/pages/auth_screens/forgot_password_screen/forgot_password_screen.dart'
-    as _i8;
-import '../presentation/pages/auth_screens/login_screen/login_screen.dart'
-    as _i5;
-import '../presentation/pages/auth_screens/registration_screen/registration_screen.dart'
-    as _i7;
-import '../presentation/pages/auth_screens/start_screen/start_screen.dart'
-    as _i6;
-import '../presentation/pages/auth_screens/terms_screen.dart/terms_screen.dart'
-    as _i3;
-import '../presentation/pages/main_screens/home_screen/home_screen.dart' as _i4;
+import '../presentation/authorization/screens/login/login_screen.dart' as _i3;
+import '../presentation/main/home_screen/home_screen.dart' as _i4;
+import '../presentation/main/profile_screen/profile_screen.dart' as _i5;
+import '../presentation/shared/screens/splash_screen/splash_screen.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter();
@@ -28,43 +19,24 @@ class AppRouter extends _i1.RootStackRouter {
     SplashScreenRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: const _i2.SplashScreen());
     },
-    TermsScreenRoute.name: (entry) {
-      return _i1.CustomPage(
-          entry: entry,
-          child: _i3.TermsScreen(),
-          fullscreenDialog: true,
-          transitionsBuilder: _i1.TransitionsBuilders.slideBottom,
-          opaque: true,
-          barrierDismissible: false);
+    LoginScreenRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i3.LoginScreen());
     },
     HomeScreenRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i4.HomeScreen());
+      return _i1.MaterialPageX(entry: entry, child: const _i4.HomeScreen());
     },
-    LoginScreenRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i5.LoginScreen());
-    },
-    StartScreenRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i6.StartScreen());
-    },
-    RegistrationScreenRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i7.RegistrationScreen());
-    },
-    ForgotPasswordScreenRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i8.ForgotPasswordScreen());
+    ProfileScreenRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i5.ProfileScreen());
     }
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashScreenRoute.name, path: '/'),
-        _i1.RouteConfig(TermsScreenRoute.name, path: '/auth/terms'),
-        _i1.RouteConfig(HomeScreenRoute.name, path: '/home/bottom-bar'),
         _i1.RouteConfig(LoginScreenRoute.name, path: '/auth/login'),
-        _i1.RouteConfig(StartScreenRoute.name, path: '/auth/start'),
-        _i1.RouteConfig(RegistrationScreenRoute.name,
-            path: '/auth/registration'),
-        _i1.RouteConfig(ForgotPasswordScreenRoute.name,
-            path: '/auth/forgot-password')
+        _i1.RouteConfig(HomeScreenRoute.name, path: '/main/home/bottom-bar'),
+        _i1.RouteConfig(ProfileScreenRoute.name,
+            path: '/main/profile/bottom-bar')
       ];
 }
 
@@ -74,39 +46,20 @@ class SplashScreenRoute extends _i1.PageRouteInfo {
   static const String name = 'SplashScreenRoute';
 }
 
-class TermsScreenRoute extends _i1.PageRouteInfo {
-  const TermsScreenRoute() : super(name, path: '/auth/terms');
-
-  static const String name = 'TermsScreenRoute';
-}
-
-class HomeScreenRoute extends _i1.PageRouteInfo {
-  const HomeScreenRoute() : super(name, path: '/home/bottom-bar');
-
-  static const String name = 'HomeScreenRoute';
-}
-
 class LoginScreenRoute extends _i1.PageRouteInfo {
   const LoginScreenRoute() : super(name, path: '/auth/login');
 
   static const String name = 'LoginScreenRoute';
 }
 
-class StartScreenRoute extends _i1.PageRouteInfo {
-  const StartScreenRoute() : super(name, path: '/auth/start');
+class HomeScreenRoute extends _i1.PageRouteInfo {
+  const HomeScreenRoute() : super(name, path: '/main/home/bottom-bar');
 
-  static const String name = 'StartScreenRoute';
+  static const String name = 'HomeScreenRoute';
 }
 
-class RegistrationScreenRoute extends _i1.PageRouteInfo {
-  const RegistrationScreenRoute() : super(name, path: '/auth/registration');
+class ProfileScreenRoute extends _i1.PageRouteInfo {
+  const ProfileScreenRoute() : super(name, path: '/main/profile/bottom-bar');
 
-  static const String name = 'RegistrationScreenRoute';
-}
-
-class ForgotPasswordScreenRoute extends _i1.PageRouteInfo {
-  const ForgotPasswordScreenRoute()
-      : super(name, path: '/auth/forgot-password');
-
-  static const String name = 'ForgotPasswordScreenRoute';
+  static const String name = 'ProfileScreenRoute';
 }

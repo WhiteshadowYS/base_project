@@ -9,7 +9,7 @@ class DeepLinkService {
 
   DeepLinkService(this._router);
 
-  Logger get _logger => Logger('$runtimeType');
+  Logger get _logger => Logger('[$runtimeType #${identityHashCode(this)}] =>');
 
   late final StreamSubscription _subscription;
 

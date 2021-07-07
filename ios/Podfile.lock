@@ -5,6 +5,8 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_ip (0.2.0):
+    - Flutter
   - flutter_secure_storage (3.3.1):
     - Flutter
   - FMDB (2.7.5):
@@ -29,6 +31,7 @@ DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
+  - flutter_ip (from `.symlinks/plugins/flutter_ip/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
@@ -49,6 +52,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
+  flutter_ip:
+    :path: ".symlinks/plugins/flutter_ip/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   image_picker:
@@ -68,6 +73,7 @@ SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_ip: 43d1215a38a40aaea895a7dae9d1c53e50f504b3
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: 50e7c7ff960e5f58faa4d1f4af84a771c671bc4a
