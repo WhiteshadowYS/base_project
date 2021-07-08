@@ -1,8 +1,8 @@
-part of 'i_loader_presenter.dart';
+part of 'i_loader.dart';
 
 class LoaderLayout extends StatelessWidget {
   final Widget child;
-  final ILoaderPresenter loaderPresenter;
+  final ILoader loaderPresenter;
 
   LoaderLayout({required this.child, required this.loaderPresenter});
 

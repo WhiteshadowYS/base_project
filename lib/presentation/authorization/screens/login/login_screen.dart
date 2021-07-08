@@ -1,7 +1,7 @@
-import 'package:base_project/config/app_router.gr.dart';
-import 'package:base_project/config/config.dart';
-import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project/config/config.dart';
+import 'package:base_project/config/app_router.dart';
+import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
       background: theme.accent,
       child: Center(
         child: InkWell(
-          onTap: () => router.push(HomeScreenRoute()),
+          onTap: () => router.replace(BaseScreenRoute()),
           child: Container(
             color: theme.primary,
             height: 100.0,

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:base_project/config/app_router.gr.dart';
 
 import 'i_dialog.dart';
-import 'i_dialog_presenter.dart';
+import 'i_dialog_service.dart';
 
 /// [DialogManager] it is service for control dialogs.
 /// This class it - Singleton, for function using use [DialogManager.instance]
@@ -12,9 +12,9 @@ import 'i_dialog_presenter.dart';
 /// You need send to this function a class extended from [IDialog].
 /// - For close dialog you can use [close] method.
 /// - For checking is dialog opened you can use [_isDisplayed] boolean param.
-class DialogPresenter implements IDialogPresenter {
+class DialogService implements IDialogService {
   final AppRouter _router;
-  DialogPresenter(this._router);
+  DialogService(this._router);
 
   @override
   Logger get logger => Logger('[$runtimeType]');

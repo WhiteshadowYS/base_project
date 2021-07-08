@@ -1,10 +1,10 @@
-import 'package:base_project/common/ui/bottom_bar/i_bottom_bar.dart';
-import 'package:base_project/config/config.dart';
-import 'package:base_project/src/shared/application/bloc/app_bloc.dart';
+import 'package:base_project/config/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:base_project/config/config.dart';
 import 'package:base_project/utils/res/app_data.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:base_project/src/shared/application/bloc/app_bloc.dart';
 
 class Application extends StatefulWidget {
   @override
@@ -39,7 +39,6 @@ class _ApplicationState extends State<Application> {
           supportedLocales: [Locale('en')],
           // supportedLocales: dictionary.supportedLocales,
           // localizationsDelegates: dictionary.getLocalizationDelegates,
-          builder: getIt<IBottomBar>().builder,
         ),
       ),
     );

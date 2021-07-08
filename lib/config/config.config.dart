@@ -7,8 +7,9 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../common/ui/bottom_bar/i_bottom_bar.dart' as _i12;
-import '../common/ui/theme/i_theme_config.dart' as _i13;
+import '../common/ui/dialog/i_dialog_service.dart' as _i12;
+import '../common/ui/loader/i_loader.dart' as _i13;
+import '../common/ui/theme/i_theme_config.dart' as _i14;
 import '../src/authorization/application/bloc/authorization_bloc.dart' as _i11;
 import '../src/authorization/data/auth_service_impl.dart' as _i8;
 import '../src/authorization/domain/authorization_service.dart' as _i7;
@@ -18,8 +19,8 @@ import 'configs/app_config.dart' as _i3;
 import 'configs/dev_config.dart' as _i6;
 import 'configs/prod_config.dart' as _i5;
 import 'configs/stage_config.dart' as _i4;
-import 'modules/platform_modules.dart' as _i14;
-import 'modules/ui_modules.dart' as _i15;
+import 'modules/platform_modules.dart' as _i15;
+import 'modules/ui_modules.dart' as _i16;
 
 const String _stage = 'stage';
 const String _prod = 'prod';
@@ -40,11 +41,12 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.singleton<_i10.AppRouter>(platformModules.router);
   gh.singleton<_i11.AuthorizationBloc>(
       _i11.AuthorizationBloc(get<_i7.AuthService>()));
-  gh.singleton<_i12.IBottomBar>(uIModules.bottomBar);
-  gh.singleton<_i13.IThemeConfig>(uIModules.themeConfig);
+  gh.singleton<_i12.IDialogService>(uIModules.dialogService);
+  gh.singleton<_i13.ILoader>(uIModules.loader);
+  gh.singleton<_i14.IThemeConfig>(uIModules.themeConfig);
   return get;
 }
 
-class _$PlatformModules extends _i14.PlatformModules {}
+class _$PlatformModules extends _i15.PlatformModules {}
 
-class _$UIModules extends _i15.UIModules {}
+class _$UIModules extends _i16.UIModules {}

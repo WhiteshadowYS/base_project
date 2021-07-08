@@ -48,7 +48,7 @@ class DeepLinkService {
     _logger.info('<_doRoute> => $link');
 
     if (link.contains('login')) {
-      return await _router.push(LoginScreenRoute());
+      // return await _router.push(LoginScreenRoute());
     }
   }
 

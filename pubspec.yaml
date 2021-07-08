@@ -13,29 +13,27 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  build: 2.0.0
-
-
   # Helpers
   intl: 0.17.0
   dartx: 0.7.0
   share: 2.0.1
-  logger: 0.9.4
+  logger: 1.0.0
   validators2: 3.0.0
   supercharged: 2.0.0
-  url_launcher: 6.0.2
+  url_launcher: 6.0.7
   device_info_plus: 1.0.0
   websafe_platform: 1.2.0-nullsafety.0
-  cross_connectivity: 3.0.1
+  cross_connectivity: 3.0.3
   flutter_secure_storage: 4.1.0
-  hive: 2.0.2
-  hive_flutter: 1.0.0
-  image_picker: 0.7.4
+  hive: 2.0.4
+  hive_flutter: 1.1.0
+  image_picker: 0.8.0+4
   dotted_border: 2.0.0
   flutter_ip: 0.2.0
 
   # UI
-  google_fonts: 2.0.0
+  pretty_dio_logger: 1.2.0-beta-1
+  google_fonts: 2.1.0
   cupertino_icons: 1.0.2
   carousel_slider: 4.0.0-nullsafety.0
   flutter_svg: 0.21.0-nullsafety.0
@@ -44,42 +42,37 @@ dependencies:
   flutter_rating_bar: 4.0.0
 
   # Http & Generation
-  get_it: 6.0.0
-  injectable: 1.2.2
-  retrofit: 2.0.0-beta1
-  auto_route: 1.0.2
-  pretty_dio_logger: 1.2.0-beta-1
-  json_annotation: 4.0.1
-  freezed_annotation: 0.14.1
   dio: 4.0.0
+  get_it: 7.1.3
+  injectable: 1.4.1
+  retrofit: 2.0.0
+  auto_route: 2.2.0
+  json_annotation: 4.0.1
+
   uni_links2: 0.6.0+2
 
   # Architecture
-  flutter_bloc: 7.0.0
-  rxdart: 0.26.0
-  # Firebase
-  # firebase_core: 0.5.0+1
-  # firebase_messaging: 7.0.3
-  # firebase_database: 4.1.1
+  flutter_bloc: 7.0.1
+  rxdart: 0.27.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  retrofit_generator: 2.0.0-beta3
-  injectable_generator: 1.2.2
+  build_runner: 2.0.4
+  hive_generator: 1.1.0
+  json_serializable: 4.1.3
+  freezed_annotation: 0.14.2
+  auto_route_generator: 2.1.0
+  retrofit_generator: 2.0.0+1
+  injectable_generator: 1.4.1
   flutter_launcher_icons: 0.9.0
-  build_runner: 1.12.0
-  freezed: 0.14.1+2
-  json_serializable: 4.1.0
-  auto_route_generator: 1.0.2
-  hive_generator: 1.0.1
-
-dependency_overrides:
-  build_runner: 1.12.2
-  json_serializable: 4.1.0
-  analyzer: 1.3.0
-  source_gen: 1.0.0
-  dart_style: 2.0.0
+  
+# dependency_overrides:
+#   build_runner: 1.12.2
+#   json_serializable: 4.1.0
+#   analyzer: 1.3.0
+#   source_gen: 1.0.0
+#   dart_style: 2.0.0
 
 flutter_icons:
   android: true

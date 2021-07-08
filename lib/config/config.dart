@@ -7,7 +7,6 @@ import 'package:base_project/config/configs/app_config.dart';
 
 late final GetIt getIt;
 // IDictionary<Language> dictionary = getIt<IDictionary<Language>>();
-AppRouter get router => getIt<AppRouter>();
 IThemeConfig get theme => getIt<IThemeConfig>();
 
 @injectableInit

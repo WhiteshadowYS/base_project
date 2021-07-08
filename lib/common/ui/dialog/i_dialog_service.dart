@@ -1,7 +1,7 @@
 import 'i_dialog.dart';
 import 'package:logging/logging.dart';
 
-abstract class IDialogPresenter {
+abstract class IDialogService {
   Logger get logger => Logger('[$runtimeType]');
 
   bool get isDisplayed;

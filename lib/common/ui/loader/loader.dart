@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import 'i_loader_presenter.dart';
+import 'i_loader.dart';
 
-class LoaderPresenter implements ILoaderPresenter {
+class Loader implements ILoader {
   final Widget loader;
 
-  LoaderPresenter({required this.loader});
+  Loader({required this.loader});
 
   final ValueNotifier<bool> _loaderNotifier = ValueNotifier<bool>(false);
 
