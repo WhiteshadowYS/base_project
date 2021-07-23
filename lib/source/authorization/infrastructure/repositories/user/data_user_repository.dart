@@ -11,7 +11,7 @@ import 'package:base_project/source/authorization/domain/services/sign_up_servic
 import 'package:base_project/source/authorization/domain/services/user_service.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: UserRepository)
+@Injectable(as: UserRepository, env: ['test', 'dev', 'stage', 'prod'])
 class DataUserRepository implements UserRepository {
   final UserService _userService;
   final SignInService _signInService;

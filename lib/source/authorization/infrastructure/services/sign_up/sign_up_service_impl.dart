@@ -3,7 +3,7 @@ import 'package:base_project/source/authorization/domain/contracts/sign_up_contr
 import 'package:base_project/source/authorization/domain/services/sign_up_service.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: SignUpService)
+@LazySingleton(as: SignUpService, env: ['dev', 'stage', 'prod'])
 class SignUpServiceImpl implements SignUpService {
   @override
   Future<User> signUp(SignUpContract contract) => contract.execute();

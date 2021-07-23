@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:base_project/source/authorization/domain/repositories/users_repository.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: UsersRepository)
+@LazySingleton(as: UsersRepository, env: ['test', 'dev', 'stage', 'prod'])
 class DataUsersRepository implements UsersRepository {
   final List<User> _users = [];
 
