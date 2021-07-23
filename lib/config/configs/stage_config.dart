@@ -2,7 +2,9 @@ import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project/config/configs/app_config.dart';
 
-@Environment('stage')
+const stage = Environment('stage');
+
+@stage
 @Injectable(as: AppConfig)
 class StageConfig extends AppConfig {
   @override

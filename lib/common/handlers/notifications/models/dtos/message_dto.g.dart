@@ -7,13 +7,16 @@ part of 'message_dto.dart';
 // **************************************************************************
 
 _$_MessageDto _$_$_MessageDtoFromJson(Map<String, dynamic> json) {
-  return _$_MessageDto(
-    json['id'] as String?,
-    json['title'] as String?,
-    json['body'] as String?,
-    json['image'] as String?,
-    json['type'] as String?,
-  );
+  return $checkedNew(r'_$_MessageDto', json, () {
+    final val = _$_MessageDto(
+      $checkedConvert(json, 'id', (v) => v as String?),
+      $checkedConvert(json, 'title', (v) => v as String?),
+      $checkedConvert(json, 'body', (v) => v as String?),
+      $checkedConvert(json, 'image', (v) => v as String?),
+      $checkedConvert(json, 'type', (v) => v as String?),
+    );
+    return val;
+  });
 }
 
 Map<String, dynamic> _$_$_MessageDtoToJson(_$_MessageDto instance) =>

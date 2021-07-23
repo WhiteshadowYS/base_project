@@ -2,7 +2,9 @@ import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project/config/configs/app_config.dart';
 
-@Environment('prod')
+const prod = Environment('prod');
+
+@prod
 @Injectable(as: AppConfig)
 class ProdConfig extends AppConfig {
   @override

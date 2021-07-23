@@ -2,7 +2,9 @@ import 'package:logging/logging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_project/config/configs/app_config.dart';
 
-@Environment('dev')
+const dev = Environment('dev');
+
+@dev
 @Injectable(as: AppConfig)
 class DevConfig extends AppConfig {
   @override
@@ -17,7 +19,6 @@ class DevConfig extends AppConfig {
   @override
   int get pagination => 10;
 
-  @override
   @override
   Future<void> initLogger() async {
     Logger.root.level = Level.ALL;

@@ -156,9 +156,8 @@ class __$MessageDtoCopyWithImpl<$Res> extends _$MessageDtoCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_MessageDto implements _MessageDto {
   _$_MessageDto(this.id, this.title, this.body, this.image, this.type);
 

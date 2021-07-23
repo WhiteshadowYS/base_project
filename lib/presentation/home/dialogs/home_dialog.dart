@@ -1,11 +1,8 @@
-import 'package:base_project/common/ui/dialog/dialog_builders.dart';
-import 'package:base_project/common/ui/dialog/dialog_layout.dart';
-import 'package:base_project/common/ui/dialog/i_dialog.dart';
-import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project/common/ui/dialog/i_dialog.dart';
+import 'package:base_project/common/ui/dialog/dialog_layout.dart';
 
 class HomeDialog extends IDialog {
-  HomeDialog() : super(builder: DialogBuilders.modalBottomSheetBuilder);
   @override
   _HomeDialogState createState() => _HomeDialogState();
 }
