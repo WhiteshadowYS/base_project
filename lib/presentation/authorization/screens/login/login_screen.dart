@@ -1,16 +1,15 @@
+import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project/config/config.dart';
+import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
+import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/email_sign_in_contract.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/google_sign_in_contract.dart';
-import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
-import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
-import 'package:base_project/source/authorization/domain/contracts/sign_in_contract.dart';
-import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   AuthorizationBloc get _authBloc => getIt<AuthorizationBloc>();
-  final GoogleSignInContract _googleSignInContract = GoogleSignInContract();
-  final EmailSignInContract _emailSignInContract = EmailSignInContract(EmailSignInDto.mock());
+  final GoogleSignInContract _googleSignInContract = getIt<GoogleSignInContract>();
+  final EmailSignInContract _emailSignInContract = getIt<EmailSignInContract>()..data = EmailSignInDto.mock();
 
   @override
   Widget build(BuildContext context) {

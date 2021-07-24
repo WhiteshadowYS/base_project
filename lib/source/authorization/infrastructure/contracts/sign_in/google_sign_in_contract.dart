@@ -1,7 +1,9 @@
 import 'package:base_project/source/authorization/domain/entities/user.dart';
 import 'package:base_project/source/authorization/domain/contracts/sign_in_contract.dart';
 import 'package:base_project/utils/data_print.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class GoogleSignInContract implements SignInContract {
   @override
   Future<User> execute() async {

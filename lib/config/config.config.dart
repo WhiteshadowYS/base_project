@@ -4,51 +4,67 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+import 'package:dio/dio.dart' as _i9;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../common/ui/dialog/i_dialog_service.dart' as _i26;
-import '../common/ui/loader/i_loader.dart' as _i27;
-import '../common/ui/theme/i_theme_config.dart' as _i28;
+import '../common/ui/dialog/i_dialog_service.dart' as _i36;
+import '../common/ui/loader/i_loader.dart' as _i37;
+import '../common/ui/theme/i_theme_config.dart' as _i38;
 import '../source/authorization/application/bloc/authorization_bloc.dart'
-    as _i29;
+    as _i39;
 import '../source/authorization/domain/repositories/user_repository.dart'
-    as _i22;
+    as _i30;
 import '../source/authorization/domain/repositories/users_repository.dart'
-    as _i20;
-import '../source/authorization/domain/services/sign_in_service.dart' as _i8;
-import '../source/authorization/domain/services/sign_out_service.dart' as _i11;
-import '../source/authorization/domain/services/sign_up_service.dart' as _i14;
-import '../source/authorization/domain/services/user_service.dart' as _i17;
-import '../source/authorization/infrastructure/repositories/user/data_user_repository.dart'
-    as _i23;
-import '../source/authorization/infrastructure/repositories/users/data_users_repository.dart'
-    as _i21;
-import '../source/authorization/infrastructure/services/sign_in/sign_in_service_impl.dart'
+    as _i25;
+import '../source/authorization/domain/services/sign_in_service.dart' as _i12;
+import '../source/authorization/domain/services/sign_out_service.dart' as _i15;
+import '../source/authorization/domain/services/sign_up_service.dart' as _i18;
+import '../source/authorization/domain/services/user_service.dart' as _i22;
+import '../source/authorization/infrastructure/api/sign_in_api.dart' as _i27;
+import '../source/authorization/infrastructure/api/sign_out_api.dart' as _i28;
+import '../source/authorization/infrastructure/api/sign_up_api.dart' as _i29;
+import '../source/authorization/infrastructure/api/user_api.dart' as _i21;
+import '../source/authorization/infrastructure/contracts/sign_in/email_sign_in_contract.dart'
+    as _i32;
+import '../source/authorization/infrastructure/contracts/sign_in/google_sign_in_contract.dart'
     as _i10;
+import '../source/authorization/infrastructure/contracts/sign_out/sign_out_contract.dart'
+    as _i8;
+import '../source/authorization/infrastructure/contracts/sign_up/email_sign_up_contract.dart'
+    as _i33;
+import '../source/authorization/infrastructure/contracts/sign_up/google_sign_up_contract.dart'
+    as _i11;
+import '../source/authorization/infrastructure/repositories/user/data_user_repository.dart'
+    as _i31;
+import '../source/authorization/infrastructure/repositories/users/data_users_repository.dart'
+    as _i26;
+import '../source/authorization/infrastructure/services/sign_in/sign_in_service_impl.dart'
+    as _i14;
 import '../source/authorization/infrastructure/services/sign_in/sign_in_service_mock.dart'
-    as _i9;
-import '../source/authorization/infrastructure/services/sign_out/sign_out_service_impl.dart'
-    as _i12;
-import '../source/authorization/infrastructure/services/sign_out/sign_out_service_mock.dart'
     as _i13;
-import '../source/authorization/infrastructure/services/sign_up/sign_up_service_impl.dart'
-    as _i15;
-import '../source/authorization/infrastructure/services/sign_up/sign_up_service_mock.dart'
+import '../source/authorization/infrastructure/services/sign_out/sign_out_service_impl.dart'
     as _i16;
-import '../source/authorization/infrastructure/services/user/user_service_impl.dart'
-    as _i18;
-import '../source/authorization/infrastructure/services/user/user_service_mock.dart'
+import '../source/authorization/infrastructure/services/sign_out/sign_out_service_mock.dart'
+    as _i17;
+import '../source/authorization/infrastructure/services/sign_up/sign_up_service_impl.dart'
     as _i19;
-import 'app_router.gr.dart' as _i25;
-import 'application/bloc/app_bloc.dart' as _i24;
+import '../source/authorization/infrastructure/services/sign_up/sign_up_service_mock.dart'
+    as _i20;
+import '../source/authorization/infrastructure/services/user/user_service_impl.dart'
+    as _i23;
+import '../source/authorization/infrastructure/services/user/user_service_mock.dart'
+    as _i24;
+import 'app_router.gr.dart' as _i35;
+import 'application/bloc/app_bloc.dart' as _i34;
 import 'configs/app_config.dart' as _i3;
 import 'configs/dev_config.dart' as _i6;
 import 'configs/prod_config.dart' as _i5;
 import 'configs/stage_config.dart' as _i4;
 import 'configs/test_config.dart' as _i7;
-import 'modules/platform_modules.dart' as _i30;
-import 'modules/ui_modules.dart' as _i31;
+import 'modules/network_modules.dart' as _i41;
+import 'modules/platform_modules.dart' as _i40;
+import 'modules/ui_modules.dart' as _i42;
 
 const String _stage = 'stage';
 const String _prod = 'prod';
@@ -61,46 +77,75 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final platformModules = _$PlatformModules();
+  final networkModules = _$NetworkModules();
   final uIModules = _$UIModules();
   gh.factory<_i3.AppConfig>(() => _i4.StageConfig(), registerFor: {_stage});
   gh.factory<_i3.AppConfig>(() => _i5.ProdConfig(), registerFor: {_prod});
   gh.factory<_i3.AppConfig>(() => _i6.DevConfig(), registerFor: {_dev});
   gh.factory<_i3.AppConfig>(() => _i7.TestConfig(), registerFor: {_test});
-  gh.lazySingleton<_i8.SignInService>(() => _i9.SignInServiceMock(),
+  gh.factory<_i8.DefaultSignOutContract>(() => _i8.DefaultSignOutContract());
+  gh.factory<_i9.Dio>(
+      () => networkModules.provideAuthorizedDio(get<_i3.AppConfig>()),
+      instanceName: 'authorized');
+  gh.factory<_i9.Dio>(
+      () => networkModules.provideUnAuthorizedDio(get<_i3.AppConfig>()),
+      instanceName: 'unauthorized');
+  gh.factory<_i10.GoogleSignInContract>(() => _i10.GoogleSignInContract());
+  gh.factory<_i11.GoogleSignUpContract>(() => _i11.GoogleSignUpContract());
+  gh.lazySingleton<_i12.SignInService>(() => _i13.SignInServiceMock(),
       registerFor: {_test});
-  gh.lazySingleton<_i8.SignInService>(() => _i10.SignInServiceImpl(),
+  gh.lazySingleton<_i12.SignInService>(() => _i14.SignInServiceImpl(),
       registerFor: {_dev, _stage, _prod});
-  gh.lazySingleton<_i11.SignOutService>(() => _i12.SignOutServiceImpl(),
+  gh.lazySingleton<_i15.SignOutService>(() => _i16.SignOutServiceImpl(),
       registerFor: {_dev, _stage, _prod});
-  gh.lazySingleton<_i11.SignOutService>(() => _i13.SignOutServiceMock(),
+  gh.lazySingleton<_i15.SignOutService>(() => _i17.SignOutServiceMock(),
       registerFor: {_test});
-  gh.lazySingleton<_i14.SignUpService>(() => _i15.SignUpServiceImpl(),
+  gh.lazySingleton<_i18.SignUpService>(() => _i19.SignUpServiceImpl(),
       registerFor: {_dev, _stage, _prod});
-  gh.lazySingleton<_i14.SignUpService>(() => _i16.SignUpServiceMock(),
+  gh.lazySingleton<_i18.SignUpService>(() => _i20.SignUpServiceMock(),
       registerFor: {_test});
-  gh.lazySingleton<_i17.UserService>(() => _i18.UserServiceImpl(),
+  gh.factory<String>(() => networkModules.baseUrl, instanceName: 'base_url');
+  gh.lazySingleton<_i21.UserApi>(() => _i21.UserApi(
+      get<_i9.Dio>(instanceName: 'authorized'),
+      baseUrl: get<String>(instanceName: 'base_url')));
+  gh.lazySingleton<_i22.UserService>(() => _i23.UserServiceImpl(),
       registerFor: {_dev, _stage, _prod});
-  gh.lazySingleton<_i17.UserService>(() => _i19.UserServiceMock(),
+  gh.lazySingleton<_i22.UserService>(() => _i24.UserServiceMock(),
       registerFor: {_test});
-  gh.lazySingleton<_i20.UsersRepository>(() => _i21.DataUsersRepository(),
+  gh.lazySingleton<_i25.UsersRepository>(() => _i26.DataUsersRepository(),
       registerFor: {_test, _dev, _stage, _prod});
-  gh.factory<_i22.UserRepository>(
-      () => _i23.DataUserRepository(
-          get<_i17.UserService>(),
-          get<_i8.SignInService>(),
-          get<_i11.SignOutService>(),
-          get<_i14.SignUpService>()),
+  gh.lazySingleton<_i27.SignInApi>(() => _i27.SignInApi(
+      get<_i9.Dio>(instanceName: 'unauthorized'),
+      baseUrl: get<String>(instanceName: 'base_url')));
+  gh.lazySingleton<_i28.SignOutApi>(() => _i28.SignOutApi(
+      get<_i9.Dio>(instanceName: 'authorized'),
+      baseUrl: get<String>(instanceName: 'base_url')));
+  gh.lazySingleton<_i29.SignUpApi>(() => _i29.SignUpApi(
+      get<_i9.Dio>(instanceName: 'unauthorized'),
+      baseUrl: get<String>(instanceName: 'base_url')));
+  gh.factory<_i30.UserRepository>(
+      () => _i31.DataUserRepository(
+          get<_i22.UserService>(),
+          get<_i12.SignInService>(),
+          get<_i15.SignOutService>(),
+          get<_i18.SignUpService>()),
       registerFor: {_test, _dev, _stage, _prod});
-  gh.singleton<_i24.AppBloc>(_i24.AppBloc());
-  gh.singleton<_i25.AppRouter>(platformModules.router);
-  gh.singleton<_i26.IDialogService>(uIModules.dialogService);
-  gh.singleton<_i27.ILoader>(uIModules.loader);
-  gh.singleton<_i28.IThemeConfig>(uIModules.themeConfig);
-  gh.singleton<_i29.AuthorizationBloc>(_i29.AuthorizationBloc(
-      get<_i22.UserRepository>(), get<_i20.UsersRepository>()));
+  gh.factory<_i32.EmailSignInContract>(
+      () => _i32.EmailSignInContract(get<_i27.SignInApi>()));
+  gh.factory<_i33.EmailSignUpContract>(
+      () => _i33.EmailSignUpContract(get<_i29.SignUpApi>()));
+  gh.singleton<_i34.AppBloc>(_i34.AppBloc());
+  gh.singleton<_i35.AppRouter>(platformModules.router);
+  gh.singleton<_i36.IDialogService>(uIModules.dialogService);
+  gh.singleton<_i37.ILoader>(uIModules.loader);
+  gh.singleton<_i38.IThemeConfig>(uIModules.themeConfig);
+  gh.singleton<_i39.AuthorizationBloc>(_i39.AuthorizationBloc(
+      get<_i30.UserRepository>(), get<_i25.UsersRepository>()));
   return get;
 }
 
-class _$PlatformModules extends _i30.PlatformModules {}
+class _$PlatformModules extends _i40.PlatformModules {}
 
-class _$UIModules extends _i31.UIModules {}
+class _$NetworkModules extends _i41.NetworkModules {}
+
+class _$UIModules extends _i42.UIModules {}
