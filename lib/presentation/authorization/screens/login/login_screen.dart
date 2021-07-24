@@ -1,18 +1,19 @@
+import 'package:base_project/presentation/authorization/screens/login/login_screen_presentor.dart';
+import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
+import 'package:base_project/utils/base_elements/base_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project/config/config.dart';
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
-import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
-import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/email_sign_in_contract.dart';
-import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/google_sign_in_contract.dart';
+import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
 
 class LoginScreen extends StatelessWidget {
-  AuthorizationBloc get _authBloc => getIt<AuthorizationBloc>();
-  final GoogleSignInContract _googleSignInContract = getIt<GoogleSignInContract>();
-  final EmailSignInContract _emailSignInContract = getIt<EmailSignInContract>()..data = EmailSignInDto.mock();
+  LoginScreenVM get _vm => getIt<LoginScreenVM>();
+  LoginScreenPresenter get _presenter => getIt<LoginScreenPresenter>();
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     return MainLayout(
       background: theme.accent,
       child: SizedBox(
@@ -21,13 +22,22 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _button(
-              text: 'Email Sign In',
-              onTap: () => _authBloc.add(AuthorizationEvent.signIn(_emailSignInContract)),
+              text: _presenter.emailSignInButtonText,
+              onTap: () => _vm.signInWithEmail(EmailSignInDto.mock()),
             ),
             const SizedBox(height: 40.0),
             _button(
-              text: 'Google Sign In',
-              onTap: () => _authBloc.add(AuthorizationEvent.signIn(_googleSignInContract)),
+              text: _presenter.googleSignInButtonText,
+              onTap: _vm.signInWithGoogle,
+            ),
+            const SizedBox(height: 40.0),
+            BaseBuilder<AuthorizationBloc>(
+              builder: (ctx) {
+                return _button(
+                  text: 'counter: ${_presenter.counter}',
+                  onTap: () => _vm.incrementCounter(),
+                );
+              },
             ),
           ],
         ),

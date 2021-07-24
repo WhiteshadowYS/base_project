@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:base_project/config/application/bloc/events/init_app_event.dart';
-import 'package:base_project/utils/base_elements/base_event.dart';
+import 'package:base_project/config/application/bloc/use_cases/init_app_use_case.dart';
 import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:base_project/utils/base_elements/base_event.dart';
 
 part 'app_event.dart';
 part 'app_state.dart';
@@ -18,6 +18,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   Stream<AppState> mapEventToState(
     AppEvent event,
   ) async* {
-    yield* event.action(this);
+    yield* event.execute(this);
   }
 }

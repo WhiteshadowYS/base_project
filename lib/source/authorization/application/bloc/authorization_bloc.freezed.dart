@@ -33,6 +33,10 @@ class _$AuthorizationEventTearOff {
       contract,
     );
   }
+
+  _IncrementEvent increment() {
+    return const _IncrementEvent();
+  }
 }
 
 /// @nodoc
@@ -45,6 +49,7 @@ mixin _$AuthorizationEvent {
     required TResult Function(SignInContract contract) signIn,
     required TResult Function(SignUpContract contract) signUp,
     required TResult Function(SignOutContract contract) signOut,
+    required TResult Function() increment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +57,7 @@ mixin _$AuthorizationEvent {
     TResult Function(SignInContract contract)? signIn,
     TResult Function(SignUpContract contract)? signUp,
     TResult Function(SignOutContract contract)? signOut,
+    TResult Function()? increment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +66,7 @@ mixin _$AuthorizationEvent {
     required TResult Function(_SignInEvent value) signIn,
     required TResult Function(_SignUpEvent value) signUp,
     required TResult Function(_SignOutEvent value) signOut,
+    required TResult Function(_IncrementEvent value) increment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +74,7 @@ mixin _$AuthorizationEvent {
     TResult Function(_SignInEvent value)? signIn,
     TResult Function(_SignUpEvent value)? signUp,
     TResult Function(_SignOutEvent value)? signOut,
+    TResult Function(_IncrementEvent value)? increment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,8 +131,8 @@ class __$SignInEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-@With(SignInEvent)
-class _$_SignInEvent with SignInEvent implements _SignInEvent {
+@With(SignInUseCase)
+class _$_SignInEvent with SignInUseCase implements _SignInEvent {
   const _$_SignInEvent(this.contract);
 
   @override
@@ -159,6 +167,7 @@ class _$_SignInEvent with SignInEvent implements _SignInEvent {
     required TResult Function(SignInContract contract) signIn,
     required TResult Function(SignUpContract contract) signUp,
     required TResult Function(SignOutContract contract) signOut,
+    required TResult Function() increment,
   }) {
     return signIn(contract);
   }
@@ -169,6 +178,7 @@ class _$_SignInEvent with SignInEvent implements _SignInEvent {
     TResult Function(SignInContract contract)? signIn,
     TResult Function(SignUpContract contract)? signUp,
     TResult Function(SignOutContract contract)? signOut,
+    TResult Function()? increment,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -183,6 +193,7 @@ class _$_SignInEvent with SignInEvent implements _SignInEvent {
     required TResult Function(_SignInEvent value) signIn,
     required TResult Function(_SignUpEvent value) signUp,
     required TResult Function(_SignOutEvent value) signOut,
+    required TResult Function(_IncrementEvent value) increment,
   }) {
     return signIn(this);
   }
@@ -193,6 +204,7 @@ class _$_SignInEvent with SignInEvent implements _SignInEvent {
     TResult Function(_SignInEvent value)? signIn,
     TResult Function(_SignUpEvent value)? signUp,
     TResult Function(_SignOutEvent value)? signOut,
+    TResult Function(_IncrementEvent value)? increment,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -202,7 +214,7 @@ class _$_SignInEvent with SignInEvent implements _SignInEvent {
   }
 }
 
-abstract class _SignInEvent implements AuthorizationEvent, SignInEvent {
+abstract class _SignInEvent implements AuthorizationEvent, SignInUseCase {
   const factory _SignInEvent(SignInContract contract) = _$_SignInEvent;
 
   SignInContract get contract => throw _privateConstructorUsedError;
@@ -245,8 +257,8 @@ class __$SignUpEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-@With(SignUpEvent)
-class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
+@With(SignUpUseCase)
+class _$_SignUpEvent with SignUpUseCase implements _SignUpEvent {
   const _$_SignUpEvent(this.contract);
 
   @override
@@ -281,6 +293,7 @@ class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
     required TResult Function(SignInContract contract) signIn,
     required TResult Function(SignUpContract contract) signUp,
     required TResult Function(SignOutContract contract) signOut,
+    required TResult Function() increment,
   }) {
     return signUp(contract);
   }
@@ -291,6 +304,7 @@ class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
     TResult Function(SignInContract contract)? signIn,
     TResult Function(SignUpContract contract)? signUp,
     TResult Function(SignOutContract contract)? signOut,
+    TResult Function()? increment,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -305,6 +319,7 @@ class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
     required TResult Function(_SignInEvent value) signIn,
     required TResult Function(_SignUpEvent value) signUp,
     required TResult Function(_SignOutEvent value) signOut,
+    required TResult Function(_IncrementEvent value) increment,
   }) {
     return signUp(this);
   }
@@ -315,6 +330,7 @@ class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
     TResult Function(_SignInEvent value)? signIn,
     TResult Function(_SignUpEvent value)? signUp,
     TResult Function(_SignOutEvent value)? signOut,
+    TResult Function(_IncrementEvent value)? increment,
     required TResult orElse(),
   }) {
     if (signUp != null) {
@@ -324,7 +340,7 @@ class _$_SignUpEvent with SignUpEvent implements _SignUpEvent {
   }
 }
 
-abstract class _SignUpEvent implements AuthorizationEvent, SignUpEvent {
+abstract class _SignUpEvent implements AuthorizationEvent, SignUpUseCase {
   const factory _SignUpEvent(SignUpContract contract) = _$_SignUpEvent;
 
   SignUpContract get contract => throw _privateConstructorUsedError;
@@ -367,8 +383,8 @@ class __$SignOutEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-@With(SignOutEvent)
-class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
+@With(SignOutUseCase)
+class _$_SignOutEvent with SignOutUseCase implements _SignOutEvent {
   const _$_SignOutEvent(this.contract);
 
   @override
@@ -403,6 +419,7 @@ class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
     required TResult Function(SignInContract contract) signIn,
     required TResult Function(SignUpContract contract) signUp,
     required TResult Function(SignOutContract contract) signOut,
+    required TResult Function() increment,
   }) {
     return signOut(contract);
   }
@@ -413,6 +430,7 @@ class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
     TResult Function(SignInContract contract)? signIn,
     TResult Function(SignUpContract contract)? signUp,
     TResult Function(SignOutContract contract)? signOut,
+    TResult Function()? increment,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -427,6 +445,7 @@ class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
     required TResult Function(_SignInEvent value) signIn,
     required TResult Function(_SignUpEvent value) signUp,
     required TResult Function(_SignOutEvent value) signOut,
+    required TResult Function(_IncrementEvent value) increment,
   }) {
     return signOut(this);
   }
@@ -437,6 +456,7 @@ class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
     TResult Function(_SignInEvent value)? signIn,
     TResult Function(_SignUpEvent value)? signUp,
     TResult Function(_SignOutEvent value)? signOut,
+    TResult Function(_IncrementEvent value)? increment,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -446,7 +466,7 @@ class _$_SignOutEvent with SignOutEvent implements _SignOutEvent {
   }
 }
 
-abstract class _SignOutEvent implements AuthorizationEvent, SignOutEvent {
+abstract class _SignOutEvent implements AuthorizationEvent, SignOutUseCase {
   const factory _SignOutEvent(SignOutContract contract) = _$_SignOutEvent;
 
   SignOutContract get contract => throw _privateConstructorUsedError;
@@ -456,12 +476,108 @@ abstract class _SignOutEvent implements AuthorizationEvent, SignOutEvent {
 }
 
 /// @nodoc
+abstract class _$IncrementEventCopyWith<$Res> {
+  factory _$IncrementEventCopyWith(
+          _IncrementEvent value, $Res Function(_IncrementEvent) then) =
+      __$IncrementEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IncrementEventCopyWithImpl<$Res>
+    extends _$AuthorizationEventCopyWithImpl<$Res>
+    implements _$IncrementEventCopyWith<$Res> {
+  __$IncrementEventCopyWithImpl(
+      _IncrementEvent _value, $Res Function(_IncrementEvent) _then)
+      : super(_value, (v) => _then(v as _IncrementEvent));
+
+  @override
+  _IncrementEvent get _value => super._value as _IncrementEvent;
+}
+
+/// @nodoc
+
+@With(IncrementUseCase)
+class _$_IncrementEvent with IncrementUseCase implements _IncrementEvent {
+  const _$_IncrementEvent();
+
+  @override
+  String toString() {
+    return 'AuthorizationEvent.increment()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IncrementEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SignInContract contract) signIn,
+    required TResult Function(SignUpContract contract) signUp,
+    required TResult Function(SignOutContract contract) signOut,
+    required TResult Function() increment,
+  }) {
+    return increment();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SignInContract contract)? signIn,
+    TResult Function(SignUpContract contract)? signUp,
+    TResult Function(SignOutContract contract)? signOut,
+    TResult Function()? increment,
+    required TResult orElse(),
+  }) {
+    if (increment != null) {
+      return increment();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignInEvent value) signIn,
+    required TResult Function(_SignUpEvent value) signUp,
+    required TResult Function(_SignOutEvent value) signOut,
+    required TResult Function(_IncrementEvent value) increment,
+  }) {
+    return increment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignInEvent value)? signIn,
+    TResult Function(_SignUpEvent value)? signUp,
+    TResult Function(_SignOutEvent value)? signOut,
+    TResult Function(_IncrementEvent value)? increment,
+    required TResult orElse(),
+  }) {
+    if (increment != null) {
+      return increment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IncrementEvent implements AuthorizationEvent, IncrementUseCase {
+  const factory _IncrementEvent() = _$_IncrementEvent;
+}
+
+/// @nodoc
 class _$AuthorizationStateTearOff {
   const _$AuthorizationStateTearOff();
 
   _AuthorizationState call(
-      {UserRepository? user, UsersRepository? savedUsers}) {
+      {int? counter, UserRepository? user, UsersRepository? savedUsers}) {
     return _AuthorizationState(
+      counter: counter,
       user: user,
       savedUsers: savedUsers,
     );
@@ -473,6 +589,7 @@ const $AuthorizationState = _$AuthorizationStateTearOff();
 
 /// @nodoc
 mixin _$AuthorizationState {
+  int? get counter => throw _privateConstructorUsedError;
   UserRepository? get user => throw _privateConstructorUsedError;
   UsersRepository? get savedUsers => throw _privateConstructorUsedError;
 
@@ -486,7 +603,7 @@ abstract class $AuthorizationStateCopyWith<$Res> {
   factory $AuthorizationStateCopyWith(
           AuthorizationState value, $Res Function(AuthorizationState) then) =
       _$AuthorizationStateCopyWithImpl<$Res>;
-  $Res call({UserRepository? user, UsersRepository? savedUsers});
+  $Res call({int? counter, UserRepository? user, UsersRepository? savedUsers});
 }
 
 /// @nodoc
@@ -500,10 +617,15 @@ class _$AuthorizationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? counter = freezed,
     Object? user = freezed,
     Object? savedUsers = freezed,
   }) {
     return _then(_value.copyWith(
+      counter: counter == freezed
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -523,7 +645,7 @@ abstract class _$AuthorizationStateCopyWith<$Res>
           _AuthorizationState value, $Res Function(_AuthorizationState) then) =
       __$AuthorizationStateCopyWithImpl<$Res>;
   @override
-  $Res call({UserRepository? user, UsersRepository? savedUsers});
+  $Res call({int? counter, UserRepository? user, UsersRepository? savedUsers});
 }
 
 /// @nodoc
@@ -539,10 +661,15 @@ class __$AuthorizationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? counter = freezed,
     Object? user = freezed,
     Object? savedUsers = freezed,
   }) {
     return _then(_AuthorizationState(
+      counter: counter == freezed
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -558,8 +685,11 @@ class __$AuthorizationStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AuthorizationState extends _AuthorizationState {
-  const _$_AuthorizationState({this.user, this.savedUsers}) : super._();
+  const _$_AuthorizationState({this.counter, this.user, this.savedUsers})
+      : super._();
 
+  @override
+  final int? counter;
   @override
   final UserRepository? user;
   @override
@@ -567,13 +697,16 @@ class _$_AuthorizationState extends _AuthorizationState {
 
   @override
   String toString() {
-    return 'AuthorizationState(user: $user, savedUsers: $savedUsers)';
+    return 'AuthorizationState(counter: $counter, user: $user, savedUsers: $savedUsers)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AuthorizationState &&
+            (identical(other.counter, counter) ||
+                const DeepCollectionEquality()
+                    .equals(other.counter, counter)) &&
             (identical(other.user, user) ||
                 const DeepCollectionEquality().equals(other.user, user)) &&
             (identical(other.savedUsers, savedUsers) ||
@@ -584,6 +717,7 @@ class _$_AuthorizationState extends _AuthorizationState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(counter) ^
       const DeepCollectionEquality().hash(user) ^
       const DeepCollectionEquality().hash(savedUsers);
 
@@ -595,10 +729,13 @@ class _$_AuthorizationState extends _AuthorizationState {
 
 abstract class _AuthorizationState extends AuthorizationState {
   const factory _AuthorizationState(
-      {UserRepository? user,
+      {int? counter,
+      UserRepository? user,
       UsersRepository? savedUsers}) = _$_AuthorizationState;
   const _AuthorizationState._() : super._();
 
+  @override
+  int? get counter => throw _privateConstructorUsedError;
   @override
   UserRepository? get user => throw _privateConstructorUsedError;
   @override

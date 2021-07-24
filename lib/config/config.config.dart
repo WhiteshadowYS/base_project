@@ -8,11 +8,15 @@ import 'package:dio/dio.dart' as _i9;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../common/ui/dialog/i_dialog_service.dart' as _i36;
-import '../common/ui/loader/i_loader.dart' as _i37;
-import '../common/ui/theme/i_theme_config.dart' as _i38;
+import '../common/ui/dialog/i_dialog_service.dart' as _i39;
+import '../common/ui/loader/i_loader.dart' as _i40;
+import '../common/ui/theme/i_theme_config.dart' as _i41;
+import '../presentation/authorization/screens/login/login_screen_presentor.dart'
+    as _i36;
+import '../presentation/authorization/screens/login/login_screen_vm.dart'
+    as _i34;
 import '../source/authorization/application/bloc/authorization_bloc.dart'
-    as _i39;
+    as _i35;
 import '../source/authorization/domain/repositories/user_repository.dart'
     as _i30;
 import '../source/authorization/domain/repositories/users_repository.dart'
@@ -55,16 +59,16 @@ import '../source/authorization/infrastructure/services/user/user_service_impl.d
     as _i23;
 import '../source/authorization/infrastructure/services/user/user_service_mock.dart'
     as _i24;
-import 'app_router.gr.dart' as _i35;
-import 'application/bloc/app_bloc.dart' as _i34;
+import 'app_router.gr.dart' as _i38;
+import 'application/bloc/app_bloc.dart' as _i37;
 import 'configs/app_config.dart' as _i3;
 import 'configs/dev_config.dart' as _i6;
 import 'configs/prod_config.dart' as _i5;
 import 'configs/stage_config.dart' as _i4;
 import 'configs/test_config.dart' as _i7;
-import 'modules/network_modules.dart' as _i41;
-import 'modules/platform_modules.dart' as _i40;
-import 'modules/ui_modules.dart' as _i42;
+import 'modules/network_modules.dart' as _i43;
+import 'modules/platform_modules.dart' as _i42;
+import 'modules/ui_modules.dart' as _i44;
 
 const String _stage = 'stage';
 const String _prod = 'prod';
@@ -134,18 +138,24 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i32.EmailSignInContract(get<_i27.SignInApi>()));
   gh.factory<_i33.EmailSignUpContract>(
       () => _i33.EmailSignUpContract(get<_i29.SignUpApi>()));
-  gh.singleton<_i34.AppBloc>(_i34.AppBloc());
-  gh.singleton<_i35.AppRouter>(platformModules.router);
-  gh.singleton<_i36.IDialogService>(uIModules.dialogService);
-  gh.singleton<_i37.ILoader>(uIModules.loader);
-  gh.singleton<_i38.IThemeConfig>(uIModules.themeConfig);
-  gh.singleton<_i39.AuthorizationBloc>(_i39.AuthorizationBloc(
+  gh.factory<_i34.LoginScreenVM>(() => _i34.LoginScreenVM.create(
+      get<_i35.AuthorizationBloc>(),
+      get<_i10.GoogleSignInContract>(),
+      get<_i32.EmailSignInContract>()));
+  gh.factory<_i36.LoginScreenPresenter>(
+      () => _i36.LoginScreenPresenter(get<_i34.LoginScreenVM>()));
+  gh.singleton<_i37.AppBloc>(_i37.AppBloc());
+  gh.singleton<_i38.AppRouter>(platformModules.router);
+  gh.singleton<_i39.IDialogService>(uIModules.dialogService);
+  gh.singleton<_i40.ILoader>(uIModules.loader);
+  gh.singleton<_i41.IThemeConfig>(uIModules.themeConfig);
+  gh.singleton<_i35.AuthorizationBloc>(_i35.AuthorizationBloc(
       get<_i30.UserRepository>(), get<_i25.UsersRepository>()));
   return get;
 }
 
-class _$PlatformModules extends _i40.PlatformModules {}
+class _$PlatformModules extends _i42.PlatformModules {}
 
-class _$NetworkModules extends _i41.NetworkModules {}
+class _$NetworkModules extends _i43.NetworkModules {}
 
-class _$UIModules extends _i42.UIModules {}
+class _$UIModules extends _i44.UIModules {}

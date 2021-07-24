@@ -83,8 +83,8 @@ class __$InitAppCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-@With(InitAppEvent)
-class _$_InitApp with InitAppEvent implements _InitApp {
+@With(InitAppUseCase)
+class _$_InitApp with InitAppUseCase implements _InitApp {
   const _$_InitApp();
 
   @override
@@ -141,7 +141,7 @@ class _$_InitApp with InitAppEvent implements _InitApp {
   }
 }
 
-abstract class _InitApp implements AppEvent, InitAppEvent {
+abstract class _InitApp implements AppEvent, InitAppUseCase {
   const factory _InitApp() = _$_InitApp;
 }
 

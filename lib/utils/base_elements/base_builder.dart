@@ -2,9 +2,9 @@ import 'package:base_project/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BaseBuilder<S, B extends Bloc<dynamic, S>> extends StatelessWidget {
-  final Widget Function(BuildContext, S) builder;
-  final void Function(BuildContext, S)? listener;
+class BaseBuilder<B extends Bloc> extends StatelessWidget {
+  final Widget Function(BuildContext) builder;
+  final void Function(BuildContext, dynamic)? listener;
 
   const BaseBuilder({
     required this.builder,
@@ -14,10 +14,12 @@ class BaseBuilder<S, B extends Bloc<dynamic, S>> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<B, S>(
+    return BlocConsumer<B, dynamic>(
       bloc: getIt<B>(),
       listener: listener ?? (_, __) {},
-      builder: builder,
+      builder: (BuildContext ctx, dynamic state) {
+        return builder(ctx);
+      },
     );
   }
 }

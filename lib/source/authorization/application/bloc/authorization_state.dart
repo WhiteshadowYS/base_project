@@ -4,11 +4,8 @@ part of 'authorization_bloc.dart';
 class AuthorizationState with _$AuthorizationState {
   const AuthorizationState._();
   const factory AuthorizationState({
+    int? counter,
     UserRepository? user,
     UsersRepository? savedUsers,
   }) = _AuthorizationState;
-
-  factory AuthorizationState.initial() {
-    return AuthorizationState();
-  }
 }
