@@ -1,16 +1,19 @@
+import 'package:base_project/config/app_router.dart';
 import 'package:base_project/presentation/authorization/screens/login/login_screen_presentor.dart';
+import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
 import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
-import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
-import 'package:base_project/utils/base_elements/base_builder.dart';
+import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project/config/config.dart';
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
-import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
+import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreenVM get _vm => getIt<LoginScreenVM>();
-  LoginScreenPresenter get _presenter => getIt<LoginScreenPresenter>();
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreenPresenter, LoginScreen> {
   @override
   Widget build(BuildContext context) {
     print('build');
@@ -22,22 +25,20 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _button(
-              text: _presenter.emailSignInButtonText,
-              onTap: () => _vm.signInWithEmail(EmailSignInDto.mock()),
+              text: presenter.emailSignInButtonText,
+              onTap: () => viewModel.signInWithEmail(EmailSignInDto.mock()),
             ),
             const SizedBox(height: 40.0),
             _button(
-              text: _presenter.googleSignInButtonText,
-              onTap: _vm.signInWithGoogle,
+              text: presenter.googleSignInButtonText,
+              onTap: viewModel.signInWithGoogle,
             ),
             const SizedBox(height: 40.0),
-            BaseBuilder<AuthorizationBloc>(
-              builder: (ctx) {
-                return _button(
-                  text: 'counter: ${_presenter.counter}',
-                  onTap: () => _vm.incrementCounter(),
-                );
-              },
+            stateObserver<AuthorizationBloc>(
+              builder: (_) => _button(
+                text: 'counter: ${presenter.counter}',
+                onTap: () => viewModel.increment(),
+              ),
             ),
           ],
         ),

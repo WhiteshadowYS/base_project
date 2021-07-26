@@ -1,5 +1,6 @@
 import 'package:base_project/config/app_router.dart';
 import 'package:base_project/config/application/bloc/app_bloc.dart';
+import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:base_project/config/config.dart';
@@ -23,6 +24,7 @@ class _ApplicationState extends State<Application> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AppBloc>.value(value: getIt<AppBloc>()),
+        BlocProvider<AuthorizationBloc>.value(value: getIt<AuthorizationBloc>()),
       ],
       child: ScreenUtilInit(
         allowFontScaling: true,

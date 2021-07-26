@@ -1,15 +1,17 @@
-import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
 import 'package:injectable/injectable.dart';
+import 'package:base_project/utils/base_elements/base_presenter.dart';
+import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 
-@injectable
-class LoginScreenPresenter {
-  final LoginScreenVM _loginScreenVM;
+@lazySingleton
+class LoginScreenPresenter extends BasePresenter {
+  final AuthorizationBloc _authBloc;
 
-  @factoryMethod
-  LoginScreenPresenter(this._loginScreenVM);
+  LoginScreenPresenter(
+    this._authBloc,
+  );
 
   String get title => 'SignIn';
-  int get counter => _loginScreenVM.counter ?? 0;
+  int get counter => _authBloc.state.counter ?? 0;
   String get googleSignInButtonText => 'Sign In With Google';
   String get emailSignInButtonText => 'Sign In With Email';
 }

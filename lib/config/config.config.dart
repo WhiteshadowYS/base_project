@@ -12,9 +12,9 @@ import '../common/ui/dialog/i_dialog_service.dart' as _i39;
 import '../common/ui/loader/i_loader.dart' as _i40;
 import '../common/ui/theme/i_theme_config.dart' as _i41;
 import '../presentation/authorization/screens/login/login_screen_presentor.dart'
-    as _i36;
-import '../presentation/authorization/screens/login/login_screen_vm.dart'
     as _i34;
+import '../presentation/authorization/screens/login/login_screen_vm.dart'
+    as _i36;
 import '../source/authorization/application/bloc/authorization_bloc.dart'
     as _i35;
 import '../source/authorization/domain/repositories/user_repository.dart'
@@ -138,12 +138,12 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i32.EmailSignInContract(get<_i27.SignInApi>()));
   gh.factory<_i33.EmailSignUpContract>(
       () => _i33.EmailSignUpContract(get<_i29.SignUpApi>()));
-  gh.factory<_i34.LoginScreenVM>(() => _i34.LoginScreenVM.create(
+  gh.lazySingleton<_i34.LoginScreenPresenter>(
+      () => _i34.LoginScreenPresenter(get<_i35.AuthorizationBloc>()));
+  gh.lazySingleton<_i36.LoginScreenVM>(() => _i36.LoginScreenVM(
       get<_i35.AuthorizationBloc>(),
-      get<_i10.GoogleSignInContract>(),
-      get<_i32.EmailSignInContract>()));
-  gh.factory<_i36.LoginScreenPresenter>(
-      () => _i36.LoginScreenPresenter(get<_i34.LoginScreenVM>()));
+      get<_i32.EmailSignInContract>(),
+      get<_i10.GoogleSignInContract>()));
   gh.singleton<_i37.AppBloc>(_i37.AppBloc());
   gh.singleton<_i38.AppRouter>(platformModules.router);
   gh.singleton<_i39.IDialogService>(uIModules.dialogService);
