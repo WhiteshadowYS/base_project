@@ -8,6 +8,7 @@ class GoogleSignInContract implements SignInContract {
   @override
   Future<User> execute() async {
     dataPrint('GoogleSignInContract success!', this);
+
     return User.mock();
   }
 }

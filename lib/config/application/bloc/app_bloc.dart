@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:base_project/config/application/bloc/use_cases/init_app_use_case.dart';
+import 'package:base_project/config/application/bloc/use_cases/init_app_use_case_2.dart';
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

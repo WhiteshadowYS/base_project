@@ -131,8 +131,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i31.DataUserRepository(
           get<_i22.UserService>(),
           get<_i12.SignInService>(),
-          get<_i15.SignOutService>(),
-          get<_i18.SignUpService>()),
+          get<_i18.SignUpService>(),
+          get<_i15.SignOutService>()),
       registerFor: {_test, _dev, _stage, _prod});
   gh.factory<_i32.EmailSignInContract>(
       () => _i32.EmailSignInContract(get<_i27.SignInApi>()));

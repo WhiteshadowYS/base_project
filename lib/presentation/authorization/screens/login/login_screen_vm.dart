@@ -1,3 +1,5 @@
+import 'package:base_project/config/application/bloc/app_bloc.dart';
+import 'package:base_project/config/config.dart';
 import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/email_sign_in_contract.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/google_sign_in_contract.dart';
@@ -18,10 +20,17 @@ class LoginScreenVM implements BaseViewModel {
     this._googleSignInContract,
   );
 
-  VoidCallback get increment => () => _authBloc.add(AuthorizationEvent.increment());
-  VoidCallback get signInWithGoogle => () => _authBloc.add(AuthorizationEvent.signIn(_googleSignInContract));
-  void Function(EmailSignInDto) get signInWithEmail => (EmailSignInDto data) {
-        _emailSignInContract.data = data;
-        _authBloc.add(AuthorizationEvent.signIn(_emailSignInContract));
+  VoidCallback get increment => () {
+        _authBloc.add(AuthorizationEvent.increment());
+        getIt<AppBloc>().add(AppEvent.initApp2());
       };
+
+  VoidCallback get signInWithGoogle => () => _authBloc.add(AuthorizationEvent.signIn(_googleSignInContract));
+
+  void Function(EmailSignInDto) get signInWithEmail {
+    return (EmailSignInDto data) {
+      _emailSignInContract.data = data;
+      _authBloc.add(AuthorizationEvent.signIn(_emailSignInContract));
+    };
+  }
 }

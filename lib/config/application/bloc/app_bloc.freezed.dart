@@ -19,6 +19,10 @@ class _$AppEventTearOff {
   _InitApp initApp() {
     return const _InitApp();
   }
+
+  _InitApp2 initApp2() {
+    return const _InitApp2();
+  }
 }
 
 /// @nodoc
@@ -29,22 +33,26 @@ mixin _$AppEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initApp,
+    required TResult Function() initApp2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initApp,
+    TResult Function()? initApp2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitApp value) initApp,
+    required TResult Function(_InitApp2 value) initApp2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitApp2 value)? initApp2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +112,7 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initApp,
+    required TResult Function() initApp2,
   }) {
     return initApp();
   }
@@ -112,6 +121,7 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initApp,
+    TResult Function()? initApp2,
     required TResult orElse(),
   }) {
     if (initApp != null) {
@@ -124,6 +134,7 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitApp value) initApp,
+    required TResult Function(_InitApp2 value) initApp2,
   }) {
     return initApp(this);
   }
@@ -132,6 +143,7 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitApp2 value)? initApp2,
     required TResult orElse(),
   }) {
     if (initApp != null) {
@@ -143,6 +155,90 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
 
 abstract class _InitApp implements AppEvent, InitAppUseCase {
   const factory _InitApp() = _$_InitApp;
+}
+
+/// @nodoc
+abstract class _$InitApp2CopyWith<$Res> {
+  factory _$InitApp2CopyWith(_InitApp2 value, $Res Function(_InitApp2) then) =
+      __$InitApp2CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitApp2CopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+    implements _$InitApp2CopyWith<$Res> {
+  __$InitApp2CopyWithImpl(_InitApp2 _value, $Res Function(_InitApp2) _then)
+      : super(_value, (v) => _then(v as _InitApp2));
+
+  @override
+  _InitApp2 get _value => super._value as _InitApp2;
+}
+
+/// @nodoc
+
+@With(InitAppUseCase2)
+class _$_InitApp2 with InitAppUseCase2 implements _InitApp2 {
+  const _$_InitApp2();
+
+  @override
+  String toString() {
+    return 'AppEvent.initApp2()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _InitApp2);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initApp,
+    required TResult Function() initApp2,
+  }) {
+    return initApp2();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initApp,
+    TResult Function()? initApp2,
+    required TResult orElse(),
+  }) {
+    if (initApp2 != null) {
+      return initApp2();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitApp value) initApp,
+    required TResult Function(_InitApp2 value) initApp2,
+  }) {
+    return initApp2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitApp2 value)? initApp2,
+    required TResult orElse(),
+  }) {
+    if (initApp2 != null) {
+      return initApp2(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitApp2 implements AppEvent, InitAppUseCase2 {
+  const factory _InitApp2() = _$_InitApp2;
 }
 
 /// @nodoc

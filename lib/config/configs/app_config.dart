@@ -18,6 +18,7 @@ abstract class AppConfig {
   }
 
   Future<void> initLogger();
+
   Future<void> initSystem() async {
     WidgetsFlutterBinding.ensureInitialized();
     Bloc.observer = AppBlocObserver();

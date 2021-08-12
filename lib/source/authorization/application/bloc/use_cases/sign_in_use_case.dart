@@ -14,6 +14,7 @@ abstract class SignInUseCase extends BaseEvent<AuthorizationState, Authorization
     final response = await bloc.state.user?.signIn(contract);
 
     dataPrint('response: $response', this);
+
     await router.replace(BaseScreenRoute());
   }
 }

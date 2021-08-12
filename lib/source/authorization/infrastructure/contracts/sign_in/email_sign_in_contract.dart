@@ -23,6 +23,7 @@ class EmailSignInContract implements SignInContract {
 
     dataPrint('EmailSignInContract data: $_data', this);
     dataPrint('EmailSignInContract Success!', this);
+
     return User.mock();
   }
 }

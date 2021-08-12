@@ -15,14 +15,14 @@ import 'package:injectable/injectable.dart';
 class DataUserRepository implements UserRepository {
   final UserService _userService;
   final SignInService _signInService;
-  final SignOutService _signOutService;
   final SignUpService _signUpService;
+  final SignOutService _signOutService;
 
   DataUserRepository(
     this._userService,
     this._signInService,
-    this._signOutService,
     this._signUpService,
+    this._signOutService,
   );
 
   User? _user;
