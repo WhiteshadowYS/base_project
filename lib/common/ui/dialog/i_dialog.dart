@@ -1,6 +1,5 @@
-import 'package:base_project/common/ui/dialog/dialog_builders.dart';
-import 'package:base_project/common/ui/dialog/dialog_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project/common/ui/dialog/dialog_builders.dart';
 
 /// Dialog Interface. All Dialogs models in the app should be extended from this interface.
 /// Methods:
@@ -8,9 +7,9 @@ import 'package:flutter/material.dart';
 abstract class IDialog extends StatefulWidget {
   late final DialogBuilder? _builder;
 
-  IDialog({DialogBuilder? builder}) {
-    _builder = builder ?? DialogBuilders.defaultDialogBuilder;
-  }
+  IDialog({required String keyValue, DialogBuilder? builder})
+      : _builder = builder ?? DialogBuilders.defaultDialogBuilder,
+        super(key: Key(keyValue));
 
   Future<void> _buildDialog(BuildContext context) async {
     await _builder!(context: context, widget: this);

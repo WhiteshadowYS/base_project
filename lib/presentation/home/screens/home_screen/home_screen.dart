@@ -1,9 +1,9 @@
-import 'package:base_project/common/ui/dialog/i_dialog.dart';
-import 'package:base_project/presentation/home/dialogs/home_dialog.dart';
-import 'package:base_project/presentation/profile/screens/profile_edit_screen/profile_edit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:base_project/config/app_router.dart';
+import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
+import 'package:base_project/presentation/home/screens/home_screen/home_screen_vm.dart';
+import 'package:base_project/presentation/home/screens/home_screen/home_screen_presentor.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen() : super(key: const Key('HomeScreenKey'));
@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends BaseState<HomeScreenVM, HomeScreenPresenter, HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MainLayout(
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 20.0),
           InkWell(
-            onTap: () => dialog.show(HomeDialog()),
+            onTap: viewModel.homeDialog,
             child: SizedBox(
               height: 50.0,
               width: double.infinity,

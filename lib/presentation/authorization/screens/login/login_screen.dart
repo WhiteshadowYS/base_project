@@ -8,6 +8,8 @@ import 'package:base_project/source/authorization/infrastructure/dto/email_sign_
 import 'package:base_project/presentation/authorization/screens/login/login_screen_presentor.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen() : super(key: const Key('LoginScreenKey'));
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }

@@ -3,6 +3,8 @@ import 'package:base_project/common/ui/dialog/i_dialog.dart';
 import 'package:base_project/common/ui/dialog/dialog_layout.dart';
 
 class HomeDialog extends IDialog {
+  HomeDialog() : super(keyValue: 'HomeDialogKey');
+
   @override
   _HomeDialogState createState() => _HomeDialogState();
 }
