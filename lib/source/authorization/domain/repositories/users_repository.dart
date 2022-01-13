@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_project/source/authorization/domain/entities/user.dart';
+import 'package:base_project/source/authorization/domain/entity/user.dart';
 
 abstract class UsersRepository {
   List<User> get users;

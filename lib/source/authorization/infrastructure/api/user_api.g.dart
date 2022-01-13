@@ -6,6 +6,8 @@ part of 'user_api.dart';
 // RetrofitGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class _UserApi implements UserApi {
   _UserApi(this._dio, {this.baseUrl});
 
@@ -17,9 +19,10 @@ class _UserApi implements UserApi {
   Future<User> load() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(
-        Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+        Options(method: 'GET', headers: _headers, extra: _extra)
             .compose(_dio.options, '/user',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
@@ -31,10 +34,11 @@ class _UserApi implements UserApi {
   Future<User> upload(user) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(user.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(
-        Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+        Options(method: 'POST', headers: _headers, extra: _extra)
             .compose(_dio.options, '/user',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));

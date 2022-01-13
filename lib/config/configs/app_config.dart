@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:base_project/config/config.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:base_project/utils/app_bloc_observer.dart';
 
 abstract class AppConfig {
   const AppConfig();
@@ -21,7 +19,6 @@ abstract class AppConfig {
 
   Future<void> initSystem() async {
     WidgetsFlutterBinding.ensureInitialized();
-    Bloc.observer = AppBlocObserver();
   }
 
   @override

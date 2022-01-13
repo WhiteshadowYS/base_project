@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:base_project/utils/data_print.dart';
 import 'package:base_project/config/app_router.dart';
 import 'package:base_project/utils/base_elements/base_event.dart';
@@ -8,13 +10,15 @@ abstract class SignInUseCase extends BaseEvent<AuthorizationState, Authorization
   SignInContract get contract;
 
   @override
-  Stream<AuthorizationState> execute(AuthorizationBloc bloc) async* {
+  Future<void> execute(AuthorizationBloc bloc, dynamic emit) async {
     dataPrint('SignInEvent: Start', this);
 
-    final response = await bloc.state.user?.signIn(contract);
+    // final response = await bloc.state.user?.signIn(contract);
 
-    dataPrint('response: $response', this);
+    // dataPrint('response: $response', this);
 
-    await router.replace(BaseScreenRoute());
+    unawaited(router.replace(BaseScreenRoute()));
+    await Future.delayed(Duration(seconds: 5));
+    unawaited(router.replace(LoginScreenRoute()));
   }
 }

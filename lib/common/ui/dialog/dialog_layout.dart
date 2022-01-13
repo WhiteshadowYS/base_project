@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:base_project/utils/res/app_data.dart';
 
 class DialogLayout extends StatefulWidget {
   final Widget child;
@@ -22,7 +21,7 @@ class _DialogLayoutState extends State<DialogLayout> with SingleTickerProviderSt
   void initState() {
     super.initState();
 
-    controller = AnimationController(vsync: this, duration: AppData.durations.milliseconds400);
+    controller = AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     scaleAnimation = CurvedAnimation(parent: controller, curve: Curves.elasticInOut);
 
     controller.addListener(() => setState(() {}));

@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:base_project/utils/base_elements/base_view_model.dart';
 
 @lazySingleton
-class HomeScreenVM implements BaseViewModel {
+class HomeScreenVM with BaseViewModel {
   HomeScreenVM();
 
   VoidCallback get homeDialog => () => dialog.show(HomeDialog());

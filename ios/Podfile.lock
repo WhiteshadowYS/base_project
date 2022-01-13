@@ -5,43 +5,31 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_ip (0.2.0):
-    - Flutter
-  - flutter_secure_storage (3.3.1):
-    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - image_picker (0.0.1):
-    - Flutter
   - integration_test (0.0.1):
     - Flutter
   - path_provider (0.0.1):
     - Flutter
   - Reachability (3.2)
-  - share (0.0.1):
-    - Flutter
   - sqflite (0.0.2):
     - Flutter
     - FMDB (>= 2.7.5)
   - uni_links2 (0.0.1):
     - Flutter
-  - url_launcher (0.0.1):
+  - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
-  - flutter_ip (from `.symlinks/plugins/flutter_ip/ios`)
-  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
-  - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
-  - share (from `.symlinks/plugins/share/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - uni_links2 (from `.symlinks/plugins/uni_links2/ios`)
-  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
@@ -55,41 +43,29 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
-  flutter_ip:
-    :path: ".symlinks/plugins/flutter_ip/ios"
-  flutter_secure_storage:
-    :path: ".symlinks/plugins/flutter_secure_storage/ios"
-  image_picker:
-    :path: ".symlinks/plugins/image_picker/ios"
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
-  share:
-    :path: ".symlinks/plugins/share/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   uni_links2:
     :path: ".symlinks/plugins/uni_links2/ios"
-  url_launcher:
-    :path: ".symlinks/plugins/url_launcher/ios"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_ip: 43d1215a38a40aaea895a7dae9d1c53e50f504b3
-  flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
-  integration_test: 6eb66a19f7104200dcfdd62bc0077e1b09686e4f
+  integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  share: 0b2c3e82132f5888bccca3351c504d0003b3b410
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   uni_links2: fbc37081577fc19c6e0f7e6cdbd3baa150023635
-  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
+  url_launcher_ios: 02f1989d4e14e998335b02b67a7590fa34f971af
 
 PODFILE CHECKSUM: 5ec2aeb3627a52f1e9eb8ec2d548cd178300aedd
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

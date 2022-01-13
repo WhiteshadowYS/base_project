@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:base_project/source/authorization/domain/contracts/sign_in_contract.dart';
 import 'package:base_project/source/authorization/domain/contracts/sign_out_contract.dart';
 import 'package:base_project/source/authorization/domain/contracts/sign_up_contract.dart';
-import 'package:base_project/source/authorization/domain/entities/user.dart';
+import 'package:base_project/source/authorization/domain/entity/user.dart';
 
 abstract class UserRepository {
   FutureOr<User> get user;

@@ -1,4 +1,4 @@
-import 'package:base_project/source/authorization/domain/entities/user.dart';
+import 'package:base_project/source/authorization/domain/entity/user.dart';
 import 'package:base_project/source/authorization/domain/contracts/sign_up_contract.dart';
 import 'package:base_project/source/authorization/domain/services/sign_up_service.dart';
 import 'package:injectable/injectable.dart';

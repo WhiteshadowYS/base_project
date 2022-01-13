@@ -1,5 +1,5 @@
-import 'package:base_project/utils/res/app_data.dart';
 import 'package:flutter/material.dart';
+import 'package:base_project/resources/resources.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: Text(
           'Splash Screen',
-          style: AppData.textStyles.title1(),
+          style: Resources.textStyles.title1(),
         ),
       ),
     );

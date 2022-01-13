@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'app_bloc.dart';
 
@@ -19,10 +21,6 @@ class _$AppEventTearOff {
   _InitApp initApp() {
     return const _InitApp();
   }
-
-  _InitApp2 initApp2() {
-    return const _InitApp2();
-  }
 }
 
 /// @nodoc
@@ -33,26 +31,32 @@ mixin _$AppEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initApp,
-    required TResult Function() initApp2,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initApp,
-    TResult Function()? initApp2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitApp value) initApp,
-    required TResult Function(_InitApp2 value) initApp2,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitApp value)? initApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitApp value)? initApp,
-    TResult Function(_InitApp2 value)? initApp2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +95,7 @@ class __$InitAppCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-@With(InitAppUseCase)
+@With<InitAppUseCase>()
 class _$_InitApp with InitAppUseCase implements _InitApp {
   const _$_InitApp();
 
@@ -102,7 +106,8 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InitApp);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InitApp);
   }
 
   @override
@@ -112,16 +117,22 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initApp,
-    required TResult Function() initApp2,
   }) {
     return initApp();
   }
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initApp,
+  }) {
+    return initApp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initApp,
-    TResult Function()? initApp2,
     required TResult orElse(),
   }) {
     if (initApp != null) {
@@ -134,16 +145,22 @@ class _$_InitApp with InitAppUseCase implements _InitApp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitApp value) initApp,
-    required TResult Function(_InitApp2 value) initApp2,
   }) {
     return initApp(this);
   }
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitApp value)? initApp,
+  }) {
+    return initApp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitApp value)? initApp,
-    TResult Function(_InitApp2 value)? initApp2,
     required TResult orElse(),
   }) {
     if (initApp != null) {
@@ -158,95 +175,15 @@ abstract class _InitApp implements AppEvent, InitAppUseCase {
 }
 
 /// @nodoc
-abstract class _$InitApp2CopyWith<$Res> {
-  factory _$InitApp2CopyWith(_InitApp2 value, $Res Function(_InitApp2) then) =
-      __$InitApp2CopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitApp2CopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
-    implements _$InitApp2CopyWith<$Res> {
-  __$InitApp2CopyWithImpl(_InitApp2 _value, $Res Function(_InitApp2) _then)
-      : super(_value, (v) => _then(v as _InitApp2));
-
-  @override
-  _InitApp2 get _value => super._value as _InitApp2;
-}
-
-/// @nodoc
-
-@With(InitAppUseCase2)
-class _$_InitApp2 with InitAppUseCase2 implements _InitApp2 {
-  const _$_InitApp2();
-
-  @override
-  String toString() {
-    return 'AppEvent.initApp2()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InitApp2);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initApp,
-    required TResult Function() initApp2,
-  }) {
-    return initApp2();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initApp,
-    TResult Function()? initApp2,
-    required TResult orElse(),
-  }) {
-    if (initApp2 != null) {
-      return initApp2();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitApp value) initApp,
-    required TResult Function(_InitApp2 value) initApp2,
-  }) {
-    return initApp2(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitApp value)? initApp,
-    TResult Function(_InitApp2 value)? initApp2,
-    required TResult orElse(),
-  }) {
-    if (initApp2 != null) {
-      return initApp2(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InitApp2 implements AppEvent, InitAppUseCase2 {
-  const factory _InitApp2() = _$_InitApp2;
-}
-
-/// @nodoc
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
   _AppState call() {
     return const _AppState();
+  }
+
+  _InitializedAppState initialized() {
+    return const _InitializedAppState();
   }
 }
 
@@ -254,7 +191,46 @@ class _$AppStateTearOff {
 const $AppState = _$AppStateTearOff();
 
 /// @nodoc
-mixin _$AppState {}
+mixin _$AppState {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() initialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_AppState value) $default, {
+    required TResult Function(_InitializedAppState value) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
@@ -289,8 +265,8 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppState implements _AppState {
-  const _$_AppState();
+class _$_AppState extends _AppState {
+  const _$_AppState() : super._();
 
   @override
   String toString() {
@@ -299,13 +275,183 @@ class _$_AppState implements _AppState {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AppState);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _AppState);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() initialized,
+  }) {
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+  }) {
+    return $default?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_AppState value) $default, {
+    required TResult Function(_InitializedAppState value) initialized,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _AppState implements AppState {
+abstract class _AppState extends AppState {
   const factory _AppState() = _$_AppState;
+  const _AppState._() : super._();
+}
+
+/// @nodoc
+abstract class _$InitializedAppStateCopyWith<$Res> {
+  factory _$InitializedAppStateCopyWith(_InitializedAppState value,
+          $Res Function(_InitializedAppState) then) =
+      __$InitializedAppStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitializedAppStateCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res>
+    implements _$InitializedAppStateCopyWith<$Res> {
+  __$InitializedAppStateCopyWithImpl(
+      _InitializedAppState _value, $Res Function(_InitializedAppState) _then)
+      : super(_value, (v) => _then(v as _InitializedAppState));
+
+  @override
+  _InitializedAppState get _value => super._value as _InitializedAppState;
+}
+
+/// @nodoc
+
+class _$_InitializedAppState extends _InitializedAppState {
+  const _$_InitializedAppState() : super._();
+
+  @override
+  String toString() {
+    return 'AppState.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InitializedAppState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() initialized,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_AppState value) $default, {
+    required TResult Function(_InitializedAppState value) initialized,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AppState value)? $default, {
+    TResult Function(_InitializedAppState value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitializedAppState extends AppState {
+  const factory _InitializedAppState() = _$_InitializedAppState;
+  const _InitializedAppState._() : super._();
 }

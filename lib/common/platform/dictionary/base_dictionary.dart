@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logging/src/logger.dart';
-import 'package:base_project/utils/res/i18n/en.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'i_dictionary.dart';
@@ -116,7 +115,7 @@ class BaseDictionary<T> implements IDictionary<T> {
 
   Future<void> _loadLanguage(String languageCode) async {
     try {
-      selectedLanguage = en;
+      // selectedLanguage = en;
       _notifiListeners();
     } catch (e) {
       logger.warning('<_loadLanguage> => No Loangauge, $e');

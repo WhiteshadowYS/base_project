@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 import 'package:base_project/utils/base_elements/base_api.dart';
-import 'package:base_project/source/authorization/domain/entities/user.dart';
+import 'package:base_project/source/authorization/domain/entity/user.dart';
 
 part 'user_api.g.dart';
 

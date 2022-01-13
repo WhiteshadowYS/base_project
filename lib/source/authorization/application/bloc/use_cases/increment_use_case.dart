@@ -4,11 +4,11 @@ import 'package:base_project/source/authorization/application/bloc/authorization
 
 abstract class IncrementUseCase extends BaseEvent<AuthorizationState, AuthorizationBloc> {
   @override
-  Stream<AuthorizationState> execute(AuthorizationBloc bloc) async* {
-    dataPrint('IncrementEvent: Start', this);
+  Future<void> execute(AuthorizationBloc bloc, dynamic emit) async {
+    dataPrint('IncrementUseCase: Start', this);
 
-    yield bloc.state.copyWith(
+    emit(bloc.state.copyWith(
       counter: (bloc.state.counter ?? 0) + 1,
-    );
+    ));
   }
 }

@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/src/logger.dart';
-import 'package:websafe_platform/websafe_platform.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 import 'device_platform.dart' as pl;
 import 'i_device_info_loader.dart';
@@ -23,7 +23,6 @@ class BaseDeviceinfoLoader implements IDeviceInfoLoader {
   late pl.DevicePlatform platform;
 
   final DeviceInfoPlugin _deviceInfoPlugin = DeviceInfoPlugin();
-  final WebsafePlatform _websafePlatform = WebsafePlatform();
 
   @override
   Logger get logger => Logger('[$runtimeType]');
@@ -80,13 +79,13 @@ class BaseDeviceinfoLoader implements IDeviceInfoLoader {
 
   @override
   Future<void> loadDevicePlatform() async {
-    if (_websafePlatform.isIOS() || _websafePlatform.isAndroid()) {
+    if (UniversalPlatform.isIOS || UniversalPlatform.isAndroid) {
       logger.info('<getDevicePlatform> => paltform: Phone or Tablet');
       platform = pl.DevicePlatform.Phone;
-    } else if (_websafePlatform.isLinux() || _websafePlatform.isWindows() || _websafePlatform.isMacOS()) {
+    } else if (UniversalPlatform.isLinux || UniversalPlatform.isWindows || UniversalPlatform.isMacOS) {
       logger.info('<getDevicePlatform> => paltform: PC');
       platform = pl.DevicePlatform.PC;
-    } else if (_websafePlatform.isWeb()) {
+    } else if (UniversalPlatform.isWeb) {
       logger.info('<getDevicePlatform> => paltform: Web');
       platform = pl.DevicePlatform.Web;
     } else {

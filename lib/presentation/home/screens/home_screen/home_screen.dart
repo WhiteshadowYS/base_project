@@ -3,7 +3,6 @@ import 'package:base_project/config/app_router.dart';
 import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
 import 'package:base_project/presentation/home/screens/home_screen/home_screen_vm.dart';
-import 'package:base_project/presentation/home/screens/home_screen/home_screen_presentor.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen() : super(key: const Key('HomeScreenKey'));
@@ -12,7 +11,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends BaseState<HomeScreenVM, HomeScreenPresenter, HomeScreen> {
+class _HomeScreenState extends BaseState<HomeScreenVM, HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MainLayout(
