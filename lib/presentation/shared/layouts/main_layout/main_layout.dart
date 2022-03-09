@@ -1,4 +1,5 @@
 import 'package:base_project/common/ui/focus/i_focus_manager.dart';
+import 'package:base_project/common/ui/loader/loader_layout.dart';
 import 'package:base_project/presentation/shared/layouts/focus_layout/focus_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -20,26 +21,6 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  // final _screenManager = getIt<IScreenManager>();
-  // final _sideMenuPresenter = getIt<ISideMenuPresenter>();
-  // final _dictionary = getIt<IDictionary<Language>>();
-
-  @override
-  void initState() {
-    super.initState();
-    // _sideMenuPresenter.addListener(listener);
-    // _dictionary.addListener(listener);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    // _sideMenuPresenter.removeListener(listener);
-    // _dictionary.removeListener(listener);
-  }
-
-  void listener() => setState(() {});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,14 +36,10 @@ class _MainLayoutState extends State<MainLayout> {
               FocusLayout(
                 key: Key(widget.child.runtimeType.toString() + '[MainLayout]' + '[FocusLayout]'),
                 focusManager: widget.focusManager,
-                child: widget.child,
+                child: LoaderLayout(
+                  child: widget.child,
+                ),
               ),
-              // if (widget.appbar != null)
-              //   AnimatedOpacity(
-              //     opacity: !_sideMenuPresenter.status ? 1.0 : 0.0,
-              //     duration: AppData.durations.milliseconds300,
-              //     child: widget.appbar ?? SizedBox(),
-              //   ),
             ],
           ),
         ),

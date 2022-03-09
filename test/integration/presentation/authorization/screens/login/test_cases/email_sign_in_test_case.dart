@@ -16,6 +16,7 @@ class EmailSignInTestCase implements TestCase {
       email: 'tester@gmail.com',
       password: '123456Test',
     ));
+
     await tester.pumpAndSettle();
 
     expect(find.byKey(const Key('HomeScreenKey')), findsOneWidget);

@@ -1,7 +1,12 @@
+import 'package:base_project/config/configs/test_config.dart' as conf;
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('Main', () {
-    expect('1', '1');
+  conf.TestConfig().init();
+
+  test('Main', () async {
+    // await AppBloc.instance.addWith(
+    //   AuthorizationEvent.signIn(EmailSignInContract()),
+    // );
   });
 }

@@ -37,7 +37,7 @@ class _$AuthorizationEventTearOff {
   }
 
   _IncrementEvent increment() {
-    return const _IncrementEvent();
+    return _IncrementEvent();
   }
 }
 
@@ -150,8 +150,8 @@ class __$SignInEventCopyWithImpl<$Res>
 /// @nodoc
 
 @With<SignInUseCase>()
-class _$_SignInEvent with SignInUseCase implements _SignInEvent {
-  const _$_SignInEvent(this.contract);
+class _$_SignInEvent extends _SignInEvent with SignInUseCase {
+  _$_SignInEvent(this.contract) : super._();
 
   @override
   final SignInContract contract;
@@ -253,8 +253,10 @@ class _$_SignInEvent with SignInUseCase implements _SignInEvent {
   }
 }
 
-abstract class _SignInEvent implements AuthorizationEvent, SignInUseCase {
-  const factory _SignInEvent(SignInContract contract) = _$_SignInEvent;
+abstract class _SignInEvent extends AuthorizationEvent
+    implements SignInUseCase {
+  factory _SignInEvent(SignInContract contract) = _$_SignInEvent;
+  _SignInEvent._() : super._();
 
   SignInContract get contract;
   @JsonKey(ignore: true)
@@ -297,8 +299,8 @@ class __$SignUpEventCopyWithImpl<$Res>
 /// @nodoc
 
 @With<SignUpUseCase>()
-class _$_SignUpEvent with SignUpUseCase implements _SignUpEvent {
-  const _$_SignUpEvent(this.contract);
+class _$_SignUpEvent extends _SignUpEvent with SignUpUseCase {
+  _$_SignUpEvent(this.contract) : super._();
 
   @override
   final SignUpContract contract;
@@ -400,8 +402,10 @@ class _$_SignUpEvent with SignUpUseCase implements _SignUpEvent {
   }
 }
 
-abstract class _SignUpEvent implements AuthorizationEvent, SignUpUseCase {
-  const factory _SignUpEvent(SignUpContract contract) = _$_SignUpEvent;
+abstract class _SignUpEvent extends AuthorizationEvent
+    implements SignUpUseCase {
+  factory _SignUpEvent(SignUpContract contract) = _$_SignUpEvent;
+  _SignUpEvent._() : super._();
 
   SignUpContract get contract;
   @JsonKey(ignore: true)
@@ -444,8 +448,8 @@ class __$SignOutEventCopyWithImpl<$Res>
 /// @nodoc
 
 @With<SignOutUseCase>()
-class _$_SignOutEvent with SignOutUseCase implements _SignOutEvent {
-  const _$_SignOutEvent(this.contract);
+class _$_SignOutEvent extends _SignOutEvent with SignOutUseCase {
+  _$_SignOutEvent(this.contract) : super._();
 
   @override
   final SignOutContract contract;
@@ -547,8 +551,10 @@ class _$_SignOutEvent with SignOutUseCase implements _SignOutEvent {
   }
 }
 
-abstract class _SignOutEvent implements AuthorizationEvent, SignOutUseCase {
-  const factory _SignOutEvent(SignOutContract contract) = _$_SignOutEvent;
+abstract class _SignOutEvent extends AuthorizationEvent
+    implements SignOutUseCase {
+  factory _SignOutEvent(SignOutContract contract) = _$_SignOutEvent;
+  _SignOutEvent._() : super._();
 
   SignOutContract get contract;
   @JsonKey(ignore: true)
@@ -578,8 +584,8 @@ class __$IncrementEventCopyWithImpl<$Res>
 /// @nodoc
 
 @With<IncrementUseCase>()
-class _$_IncrementEvent with IncrementUseCase implements _IncrementEvent {
-  const _$_IncrementEvent();
+class _$_IncrementEvent extends _IncrementEvent with IncrementUseCase {
+  _$_IncrementEvent() : super._();
 
   @override
   String toString() {
@@ -670,8 +676,10 @@ class _$_IncrementEvent with IncrementUseCase implements _IncrementEvent {
   }
 }
 
-abstract class _IncrementEvent implements AuthorizationEvent, IncrementUseCase {
-  const factory _IncrementEvent() = _$_IncrementEvent;
+abstract class _IncrementEvent extends AuthorizationEvent
+    implements IncrementUseCase {
+  factory _IncrementEvent() = _$_IncrementEvent;
+  _IncrementEvent._() : super._();
 }
 
 /// @nodoc

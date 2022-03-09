@@ -14,14 +14,15 @@ import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
 
 import '../presentation/authorization/screens/login/login_screen.dart' as _i2;
-import '../presentation/home/screens/home_screen/home_screen.dart' as _i5;
-import '../presentation/home/screens/search_screen/search_screen.dart' as _i6;
-import '../presentation/profile/screens/profile_edit_screen/profile_edit_screen.dart'
+import '../presentation/home/screens/home/home_screen.dart' as _i5;
+import '../presentation/home/screens/search/search_screen.dart' as _i6;
+import '../presentation/profile/screens/profile_edit/profile_edit_screen.dart'
     as _i8;
-import '../presentation/profile/screens/profile_screen/profile_screen.dart'
+import '../presentation/profile/screens/profile_view/profile_view_screen.dart'
     as _i7;
-import '../presentation/shared/screens/base_screen/base_screen.dart' as _i3;
-import '../presentation/shared/screens/splash_screen/splash_screen.dart' as _i1;
+import '../presentation/shared/screens/bottom_bar/bottom_bar_screen.dart'
+    as _i3;
+import '../presentation/shared/screens/splash/splash_screen.dart' as _i1;
 import 'app_router.dart' as _i4;
 
 class AppRouter extends _i9.RootStackRouter {
@@ -38,9 +39,9 @@ class AppRouter extends _i9.RootStackRouter {
       return _i9.MaterialPageX<dynamic>(
           routeData: routeData, child: _i2.LoginScreen());
     },
-    BaseScreenRoute.name: (routeData) {
+    BottomBarScreenRoute.name: (routeData) {
       return _i9.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.BaseScreen());
+          routeData: routeData, child: const _i3.BottomBarScreen());
     },
     HomeRouter.name: (routeData) {
       return _i9.MaterialPageX<dynamic>(
@@ -58,9 +59,9 @@ class AppRouter extends _i9.RootStackRouter {
       return _i9.MaterialPageX<dynamic>(
           routeData: routeData, child: _i6.SearchScreen());
     },
-    ProfileScreenRoute.name: (routeData) {
+    ProfileViewScreenRoute.name: (routeData) {
       return _i9.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i7.ProfileScreen());
+          routeData: routeData, child: _i7.ProfileViewScreen());
     },
     ProfileEditScreenRoute.name: (routeData) {
       return _i9.MaterialPageX<dynamic>(
@@ -72,12 +73,12 @@ class AppRouter extends _i9.RootStackRouter {
   List<_i9.RouteConfig> get routes => [
         _i9.RouteConfig(SplashScreenRoute.name, path: '/'),
         _i9.RouteConfig(LoginScreenRoute.name, path: '/auth/login'),
-        _i9.RouteConfig(BaseScreenRoute.name,
+        _i9.RouteConfig(BottomBarScreenRoute.name,
             path: '/base/bottom-bar',
             children: [
               _i9.RouteConfig(HomeRouter.name,
                   path: 'home',
-                  parent: BaseScreenRoute.name,
+                  parent: BottomBarScreenRoute.name,
                   children: [
                     _i9.RouteConfig(HomeScreenRoute.name,
                         path: '', parent: HomeRouter.name),
@@ -91,9 +92,9 @@ class AppRouter extends _i9.RootStackRouter {
                   ]),
               _i9.RouteConfig(ProfileRouter.name,
                   path: 'profile',
-                  parent: BaseScreenRoute.name,
+                  parent: BottomBarScreenRoute.name,
                   children: [
-                    _i9.RouteConfig(ProfileScreenRoute.name,
+                    _i9.RouteConfig(ProfileViewScreenRoute.name,
                         path: '', parent: ProfileRouter.name),
                     _i9.RouteConfig(ProfileEditScreenRoute.name,
                         path: 'edit', parent: ProfileRouter.name),
@@ -124,13 +125,13 @@ class LoginScreenRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.BaseScreen]
-class BaseScreenRoute extends _i9.PageRouteInfo<void> {
-  const BaseScreenRoute({List<_i9.PageRouteInfo>? children})
-      : super(BaseScreenRoute.name,
+/// [_i3.BottomBarScreen]
+class BottomBarScreenRoute extends _i9.PageRouteInfo<void> {
+  const BottomBarScreenRoute({List<_i9.PageRouteInfo>? children})
+      : super(BottomBarScreenRoute.name,
             path: '/base/bottom-bar', initialChildren: children);
 
-  static const String name = 'BaseScreenRoute';
+  static const String name = 'BottomBarScreenRoute';
 }
 
 /// generated route for
@@ -168,11 +169,11 @@ class SearchScreenRoute extends _i9.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.ProfileScreen]
-class ProfileScreenRoute extends _i9.PageRouteInfo<void> {
-  const ProfileScreenRoute() : super(ProfileScreenRoute.name, path: '');
+/// [_i7.ProfileViewScreen]
+class ProfileViewScreenRoute extends _i9.PageRouteInfo<void> {
+  const ProfileViewScreenRoute() : super(ProfileViewScreenRoute.name, path: '');
 
-  static const String name = 'ProfileScreenRoute';
+  static const String name = 'ProfileViewScreenRoute';
 }
 
 /// generated route for

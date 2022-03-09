@@ -1,14 +1,31 @@
+import 'dart:async';
+
+import 'package:base_project/utils/data_print.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:logging/logging.dart';
-import 'package:cross_connectivity/cross_connectivity.dart';
 
 import 'i_connection_checker.dart';
 
 class ConnectionChecker implements IConnectionChecker {
   Logger get _logger => Logger('$runtimeType');
 
+  final Connectivity _connectivity = Connectivity();
+
+  @override
+  void init(
+    void Function(ConnectivityResult) onConnectionChanged,
+  ) async {
+    dataPrint('<init>', this);
+    _connectivity.onConnectivityChanged.listen((status) {
+      onConnectionChanged(status);
+    });
+  }
+
   @override
   Future<bool> hasConnection() async {
-    _logger.info('Connection status: ${await Connectivity().checkConnection()}');
-    return await Connectivity().checkConnection();
+    final result = await _connectivity.checkConnectivity();
+    _logger.info('Connection status: $result');
+
+    return !(result == ConnectivityResult.none);
   }
 }

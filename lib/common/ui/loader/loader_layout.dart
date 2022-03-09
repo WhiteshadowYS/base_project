@@ -1,25 +1,47 @@
-part of 'i_loader.dart';
+import 'package:base_project/common/ui/loader/loader.dart';
+import 'package:base_project/config/config.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class LoaderLayout extends StatelessWidget {
+class LoaderLayout extends StatefulWidget {
   final Widget child;
-  final ILoader loaderPresenter;
 
-  LoaderLayout({required this.child, required this.loaderPresenter});
+  LoaderLayout({
+    required this.child,
+  });
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        child,
-        ValueListenableBuilder<bool>(
-          valueListenable: loaderPresenter.loaderNotifier,
-          builder: (BuildContext context, bool val, _) {
-            if (!val) return Container();
+  State<LoaderLayout> createState() => _LoaderLayoutState();
+}
 
-            return loaderPresenter.loaderWidget;
-          },
-        ),
-      ],
+class _LoaderLayoutState extends State<LoaderLayout> {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: getIt<Loader>(),
+      builder: (context, snapshot) {
+        return Stack(
+          children: [
+            widget.child,
+            Consumer<Loader>(
+              builder: (ctx, loader, _) {
+                Widget? loaderWidget;
+
+                for (Type type in loader.loaders) {
+                  if (loader.loaderBuilders.containsKey(type)) {
+                    loaderWidget = loader.loaderBuilders[type];
+                    break;
+                  }
+                }
+
+                return Center(
+                  child: loaderWidget ?? SizedBox(),
+                );
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

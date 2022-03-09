@@ -1,11 +1,10 @@
-import 'package:base_project/presentation/authorization/screens/login/some_button.dart';
+import 'package:base_project/config/ui_manger.dart';
+import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
+import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
+import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
+import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:base_project/config/config.dart';
-import 'package:base_project/utils/base_elements/base_screen.dart';
-import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
-import 'package:base_project/presentation/authorization/screens/login/login_screen_vm.dart';
-import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen() : super(key: const Key('LoginScreenKey'));
@@ -18,7 +17,7 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MainLayout(
-      background: theme.accent,
+      background: UIManager.theme.accent,
       child: ChangeNotifierProvider(
         create: (_) => viewModel,
         builder: (ctx, _) {
@@ -37,10 +36,9 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
                   onTap: viewModel.signInWithGoogle,
                 ),
                 const SizedBox(height: 40.0),
-                viewModel.selector<LoginScreenVM, dynamic>(
+                selector(
                   selector: () => viewModel.counter,
                   builder: (ctx, _) {
-                    print('rebuild counter 1');
                     return _button(
                       text: 'counter: ${viewModel.counter}',
                       onTap: () => viewModel.increment(),
@@ -48,7 +46,6 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
                   },
                 ),
                 const SizedBox(height: 40.0),
-                SomeButton(),
               ],
             ),
           );
@@ -68,7 +65,7 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
         width: 240.0,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: theme.primary,
+          color: UIManager.theme.primary,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Text(

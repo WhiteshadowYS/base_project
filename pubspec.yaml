@@ -21,11 +21,11 @@ dependencies:
   supercharged: 2.1.1
   url_launcher: 6.0.18
   device_info_plus: 3.2.1
-  cross_connectivity: 3.0.3
   hive: 2.0.5
   hive_flutter: 1.1.0
   uni_links2: 0.6.0+2
   universal_platform: 1.0.0+1
+  connectivity_plus: 2.2.1
 
   # UI
   pretty_dio_logger: 1.2.0-beta-1

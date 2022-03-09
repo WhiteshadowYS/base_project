@@ -1,33 +1,48 @@
-import 'package:flutter/foundation.dart';
+import 'package:base_project/config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 
-import 'i_loader.dart';
+class Loader extends ChangeNotifier {
+  static Loader get instance => getIt<Loader>();
 
-class Loader implements ILoader {
-  final Widget loader;
+  final Map<Type, Widget> loaderBuilders;
 
-  Loader({required this.loader});
+  Loader({
+    required this.loaderBuilders,
+  });
 
-  final ValueNotifier<bool> _loaderNotifier = ValueNotifier<bool>(false);
+  final List<Type> _loaders = [];
 
-  bool _backgroundMode = false;
+  List<Type> get loaders => _loaders;
 
-  @override
-  ValueNotifier<bool> get loaderNotifier => _loaderNotifier;
+  void start<T>() {
+    _loaders.add(T);
+    notifyListeners();
+  }
 
-  @override
-  Widget get loaderWidget => _backgroundMode ? SizedBox() : loader;
+  void stop<T>() {
+    _loaders.remove(T);
+    notifyListeners();
+  }
 
-  @override
-  void start({bool backgroundMode = false}) => WidgetsBinding.instance?.addPostFrameCallback((_) {
-        _loaderNotifier.value = true;
-        _backgroundMode = backgroundMode;
-      });
+  bool isLoading<T>() => _loaders.contains(T);
 
-  @override
-  void stop() => WidgetsBinding.instance?.addPostFrameCallback((_) {
-        _loaderNotifier.value = false;
-        _backgroundMode = false;
-      });
+  Widget loaderBuilder<T>({
+    required Widget loader,
+    required Widget child,
+  }) {
+    return ChangeNotifierProvider.value(
+      value: instance,
+      builder: (ctx, _) {
+        return Consumer<Loader>(
+          builder: (ctx, _, __) {
+            if (isLoading<T>()) {
+              return loader;
+            }
+            return child;
+          },
+        );
+      },
+    );
+  }
 }

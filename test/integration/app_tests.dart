@@ -10,6 +10,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   testWidgets('Application Tests', (WidgetTester tester) async {
     app.main();
+
     await LoginScreenTests.instance.execute(tester);
     await HomeScreenTests.instance.execute(tester);
     await HomeDialogTests.instance.execute(tester);

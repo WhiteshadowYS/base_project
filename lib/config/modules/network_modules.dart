@@ -1,3 +1,8 @@
+import 'package:base_project/common/network/interceptors/authorization_interceptor.dart';
+import 'package:base_project/common/network/interceptors/error_interceptor.dart';
+import 'package:base_project/common/network/interceptors/language_interceptor.dart';
+import 'package:base_project/common/network/interceptors/request_interceptor.dart';
+import 'package:base_project/common/network/interceptors/resources/const.dart';
 import 'package:base_project/config/configs/app_config.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -20,11 +25,23 @@ abstract class NetworkModules {
     );
   }
 
-  @Named('authorized')
+  @singleton
+  ErrorInterceptor get errorInterceptor => ErrorInterceptor();
+
+  @singleton
+  AuthorizationInterceptor get authorizationInterceptor => AuthorizationInterceptor();
+
+  @singleton
+  LanguageInterceptor get languageInterceptor => LanguageInterceptor();
+
+  @singleton
+  RequestInterceptor get requestInterceptor => RequestInterceptor();
+
+  @Named(DioTypes.authorized)
   @injectable
   Dio provideAuthorizedDio(AppConfig config) => _getDio(config, true);
 
-  @Named('unauthorized')
+  @Named(DioTypes.unauthorized)
   @injectable
   Dio provideUnAuthorizedDio(AppConfig config) => _getDio(config, false);
 
@@ -37,13 +54,10 @@ abstract class NetworkModules {
     dio.options.baseUrl = config.baseUrl;
 
     final interceptors = [
-      // HeaderInterceptor(
-      //   router: _router,
-      //   storage: tokenStorage,
-      //   isAuthorized: isAuthorized,
-      // ),
-      // _connectionInterceptor,
-      // _errorInterceptor,
+      errorInterceptor,
+      if (isAuthorized) authorizationInterceptor,
+      languageInterceptor,
+      requestInterceptor,
     ];
 
     return dio
