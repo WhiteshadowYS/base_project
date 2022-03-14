@@ -6,5 +6,4 @@ void main() async {
   await ProdConfig().init();
 
   runApp(Application());
-  print('hello');
 }
