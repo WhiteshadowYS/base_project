@@ -6,5 +6,4 @@ void main() async {
   await StageConfig().init();
 
   runApp(Application());
-  print('hello');
 }
