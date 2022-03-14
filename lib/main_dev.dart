@@ -6,4 +6,5 @@ void main() async {
   await DevConfig().init();
 
   runApp(Application());
+  print('test');
 }
