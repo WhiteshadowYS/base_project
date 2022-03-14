@@ -5,7 +5,6 @@ import 'package:base_project/common/ui/theme/i_theme_config.dart';
 import 'package:base_project/common/ui/theme/theme_config.dart';
 import 'package:base_project/config/app_router.dart';
 import 'package:base_project/config/config.dart';
-import 'package:base_project/source/authorization/application/use_cases/sign_in_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,7 +19,7 @@ abstract class UIModules {
   Loader get loader {
     return Loader(
       loaderBuilders: {
-        SignInUseCase: CircularProgressIndicator(),
+        // SignInUseCase: CircularProgressIndicator(),
       },
     );
   }

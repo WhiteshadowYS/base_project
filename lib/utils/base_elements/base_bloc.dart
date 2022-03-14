@@ -11,14 +11,12 @@ class BaseBloc<Event extends BaseEvent<State, Bloc<Event, State>>, State> extend
   }
   Future<void> addWith(
     Event event, {
-    VoidCallback? onComplete,
-    VoidCallback? onCancel,
+    VoidCallback? onDone,
     VoidCallback? onError,
   }) async {
     add(
       event
-        ..onComplite(onComplete)
-        ..onCancel(onCancel)
+        ..onDone(onDone)
         ..onError(onError),
     );
   }

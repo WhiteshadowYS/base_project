@@ -20,7 +20,7 @@ abstract class SignInUseCase extends BaseEvent<AuthorizationState, Authorization
 
     // dataPrint('response: $response', this);
 
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 3));
 
     unawaited(UIManager.router.replace(BottomBarScreenRoute()));
 

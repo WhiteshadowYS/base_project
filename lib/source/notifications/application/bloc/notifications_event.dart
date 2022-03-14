@@ -5,5 +5,5 @@ class NotificationsEvent extends BaseEvent<NotificationsState, NotificationsBloc
   NotificationsEvent._();
 
   @With<HandleNotificationUseCase>()
-  const factory NotificationsEvent.handleNotification() = _HandleNotification;
+  factory NotificationsEvent.handleNotification() = _HandleNotification;
 }

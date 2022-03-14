@@ -93,7 +93,7 @@ class AppTextStyles {
     Color color = _black,
     double scale = 1.0,
     double size = 16.0,
-    FontWeight fontWeight = FontWeight.w400,
+    FontWeight fontWeight = FontWeight.w500,
   }) {
     return GoogleFonts.roboto(
       color: color,

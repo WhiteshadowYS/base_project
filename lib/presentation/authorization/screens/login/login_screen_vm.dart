@@ -24,49 +24,30 @@ class LoginScreenVM extends ChangeNotifier with BaseViewModel {
     _authBlocSybscription = _authBloc.stream.listen((_) => notifyListeners());
   }
 
-  int _counter = 0;
-
+  @disposeMethod
   @override
   void dispose() {
     super.dispose();
     _authBlocSybscription?.cancel();
   }
 
-  int get counter => _authBloc.state.counter ?? 0;
-  int get counter2 => _counter;
+  String get counter => 'Counter: ${_authBloc.state.counter ?? 0}';
 
   String get title => 'SignIn';
   String get googleSignInButtonText => 'Sign In With Google';
   String get emailSignInButtonText => 'Sign In With Email';
 
-  VoidCallback get increment {
-    return () {
-      _counter++;
-      _authBloc.add(AuthorizationEvent.increment());
-      notifyListeners();
-    };
-  }
+  void increment() => _authBloc.add(AuthorizationEvent.increment());
 
-  VoidCallback get signInWithGoogle {
-    return () {
-      _authBloc.add(
-        AuthorizationEvent.signIn(_googleSignInContract),
-      );
-    };
-  }
+  void signInWithGoogle() => _authBloc.add(AuthorizationEvent.signIn(_googleSignInContract));
 
-  void Function(EmailSignInDto) get signInWithEmail {
-    return (EmailSignInDto data) {
-      _emailSignInContract.data = data;
+  void signInWithEmail(EmailSignInDto data) {
+    _emailSignInContract.data = data;
 
-      _authBloc.addWith(
-        AuthorizationEvent.signIn(_emailSignInContract),
-        onComplete: () {
-          print('Hello from on complite');
-        },
-        onCancel: () {},
-        onError: () {},
-      );
-    };
+    _authBloc.addWith(
+      AuthorizationEvent.signIn(_emailSignInContract),
+      onDone: () {},
+      onError: () {},
+    );
   }
 }

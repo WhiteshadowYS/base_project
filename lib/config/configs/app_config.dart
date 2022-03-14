@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:base_project/config/config.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppConfig {
   const AppConfig();

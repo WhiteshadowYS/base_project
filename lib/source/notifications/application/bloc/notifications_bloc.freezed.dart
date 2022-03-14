@@ -19,7 +19,7 @@ class _$NotificationsEventTearOff {
   const _$NotificationsEventTearOff();
 
   _HandleNotification handleNotification() {
-    return const _HandleNotification();
+    return _HandleNotification();
   }
 }
 
@@ -103,7 +103,7 @@ class __$HandleNotificationCopyWithImpl<$Res>
 @With<HandleNotificationUseCase>()
 class _$_HandleNotification extends _HandleNotification
     with HandleNotificationUseCase {
-  const _$_HandleNotification() : super._();
+  _$_HandleNotification() : super._();
 
   @override
   String toString() {
@@ -178,8 +178,8 @@ class _$_HandleNotification extends _HandleNotification
 
 abstract class _HandleNotification extends NotificationsEvent
     implements HandleNotificationUseCase {
-  const factory _HandleNotification() = _$_HandleNotification;
-  const _HandleNotification._() : super._();
+  factory _HandleNotification() = _$_HandleNotification;
+  _HandleNotification._() : super._();
 }
 
 /// @nodoc
