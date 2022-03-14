@@ -13,7 +13,7 @@
 // /// [PushNotificationsManager] it is service for control dialogs.
 // /// This class it - Singleton, for function using use [PushNotificationsManager.instance]
 // /// - For init service use method [init] in [PushNotificationsManager].
-// /// - For get get FCM token you can use [getFCMToken] getter.
+// /// - For get get FCM token you can use [getFCMUserSettings] getter.
 // /// - For get unread messages you can use [getUnreadNotificationsList] getter.
 // /// - For clear unread messages you can use [clearUnreadNotificationsList] method.
 // class PushNotificationsManager {
@@ -36,7 +36,7 @@
 //   Message _currentMessage;
 
 //   /// A [String] type getter that returns current [_firebaseMessaging] token
-//   Future<String> get getFCMToken async => await _firebaseMessaging.getToken();
+//   Future<String> get getFCMUserSettings async => await _firebaseMessaging.getUserSettings();
 
 //   /// A [Message] type getter that returns current [_unreadNotificationsList]
 //   List<Message> get getUnreadNotificationsList => _unreadNotificationsList;

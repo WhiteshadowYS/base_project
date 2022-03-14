@@ -1,0 +1,51 @@
+targets:
+  $default:
+    builders:
+      auto_route_generator|autoRouteGenerator:
+        enabled: true
+        generate_for:
+          - "**/app_router.dart"
+
+      injectable_generator:injectable_builder: 
+        enabled: true
+        generate_for:
+          - "**/repositories/**.dart"
+          - "**/services/**.dart"
+          - "**/contracts/**.dart"
+          - "**/api/**.dart"
+          - "**/config/**"
+          - "**/**_bloc.dart"
+          - "**/**_vm.dart"
+          - "**/**_presenter.dart"
+
+      injectable_generator|injectable_config_builder:
+        enabled: true
+        generate_for:
+          - "**/config/**"
+
+
+      retrofit_generator|retrofit:
+        enabled: true
+        options:
+          nullsafety: true
+        generate_for:
+          - "**/api/**.dart"
+
+      json_serializable|json_serializable:
+        options:
+          checked: true
+          explicit_to_json: true
+          include_if_null: false
+        generate_for:
+          - "**/dto/**.dart"
+          - "**/entity/**.dart"
+          - "**/responses/**.dart"
+
+      freezed|freezed:
+        generate_for:
+          - "**/dto/**.dart"
+          - "**/entity/**.dart"
+          - "**/responses/**.dart"
+          - "**_bloc.dart"
+          - "**_event.dart"
+          - "**_state.dart"
