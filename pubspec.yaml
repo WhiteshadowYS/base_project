@@ -1,7 +1,7 @@
 name: base_project
 description: A new Flutter project.
 
-version: 0.0.3+1
+version: 0.0.4+1
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
