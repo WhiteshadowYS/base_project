@@ -1,0 +1,135 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  fastlane_require 'dotenv'
+
+  lane :initEnv do |options|
+    environment = options[:environment]
+    unless environment.nil?
+        Dotenv.overload '../../.local/.env.' + environment
+    end
+  end
+
+  lane :uploadInfo do |lane, options|
+    message = options[:message]
+    environment = options[:environment]
+
+    slack(message: message)
+    slack_upload(
+      title: ENV["RELEASE_APK_NAME"],
+      file_path: ENV["PATH_TO_APK"] + environment + "/release/" + ENV["RELEASE_APK_NAME"],
+      channel: ENV["SLACK_CHANNEL_NAME"],
+    ) 
+    slack_upload(
+      title: ENV["DEBUG_APK_NAME"],
+      file_path: ENV["PATH_TO_APK"] + environment + "/debug/" + ENV["DEBUG_APK_NAME"],
+      channel: ENV["SLACK_CHANNEL_NAME"],
+    )
+  end
+  
+  desc "New Develop Build"
+  lane :develop do |options|
+    environment = options[:env]
+    initEnv(environment: environment)
+
+
+    buildVersion = options[:version]
+    buildNumber = ENV["RELEASE_TYPE"]
+
+    puts "environment: #{environment}"
+    puts "buildVersion: #{buildVersion}"
+    puts "buildNumber: #{buildNumber}"
+
+    gradle(
+      task: "assemble",
+      flavor: "develop",
+      build_type: "Debug",
+      properties: {
+        "android.injected.version.code" => buildNumber,
+        "android.injected.version.name" => buildVersion,
+        "application.name" => "pharmatrail"
+      }
+    )
+    # gradle(
+    #   task: "assemble",
+    #   flavor: "develop",
+    #   build_type: "Release",
+    # )
+
+    # uploadInfo(
+    #   message: "Debug build Successful!",
+    #   environment: environment,
+    # )
+  end
+
+    
+  desc "New Staging Build"
+  lane :staging do |lane, options|
+    initEnv(environment: "staging")
+
+    gradle(
+      task: "assemble",
+      flavor: "staging",
+      build_type: "Debug",
+    )
+    gradle(
+      task: "assemble",
+      flavor: "staging",
+      build_type: "Release",
+    )
+
+    uploadInfo(
+      message: "Staging build Successful!",
+      environment: "staging",
+    )
+  end
+
+    
+  desc "New Release Build"
+  lane :production do |lane, options|
+    initEnv(environment: "production")
+
+
+    gradle(
+      task: "assemble",
+      flavor: "production",
+      build_type: "Debug",
+    )
+    gradle(
+      task: "assemble",
+      flavor: "production",
+      build_type: "Release",
+    )
+
+    uploadInfo(
+      message: "Production build Successful!",
+      environment: "production",
+    )
+  end
+
+
+after_all do |lane, options|
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success:false
+    # )
+  end
+end
