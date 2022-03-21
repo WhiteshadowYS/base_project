@@ -5,8 +5,14 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source "$SCRIPT_DIR/check_env.sh"
 
-pushd "$BP_HOME" || exit
-flutter version 2.13.1
+default_home="$( cd "$SCRIPT_DIR/../.." && pwd)"
+default_name=$(basename $default_home)
+PROJECT_HOME=$(echo "$default_name" | tr a-z A-Z)
+PROJECT_HOME_NAME="${PROJECT_HOME}_HOME"
+PROJECT_HOME=$(eval echo \$$PROJECT_HOME_NAME)
+
+pushd "$PROJECT_HOME" || exit
+flutter upgrade $1
 popd || exit
 
 

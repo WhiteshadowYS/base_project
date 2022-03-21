@@ -17,8 +17,6 @@ import '../common/platform/storage/i_storage.dart' as _i19;
 import '../common/ui/dialog/i_dialog_service.dart' as _i18;
 import '../common/ui/loader/loader.dart' as _i22;
 import '../common/ui/theme/i_theme_config.dart' as _i20;
-import '../presentation/authorization/screens/login/login_screen_vm.dart'
-    as _i47;
 import '../presentation/home/screens/home/home_screen_vm.dart' as _i17;
 import '../source/authorization/application/bloc/authorization_bloc.dart'
     as _i10;
@@ -49,13 +47,13 @@ import '../source/authorization/infrastructure/repositories/user/data_user_repos
 import '../source/authorization/infrastructure/repositories/users/data_users_repository.dart'
     as _i39;
 import '../source/authorization/infrastructure/services/sign_in/sign_in_service_impl.dart'
-    as _i27;
-import '../source/authorization/infrastructure/services/sign_in/sign_in_service_mock.dart'
     as _i26;
+import '../source/authorization/infrastructure/services/sign_in/sign_in_service_mock.dart'
+    as _i27;
 import '../source/authorization/infrastructure/services/sign_out/sign_out_service_impl.dart'
-    as _i30;
-import '../source/authorization/infrastructure/services/sign_out/sign_out_service_mock.dart'
     as _i29;
+import '../source/authorization/infrastructure/services/sign_out/sign_out_service_mock.dart'
+    as _i30;
 import '../source/authorization/infrastructure/services/sign_up/sign_up_service_impl.dart'
     as _i32;
 import '../source/authorization/infrastructure/services/sign_up/sign_up_service_mock.dart'
@@ -72,9 +70,9 @@ import 'configs/dev_config.dart' as _i7;
 import 'configs/prod_config.dart' as _i5;
 import 'configs/stage_config.dart' as _i8;
 import 'configs/test_config.dart' as _i6;
-import 'modules/network_modules.dart' as _i49;
-import 'modules/platform_modules.dart' as _i48;
-import 'modules/ui_modules.dart' as _i50;
+import 'modules/network_modules.dart' as _i48;
+import 'modules/platform_modules.dart' as _i47;
+import 'modules/ui_modules.dart' as _i49;
 
 const String _prod = 'prod';
 const String _test = 'test';
@@ -118,14 +116,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i23.NotificationsBlocServices>(
       () => _i23.NotificationsBlocServices());
   gh.singleton<_i24.RequestInterceptor>(networkModules.requestInterceptor);
-  gh.lazySingleton<_i25.SignInService>(() => _i26.SignInServiceMock(),
-      registerFor: {_test});
-  gh.lazySingleton<_i25.SignInService>(() => _i27.SignInServiceImpl(),
+  gh.lazySingleton<_i25.SignInService>(() => _i26.SignInServiceImpl(),
       registerFor: {_dev, _stage, _prod});
-  gh.lazySingleton<_i28.SignOutService>(() => _i29.SignOutServiceMock(),
+  gh.lazySingleton<_i25.SignInService>(() => _i27.SignInServiceMock(),
       registerFor: {_test});
-  gh.lazySingleton<_i28.SignOutService>(() => _i30.SignOutServiceImpl(),
+  gh.lazySingleton<_i28.SignOutService>(() => _i29.SignOutServiceImpl(),
       registerFor: {_dev, _stage, _prod});
+  gh.lazySingleton<_i28.SignOutService>(() => _i30.SignOutServiceMock(),
+      registerFor: {_test});
   gh.lazySingleton<_i31.SignUpService>(() => _i32.SignUpServiceImpl(),
       registerFor: {_dev, _stage, _prod});
   gh.lazySingleton<_i31.SignUpService>(() => _i33.SignUpServiceMock(),
@@ -166,15 +164,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i45.EmailSignInContract(get<_i40.SignInApi>()));
   gh.factory<_i46.EmailSignUpContract>(
       () => _i46.EmailSignUpContract(get<_i42.SignUpApi>()));
-  gh.factory<_i47.LoginScreenVM>(() => _i47.LoginScreenVM(
-      get<_i10.AuthorizationBloc>(),
-      get<_i45.EmailSignInContract>(),
-      get<_i15.GoogleSignInContract>()));
   return get;
 }
 
-class _$PlatformModules extends _i48.PlatformModules {}
+class _$PlatformModules extends _i47.PlatformModules {}
 
-class _$NetworkModules extends _i49.NetworkModules {}
+class _$NetworkModules extends _i48.NetworkModules {}
 
-class _$UIModules extends _i50.UIModules {}
+class _$UIModules extends _i49.UIModules {}

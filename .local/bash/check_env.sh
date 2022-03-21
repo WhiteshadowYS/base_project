@@ -1,19 +1,24 @@
 #!/bin/bash
 
-# Check that the current environment is suitable to run commands
+default_home="$( cd "$SCRIPT_DIR/../.." && pwd)"
+default_name=$(basename $default_home)
+PROJECT_HOME=$(echo "$default_name" | tr a-z A-Z)
+PROJECT_HOME_NAME="${PROJECT_HOME}_HOME"
+PROJECT_HOME=$(eval echo \$$PROJECT_HOME_NAME)
 
-if [ -z "$BP_HOME" ]; then
+# Check that the current environment is suitable to run commands
+if [ -z "$PROJECT_HOME" ]; then
     echo >&2 "Environment variable BP_HOME is not found."
     exit 1
 fi
 
-if [ ! -d "$BP_HOME" ]; then
-    echo >&2 "Base Project Home's home directory $BP_HOME does not exist."
+if [ ! -d "$PROJECT_HOME" ]; then
+    echo >&2 "$default_name Home's home directory $PROJECT_HOME_NAME does not exist."
     exit 1
 fi
 
-if [ ! -d "$BP_HOME/.local" ]; then
-    echo >&2 "Base Project Home's home directory $BP_HOME is invalid."
+if [ ! -d "$PROJECT_HOME/.local" ]; then
+    echo >&2 "$default_name home directory $PROJECT_HOME_NAME is invalid."
     exit 1
 fi
 

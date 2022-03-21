@@ -4,7 +4,6 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-
 CREATE_ENVIRONMENT="true"
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -16,58 +15,61 @@ done
 
 
 default_home="$( cd "$SCRIPT_DIR/../.." && pwd)"
-read -rp "Location of Base Project - ($default_home): " BP_HOME
-BP_HOME=${BP_HOME:-$default_home}
+default_name=$(basename $default_home)
 
+HOME_=$(echo "$default_name" | tr a-z A-Z)
+HOME_="${HOME_}_HOME"
+
+read -rp "Location of Project - ($default_home): " PROJECT_HOME
+PROJECT_HOME=${PROJECT_HOME:-$default_home}
 
 # Create system-wide aliases for common commands
 function do_create_environment() {
-    echo "Creating Base Project environment..."
-
+    echo "Creating Project environment..."
+    enterComment="# Start $default_name env"
+    closerComment="# End $default_name env"
     alias_target_file="$HOME/.bash_aliases"
+
     if [ ! -f "$alias_target_file" ]; then
         echo "#!/bin/bash" > "$alias_target_file"
     fi
 
     # Remove old environment (if any)
-    sed -i 'H;1h;$!d;x;s/# Start Base Project env.*# End Base Project env//g' "$alias_target_file"
+    sudo sed -i "" "H;1h;\$!d;x;s|${enterComment}.*${closerComment}||g" $alias_target_file
 
     # Create new environment
     cat >> "$alias_target_file" <<EOF
-# Start Base Project env
-
-# Execute Base Project scripts for local development purposes
-function bp() {
-    export BP_HOME=$BP_HOME
+$enterComment
+# Execute $default_name scripts for local development purposes
+function $default_name() {
+    export $HOME_=$PROJECT_HOME
 
     script_name=\$1
     shift
 
     case \$script_name in
         -h|--help|?|"")
-            bash "\$BP_HOME/.local/bash/help.sh"
+            bash "\$$HOME_/.local/bash/help.sh"
             ;;
         cd)
             # We have to stay in the same shell to make cd work as expected
-            cd \$BP_HOME
+            cd \$$HOME_
             return 0
             ;;
         manage.py)
             # A shortcut for python manage.py commands
-            script_path="\$BP_HOME/.local/bash/exec.sh"
+            script_path="\$$HOME_/.local/bash/exec.sh"
             bash "\$script_path" backend python manage.py "\$@"
             ;;
         *)
-            script_path="\$BP_HOME/.local/bash/\$script_name.sh"
+            script_path="\$$HOME_/.local/bash/\$script_name.sh"
             bash "\$script_path" "\$@"
             ;;
     esac
 }
-
-# End Base Project env
+$closerComment
 EOF
-
-    echo "Base Project environment is created."
+    echo "Project environment is created."
     return 0
 }
 
