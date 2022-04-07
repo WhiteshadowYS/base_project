@@ -1,7 +1,7 @@
-import 'package:base_project/source/authorization/infrastructure/api/sign_in_api.dart';
-import 'package:base_project/utils/data_print.dart';
-import 'package:base_project/source/authorization/domain/entity/user.dart';
+import 'package:base_project/config/ui_manger.dart';
 import 'package:base_project/source/authorization/domain/contracts/sign_in_contract.dart';
+import 'package:base_project/source/authorization/domain/entity/user.dart';
+import 'package:base_project/source/authorization/infrastructure/api/sign_in_api.dart';
 import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 import 'package:injectable/injectable.dart';
 
@@ -21,8 +21,8 @@ class EmailSignInContract implements SignInContract {
       throw 'Please set the "EmailSignInDto" in the EmailSignInContract';
     }
 
-    dataPrint('EmailSignInContract data: $_data', this);
-    dataPrint('EmailSignInContract Success!', this);
+    UIManager.logger.i('EmailSignInContract data: $_data', this);
+    UIManager.logger.i('EmailSignInContract Success!', this);
 
     return User.mock();
   }

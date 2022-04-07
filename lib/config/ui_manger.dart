@@ -3,6 +3,7 @@ import 'package:base_project/common/ui/loader/loader.dart';
 import 'package:base_project/common/ui/theme/i_theme_config.dart';
 import 'package:base_project/config/app_router.dart';
 import 'package:base_project/config/config.dart';
+import 'package:logger/logger.dart';
 
 export './app_router.dart';
 
@@ -11,4 +12,8 @@ abstract class UIManager {
   static IDialogService get dialog => getIt<IDialogService>();
   static IThemeConfig get theme => getIt<IThemeConfig>();
   static Loader get loader => getIt<Loader>();
+
+  /// [logger.i()] - for Info logs
+  /// [logger.d(message)]
+  static Logger get logger => getIt<Logger>();
 }

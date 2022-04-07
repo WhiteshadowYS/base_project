@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_project/utils/data_print.dart';
+import 'package:base_project/config/ui_manger.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:logging/logging.dart';
 
@@ -15,7 +15,7 @@ class ConnectionChecker implements IConnectionChecker {
   void init(
     void Function(ConnectivityResult) onConnectionChanged,
   ) async {
-    dataPrint('<init>', this);
+    UIManager.logger.i('<init>', this);
     _connectivity.onConnectivityChanged.listen((status) {
       onConnectionChanged(status);
     });
@@ -24,7 +24,7 @@ class ConnectionChecker implements IConnectionChecker {
   @override
   Future<bool> hasConnection() async {
     final result = await _connectivity.checkConnectivity();
-    _logger.info('Connection status: $result');
+    UIManager.logger.v('<init>', this);
 
     return !(result == ConnectivityResult.none);
   }

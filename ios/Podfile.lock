@@ -10,9 +10,20 @@ PODS:
   - FMDB/standard (2.7.5)
   - integration_test (0.0.1):
     - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - ReachabilitySwift (5.0.0)
+  - Sentry (7.10.2):
+    - Sentry/Core (= 7.10.2)
+  - Sentry/Core (7.10.2)
+  - sentry_flutter (0.0.1):
+    - Flutter
+    - FlutterMacOS
+    - Sentry (~> 7.10.1)
+  - shared_preferences_ios (0.0.1):
+    - Flutter
   - sqflite (0.0.2):
     - Flutter
     - FMDB (>= 2.7.5)
@@ -26,7 +37,10 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - sentry_flutter (from `.symlinks/plugins/sentry_flutter/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - uni_links2 (from `.symlinks/plugins/uni_links2/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -35,6 +49,7 @@ SPEC REPOS:
   trunk:
     - FMDB
     - ReachabilitySwift
+    - Sentry
 
 EXTERNAL SOURCES:
   connectivity_plus:
@@ -45,8 +60,14 @@ EXTERNAL SOURCES:
     :path: Flutter
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
+  sentry_flutter:
+    :path: ".symlinks/plugins/sentry_flutter/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   uni_links2:
@@ -60,12 +81,16 @@ SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
+  package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Sentry: 7bf9bfe713692cf87812e55f0999260494ba7982
+  sentry_flutter: 77ccdac346608b8ce7e428e7284e7a3e4e7f4a02
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   uni_links2: fbc37081577fc19c6e0f7e6cdbd3baa150023635
   url_launcher_ios: 02f1989d4e14e998335b02b67a7590fa34f971af
 
-PODFILE CHECKSUM: 5ec2aeb3627a52f1e9eb8ec2d548cd178300aedd
+PODFILE CHECKSUM: c7191332e11e53239e4135db09fa8b9fb7423154
 
 COCOAPODS: 1.11.2

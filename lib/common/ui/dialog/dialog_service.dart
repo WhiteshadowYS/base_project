@@ -1,7 +1,6 @@
-import 'package:logging/logging.dart';
-import 'package:flutter/material.dart';
+import 'package:base_project/config/ui_manger.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:base_project/config/app_router.gr.dart';
+import 'package:flutter/material.dart';
 
 import 'i_dialog.dart';
 import 'i_dialog_service.dart';
@@ -15,9 +14,6 @@ import 'i_dialog_service.dart';
 class DialogService implements IDialogService {
   final AppRouter _router;
   DialogService(this._router);
-
-  @override
-  Logger get logger => Logger('[$runtimeType]');
 
   /// This variable helps us track the state of dialogs.
   bool _isDisplayed = false;
@@ -35,7 +31,7 @@ class DialogService implements IDialogService {
   @override
   void close() {
     if (!_isDisplayed) {
-      logger.info('<closeDialog> => Error Message: _isDisplayed: $_isDisplayed, Dialog cant be removed.');
+      UIManager.logger.i('<closeDialog> => Error Message: _isDisplayed: $_isDisplayed, Dialog cant be removed.');
       return;
     }
 
@@ -49,9 +45,9 @@ class DialogService implements IDialogService {
   /// if [_isDisplayed] is true - you will see in console a error message. (Dialog not be showed).
   /// if [_isDisplayed] is false - you will see on the screen a new dialog
   Future<void> _display(BuilderFunction builder) async {
-    logger.info('Is displayed $_isDisplayed');
+    UIManager.logger.i('Is displayed $_isDisplayed', this);
     if (_isDisplayed) {
-      logger.info('<_display> => Error Message: _isDisplayed: $_isDisplayed, Dialog cant be showed.');
+      UIManager.logger.w('<_display> => Error Message: _isDisplayed: $_isDisplayed, Dialog cant be showed.', this);
       return;
     }
 

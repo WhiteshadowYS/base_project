@@ -24,7 +24,6 @@ class LoginScreenVM extends ChangeNotifier with BaseViewModel {
     _authBlocSybscription = _authBloc.stream.listen((_) => notifyListeners());
   }
 
-  @disposeMethod
   @override
   void dispose() {
     super.dispose();

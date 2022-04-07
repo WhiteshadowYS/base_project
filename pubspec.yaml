@@ -26,6 +26,8 @@ dependencies:
   uni_links2: 0.6.0+2
   universal_platform: 1.0.0+1
   connectivity_plus: 2.2.1
+  sentry_flutter: 6.4.0
+  flutter_dotenv: 5.0.2
 
   # UI
   pretty_dio_logger: 1.2.0-beta-1
@@ -35,6 +37,7 @@ dependencies:
   flutter_svg: 1.0.1
   cached_network_image: 3.2.0
   flutter_screenutil: 5.0.3
+  easy_localization: 3.0.0
 
   # Http & Generation
   dio: 4.0.4
@@ -82,11 +85,12 @@ flutter_icons:
 flutter:
   uses-material-design: true
 
-  # assets:
-    # - i18n/
+  assets:
+    - .local/
+    # - assets/svg/
     # - assets/icons/
     # - assets/images/
-    # - assets/svg_images/
+    # - assets/translations/
 
 targets:
   $default:

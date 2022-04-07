@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119564539971",
+    "project_id": "base-project-staging",
+    "storage_bucket": "base-project-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119564539971:android:0a7faffe0bed563b4b9cf6",
+        "android_client_info": {
+          "package_name": "com.whiteshadow.baseApp.stage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119564539971-68llni7r1dppcc0av8o448qkjpodjvm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6L_cGbe9WDk6OA3EsGGTNTq8OFfaOj5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119564539971-68llni7r1dppcc0av8o448qkjpodjvm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
