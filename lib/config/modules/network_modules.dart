@@ -4,6 +4,7 @@ import 'package:base_project/common/network/interceptors/language_interceptor.da
 import 'package:base_project/common/network/interceptors/request_interceptor.dart';
 import 'package:base_project/common/network/interceptors/resources/const.dart';
 import 'package:base_project/config/configs/app_config.dart';
+import 'package:base_project/utils/printers.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -66,6 +67,7 @@ abstract class NetworkModules {
         PrettyDioLogger(
           requestBody: true,
           requestHeader: true,
+          logPrint: networkPrint,
         ),
       ]);
   }

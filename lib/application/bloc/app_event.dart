@@ -5,5 +5,5 @@ class AppEvent extends BaseEvent<AppState, AppBloc> with _$AppEvent {
   AppEvent._();
 
   @With<InitAppUseCase>()
-  factory AppEvent.initApp() = _InitApp;
+  factory AppEvent.initApp() = _InitAppUseCase;
 }

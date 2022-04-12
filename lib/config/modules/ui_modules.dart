@@ -12,7 +12,11 @@ import 'package:injectable/injectable.dart';
 abstract class UIModules {
   @singleton
   @factoryMethod
-  IDialogService get dialogService => DialogService(getIt<AppRouter>());
+  IDialogService get dialogService => DialogService(
+        () => getIt<AppRouter>().navigatorKey.currentState?.overlay?.context,
+        () => getIt<AppRouter>().canNavigateBack,
+        getIt<AppRouter>().pop,
+      );
 
   @singleton
   @factoryMethod

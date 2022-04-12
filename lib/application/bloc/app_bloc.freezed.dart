@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppEventTearOff {
   const _$AppEventTearOff();
 
-  _InitApp initApp() {
-    return _InitApp();
+  _InitAppUseCase initApp() {
+    return _InitAppUseCase();
   }
 }
 
@@ -46,17 +46,17 @@ mixin _$AppEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitApp value) initApp,
+    required TResult Function(_InitAppUseCase value) initApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitAppUseCase value)? initApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitAppUseCase value)? initApp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,26 +78,28 @@ class _$AppEventCopyWithImpl<$Res> implements $AppEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InitAppCopyWith<$Res> {
-  factory _$InitAppCopyWith(_InitApp value, $Res Function(_InitApp) then) =
-      __$InitAppCopyWithImpl<$Res>;
+abstract class _$InitAppUseCaseCopyWith<$Res> {
+  factory _$InitAppUseCaseCopyWith(
+          _InitAppUseCase value, $Res Function(_InitAppUseCase) then) =
+      __$InitAppUseCaseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitAppCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
-    implements _$InitAppCopyWith<$Res> {
-  __$InitAppCopyWithImpl(_InitApp _value, $Res Function(_InitApp) _then)
-      : super(_value, (v) => _then(v as _InitApp));
+class __$InitAppUseCaseCopyWithImpl<$Res> extends _$AppEventCopyWithImpl<$Res>
+    implements _$InitAppUseCaseCopyWith<$Res> {
+  __$InitAppUseCaseCopyWithImpl(
+      _InitAppUseCase _value, $Res Function(_InitAppUseCase) _then)
+      : super(_value, (v) => _then(v as _InitAppUseCase));
 
   @override
-  _InitApp get _value => super._value as _InitApp;
+  _InitAppUseCase get _value => super._value as _InitAppUseCase;
 }
 
 /// @nodoc
 
 @With<InitAppUseCase>()
-class _$_InitApp extends _InitApp with InitAppUseCase {
-  _$_InitApp() : super._();
+class _$_InitAppUseCase extends _InitAppUseCase with InitAppUseCase {
+  _$_InitAppUseCase() : super._();
 
   @override
   String toString() {
@@ -107,7 +109,7 @@ class _$_InitApp extends _InitApp with InitAppUseCase {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _InitApp);
+        (other.runtimeType == runtimeType && other is _InitAppUseCase);
   }
 
   @override
@@ -144,7 +146,7 @@ class _$_InitApp extends _InitApp with InitAppUseCase {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitApp value) initApp,
+    required TResult Function(_InitAppUseCase value) initApp,
   }) {
     return initApp(this);
   }
@@ -152,7 +154,7 @@ class _$_InitApp extends _InitApp with InitAppUseCase {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitAppUseCase value)? initApp,
   }) {
     return initApp?.call(this);
   }
@@ -160,7 +162,7 @@ class _$_InitApp extends _InitApp with InitAppUseCase {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitApp value)? initApp,
+    TResult Function(_InitAppUseCase value)? initApp,
     required TResult orElse(),
   }) {
     if (initApp != null) {
@@ -170,9 +172,9 @@ class _$_InitApp extends _InitApp with InitAppUseCase {
   }
 }
 
-abstract class _InitApp extends AppEvent implements InitAppUseCase {
-  factory _InitApp() = _$_InitApp;
-  _InitApp._() : super._();
+abstract class _InitAppUseCase extends AppEvent implements InitAppUseCase {
+  factory _InitAppUseCase() = _$_InitAppUseCase;
+  _InitAppUseCase._() : super._();
 }
 
 /// @nodoc

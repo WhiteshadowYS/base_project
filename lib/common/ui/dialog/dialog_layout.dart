@@ -4,9 +4,15 @@ import 'package:flutter/material.dart';
 
 class DialogLayout extends StatefulWidget {
   final Widget child;
+  final VoidCallback? onPop;
+  final Color? background;
+  final bool blurBackground;
 
   const DialogLayout({
     required this.child,
+    this.onPop,
+    this.background,
+    this.blurBackground = true,
   });
 
   @override
@@ -14,53 +20,34 @@ class DialogLayout extends StatefulWidget {
 }
 
 class _DialogLayoutState extends State<DialogLayout> with SingleTickerProviderStateMixin {
-  late final AnimationController controller;
-  late final Animation<double> scaleAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    controller = AnimationController(vsync: this, duration: Duration(milliseconds: 400));
-    scaleAnimation = CurvedAnimation(parent: controller, curve: Curves.elasticInOut);
-
-    controller.addListener(() => setState(() {}));
-    controller.forward();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    controller.removeListener(() => setState(() {}));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: ScaleTransition(
-        scale: scaleAnimation,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          if (widget.blurBackground)
             SizedBox(
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                 child: Container(
-                  color: Colors.transparent,
+                  color: (widget.background ?? Colors.black).withOpacity(0.05),
                 ),
               ),
             ),
-            InkWell(
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: Navigator.of(context).pop,
-            ),
-            widget.child,
-          ],
-        ),
+          InkWell(
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () {
+              widget.onPop?.call();
+              Navigator.of(context).pop();
+            },
+          ),
+          widget.child,
+        ],
       ),
     );
   }

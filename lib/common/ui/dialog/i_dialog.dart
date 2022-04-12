@@ -1,18 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:base_project/common/ui/dialog/dialog_builders.dart';
+
+import 'dialog_builders.dart';
 
 /// Dialog Interface. All Dialogs models in the app should be extended from this interface.
 /// Methods:
 ///   - [show] public method what accept [DisplayFunction] from [DialogManager] and will build a current dialog.
 abstract class IDialog extends StatefulWidget {
+  final Color? barierColor;
+  final bool isScrollControlled;
+  final int fill;
   late final DialogBuilder? _builder;
 
-  IDialog({required String keyValue, DialogBuilder? builder})
-      : _builder = builder ?? DialogBuilders.defaultDialogBuilder,
+  IDialog({
+    required String keyValue,
+    DialogBuilder? builder,
+    this.barierColor,
+    this.isScrollControlled = false,
+    this.fill = 90,
+  })  : _builder = builder ?? DialogBuilders.defaultDialogBuilder,
         super(key: Key(keyValue));
 
   Future<void> _buildDialog(BuildContext context) async {
-    await _builder!(context: context, widget: this);
+    await _builder!(
+      context: context,
+      widget: this,
+      barierColor: barierColor,
+      isScrollControlled: isScrollControlled,
+      fill: fill,
+    );
   }
 
   Future<void> show(DisplayFunction display) => display(_buildDialog);
@@ -31,6 +46,9 @@ class IDialogState<T extends StatefulWidget> extends State<T> {
 typedef DialogBuilder = Future<void> Function({
   required BuildContext context,
   required Widget widget,
+  Color? barierColor,
+  bool isScrollControlled,
+  int fill,
 });
 
 /// Display function it function in the [DialogManager] what will track a [IDialog] state.

@@ -6,4 +6,6 @@ abstract class IDialogService {
   Future<void> show(IDialog dialog);
 
   void close();
+
+  void closeByKey(String key);
 }
