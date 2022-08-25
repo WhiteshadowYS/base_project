@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:base_project/common/network/error/error.dart';
 import 'package:base_project/source/authorization/application/bloc/authorization_bloc.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/email_sign_in_contract.dart';
 import 'package:base_project/source/authorization/infrastructure/contracts/sign_in/google_sign_in_contract.dart';
 import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 import 'package:base_project/utils/base_elements/base_view_model.dart';
+import 'package:base_project/utils/printers.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -46,7 +48,7 @@ class LoginScreenVM extends ChangeNotifier with BaseViewModel {
     _authBloc.addWith(
       AuthorizationEvent.signIn(_emailSignInContract),
       onDone: () {},
-      onError: () {},
+      onError: (Error error) => warningPrint(error.readebleError),
     );
   }
 }
