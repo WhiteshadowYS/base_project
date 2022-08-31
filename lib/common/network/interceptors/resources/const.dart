@@ -1,7 +1,6 @@
 import 'package:base_project/common/network/error/api_error.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
 
 typedef TokenGetter = Future<String> Function();
 typedef IsTokenError = Future<bool> Function(DioError);
@@ -31,8 +30,9 @@ abstract class HeaderConsts {
 abstract class UniqueKeyBuilders {
   static UniqueKeyBuilder get defaultUniqueKeyBuilder {
     return () async {
-      final Uuid _uuid = Uuid();
-      return _uuid.v4();
+      // final Uuid _uuid = Uuid();
+      // return _uuid.v4();
+      return '';
     };
   }
 }

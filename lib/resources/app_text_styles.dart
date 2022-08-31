@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
   static const _black = Color(0xFF45486A);
 
-  double getSize(double size) => size + ((size.w - size) / 2.3);
+  // double getSize(double size) => size + ((size.w - size) / 2.3);
+  double getSize(double size) => size;
 
   TextStyle largeTitle({
     Color color = _black,

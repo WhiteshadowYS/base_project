@@ -1,4 +1,3 @@
-import 'package:base_project/common/logging/log_output.dart';
 import 'package:logger/logger.dart';
 
 final _logger = Logger(
@@ -7,7 +6,6 @@ final _logger = Logger(
     methodCount: 0,
     errorMethodCount: 4,
   ),
-  output: ColoredLogOutput(),
 );
 
 String _messageBuilder(Object? message, Object? object) {

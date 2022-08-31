@@ -1,34 +1,32 @@
+import 'package:base_project/source/auth/auth_service.dart';
 import 'package:base_project/utils/base_elements/base_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginScreenVM extends ChangeNotifier with BaseViewModel {
-  // StreamSubscription? _authBlocSybscription;
+  final AuthService _authService;
 
-  LoginScreenVM() {
-    // _authBlocSybscription = _authBloc.stream.listen((_) => notifyListeners());
+  LoginScreenVM(
+    this._authService,
+  ) {
+    _authService.addListener(_authListener);
   }
 
   @override
   void dispose() {
     super.dispose();
-    // _authBlocSybscription?.cancel();
+    _authService.removeListener(_authListener);
+  }
+
+  void _authListener() {
+    /// U can update data in VM by listener connected to the service.
+    /// Or you can connect widgets to services without VM
   }
 
   String get title => 'SignIn';
   String get googleSignInButtonText => 'Sign In With Google';
   String get emailSignInButtonText => 'Sign In With Email';
 
-  // void signInWithGoogle() => _authBloc.add(AuthorizationEvent.signIn(_googleSignInContract));
-
-  // void signInWithEmail(EmailSignInDto data) {
-  //   _emailSignInContract.data = data;
-
-  //   _authBloc.addWith(
-  //     AuthorizationEvent.signIn(_emailSignInContract),
-  //     onDone: () {},
-  //     onError: (Error error) => warningPrint(error.readebleError),
-  //   );
-  // }
+  void signInWithEmail(String email, String password) => _authService.login(email, password);
 }

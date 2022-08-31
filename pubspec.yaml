@@ -1,7 +1,7 @@
 name: base_project
 description: A new Flutter project.
 
-version: 0.0.4+2
+version: 0.0.3+1
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -16,28 +16,14 @@ dependencies:
   # Helpers
   intl: 0.17.0
   logger: 1.1.0
-  dartx: 1.0.0
-  validators2: 3.0.0
-  supercharged: 2.1.1
   url_launcher: 6.0.18
   device_info_plus: 3.2.1
-  hive: 2.0.5
-  hive_flutter: 1.1.0
-  uni_links2: 0.6.0+2
-  universal_platform: 1.0.0+1
-  connectivity_plus: 2.2.1
-  sentry_flutter: 6.4.0
   flutter_dotenv: 5.0.2
 
   # UI
   pretty_dio_logger: 1.2.0-beta-1
   google_fonts: 2.2.0
   cupertino_icons: 1.0.4
-  carousel_slider: 4.0.0
-  flutter_svg: 1.0.1
-  cached_network_image: 3.2.0
-  flutter_screenutil: 5.0.3
-  easy_localization: 3.0.0
 
   # Http & Generation
   dio: 4.0.4
@@ -49,9 +35,7 @@ dependencies:
   freezed: 1.1.1
   
   # Architecture
-  dartz: 0.10.1
   provider: 6.0.2
-  flutter_bloc: 8.0.1
   rxdart: 0.27.3
 
 dev_dependencies:
@@ -71,18 +55,6 @@ dev_dependencies:
   freezed_annotation: 1.1.0
 
 
-# dependency_overrides:
-#   convert: ^3.0.0
-#   crypto: ^3.0.0
-#   archive: ^3.0.0
-#   args: ^2.0.0
-#   image: ^3.0.0-nullsafety.0
-
-flutter_icons:
-  android: true
-  ios: true
-  image_path: "assets/icons/launcher_icon.jpg"
-
 flutter:
   uses-material-design: true
 
@@ -92,11 +64,3 @@ flutter:
     # - assets/icons/
     # - assets/images/
     # - assets/translations/
-
-targets:
-  $default:
-    builders:
-      retrofit_generator|retrofit:
-        enabled: true
-        options:
-          nullsafety: true
