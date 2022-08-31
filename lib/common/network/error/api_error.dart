@@ -1,7 +1,7 @@
-import 'package:base_project/common/network/error/error.dart';
+import 'package:base_project/common/network/error/failure.dart';
 import 'package:base_project/common/network/error/error_service.dart';
 
-class ApiError extends Error {
+class ApiError extends Failure {
   final int code;
 
   ApiError({

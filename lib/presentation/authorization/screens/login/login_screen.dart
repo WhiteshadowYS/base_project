@@ -3,7 +3,6 @@ import 'package:base_project/presentation/authorization/screens/login/login_scre
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
 import 'package:base_project/presentation/shared/widgets/app_button.dart';
 import 'package:base_project/resources/resources.dart';
-import 'package:base_project/source/authorization/infrastructure/dto/email_sign_in_dto.dart';
 import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +33,7 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
                     height: 50.0,
                     width: double.infinity,
                     color: UIManager.theme.accent,
-                    onTap: () => viewModel.signInWithEmail(EmailSignInDto.mock()),
+                    onTap: () {},
                     child: Text(
                       viewModel.emailSignInButtonText,
                       style: Resources.textStyles.buttons(
@@ -47,7 +46,7 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
                     height: 50.0,
                     width: double.infinity,
                     color: UIManager.theme.accent,
-                    onTap: viewModel.signInWithGoogle,
+                    onTap: () {},
                     child: Text(
                       viewModel.googleSignInButtonText,
                       style: Resources.textStyles.buttons(
@@ -56,23 +55,6 @@ class _LoginScreenState extends BaseState<LoginScreenVM, LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 40.0),
-                  selector(
-                    selector: () => viewModel.counter,
-                    builder: (ctx, _) {
-                      return AppButton.content(
-                        height: 50.0,
-                        width: double.infinity,
-                        color: UIManager.theme.accent,
-                        onTap: () => viewModel.increment(),
-                        child: Text(
-                          viewModel.counter,
-                          style: Resources.textStyles.buttons(
-                            color: UIManager.theme.background,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
                   const SizedBox(height: 40.0),
                 ],
               ),

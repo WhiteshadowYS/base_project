@@ -1,7 +1,7 @@
 import 'package:base_project/config/ui_manger.dart';
 import 'package:base_project/presentation/home/screens/home/home_screen_vm.dart';
 import 'package:base_project/presentation/shared/layouts/main_layout/main_layout.dart';
-import 'package:base_project/source/authorization/application/use_cases/sign_in_use_case.dart';
+import 'package:base_project/source/auth/application/use_cases/sign_in_use_case.dart';
 import 'package:base_project/utils/base_elements/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +42,7 @@ class _HomeScreenState extends BaseState<HomeScreenVM, HomeScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => context.pushRoute(SearchScreenRoute()),
+                onTap: () {},
                 child: SizedBox(
                   height: 50.0,
                   width: double.infinity,

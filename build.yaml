@@ -17,6 +17,7 @@ targets:
           - "**/**_bloc.dart"
           - "**/**_vm.dart"
           - "**/**_presenter.dart"
+          - "**/**_injection.dart"
 
       injectable_generator|injectable_config_builder:
         enabled: true
@@ -40,12 +41,14 @@ targets:
           - "**/dto/**.dart"
           - "**/entity/**.dart"
           - "**/responses/**.dart"
+          - "**/requests/**.dart"
 
       freezed|freezed:
         generate_for:
           - "**/dto/**.dart"
           - "**/entity/**.dart"
           - "**/responses/**.dart"
+          - "**/requests/**.dart"
           - "**_bloc.dart"
           - "**_event.dart"
           - "**_state.dart"

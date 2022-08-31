@@ -2,7 +2,6 @@ import 'package:base_project/utils/test_case.dart';
 import 'package:base_project/utils/test_list.dart';
 
 import 'test_cases/email_sign_in_test_case.dart';
-import 'test_cases/increment_test_case.dart';
 import 'test_cases/login_screen_join_case.dart';
 
 class LoginScreenTests extends TestList {
@@ -20,8 +19,6 @@ class LoginScreenTests extends TestList {
 
   @override
   List<TestCase> get tests {
-    return [
-      IncrementTestCase(),
-    ];
+    return [];
   }
 }

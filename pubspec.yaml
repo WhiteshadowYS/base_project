@@ -49,6 +49,7 @@ dependencies:
   freezed: 1.1.1
   
   # Architecture
+  dartz: 0.10.1
   provider: 6.0.2
   flutter_bloc: 8.0.1
   rxdart: 0.27.3

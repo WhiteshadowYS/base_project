@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:base_project/config/app_router.dart';
+import 'package:flutter/material.dart';
 
 class BottomBarScreen extends StatelessWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
@@ -9,7 +9,6 @@ class BottomBarScreen extends StatelessWidget {
     return AutoTabsScaffold(
       routes: [
         HomeRouter(),
-        ProfileRouter(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) => BottomNavigationBar(
         currentIndex: tabsRouter.activeIndex,
@@ -18,10 +17,6 @@ class BottomBarScreen extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
           ),
         ],
       ),

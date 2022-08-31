@@ -73,9 +73,10 @@ linter:
     omit_local_variable_types: false
     invalid_annotation_target: false
 
+
 analyzer:
-  enable-experiment:
-    - non-nullable
+  # enable-experiment:
+  #   - non-nullable
   exclude: 
     - "**/build.yaml"
     - "build/**"
